@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { useStyles } from "./styles";
 import tempPhoto from "../../assets/Webp.net-resizeimage.png";
 
-export default function Home() {
+export default function ProgramOverview() {
   const classes = useStyles();
   const [fade, setFade] = React.useState(true);
   const transitionStyles = {
