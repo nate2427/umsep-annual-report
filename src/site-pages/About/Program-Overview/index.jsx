@@ -5,7 +5,7 @@ import { Transition } from "react-transition-group";
 import { useHistory } from "react-router-dom";
 
 import { useStyles } from "./styles";
-import tempPhoto from "../../assets/Webp.net-resizeimage.png";
+import tempPhoto from "../../../assets/Webp.net-resizeimage.png";
 
 export default function ProgramOverview() {
   const classes = useStyles();

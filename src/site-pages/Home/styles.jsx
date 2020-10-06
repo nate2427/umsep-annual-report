@@ -104,8 +104,12 @@ export const useStyles = makeStyles((theme) => ({
       width: "50%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "70%",
-      fontSize: "1.5rem",
+      width: "50%",
+      fontSize: "1.3rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      fontSize: "1.3rem",
     },
     fontSize: "1.5rem",
     backgroundColor: "#FFCB05",

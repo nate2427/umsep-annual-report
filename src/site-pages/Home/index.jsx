@@ -104,26 +104,31 @@ export default function Home() {
           >
             2016 - 2019
           </Typography>
-
-          <Transition in={fade} timeout={duration}>
-            {(state) => (
-              <Button
-                variant="contained"
-                TouchRippleProps={{ classes: classes.rippleVisible }}
-                className={clsx([classes.exploreButton, classes.text, "m-2"])}
-                onClick={() => router.push("/about/program-overview")}
-              >
-                Let's Explore
-                <div
-                  className={classes.shadow}
-                  style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state],
-                  }}
-                ></div>
-              </Button>
-            )}
-          </Transition>
+          <Grid
+            container
+            justify="flex-end"
+            className={classes.buttonContainer}
+          >
+            <Transition in={fade} timeout={duration}>
+              {(state) => (
+                <Button
+                  variant="contained"
+                  TouchRippleProps={{ classes: classes.rippleVisible }}
+                  className={clsx([classes.exploreButton, classes.text, "m-2"])}
+                  onClick={() => router.push("/about/program-overview")}
+                >
+                  Let's Explore
+                  <div
+                    className={classes.shadow}
+                    style={{
+                      ...defaultStyle,
+                      ...transitionStyles[state],
+                    }}
+                  ></div>
+                </Button>
+              )}
+            </Transition>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

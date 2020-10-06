@@ -58,15 +58,15 @@ const Sidebar = (props) => {
 
   return (
     <Fragment>
-      <Hidden smUp>
+      <Hidden mdUp>
         <Drawer
           anchor="left"
           open={sidebarToggleMobile}
           onClose={closeDrawer}
           variant="temporary"
           elevation={4}
-          transitionDuration={1200}
-          className="app-sidebar-wrapper-lg"
+          transitionDuration={700}
+          className="app-sidebar-wrapper"
         >
           <SidebarHeader />
 
@@ -87,7 +87,7 @@ const Sidebar = (props) => {
         }
       </Hidden>
 
-      <Hidden xsDown>
+      <Hidden smDown>
         <Paper
           className={clsx("app-sidebar-wrapper", {
             "app-sidebar-wrapper-fixed": sidebarFixed,

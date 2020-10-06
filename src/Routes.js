@@ -12,6 +12,9 @@ import { LeftSidebar } from "./layout-blueprints";
 
 const ListGroups = lazy(() => import("./example-pages/ListGroups"));
 const Home = lazy(() => import("./site-pages/Home/"));
+const ProgramOverview = lazy(() =>
+  import("./site-pages/About/Program-Overview")
+);
 
 const Routes = () => {
   const location = useLocation();

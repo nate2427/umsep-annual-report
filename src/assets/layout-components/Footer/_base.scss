@@ -65,7 +65,10 @@ body {
         margin-bottom: ($spacer / 2);
       }
       a {
-        color: white;
+        color: #e15505;
+        &:hover {
+          color: #e15505;
+        }
       }
       padding-top: 1rem;
       text-align: center;
@@ -77,9 +80,6 @@ body {
         span:first-child {
           display: block;
           margin-bottom: ($spacer / 2);
-        }
-        a {
-          color: white;
         }
       }
     }
