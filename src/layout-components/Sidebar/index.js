@@ -58,7 +58,6 @@ const Sidebar = (props) => {
 
   return (
     <Fragment>
-      {/* add an slide in animation here */}
       <Hidden smUp>
         <Drawer
           anchor="left"
@@ -66,31 +65,27 @@ const Sidebar = (props) => {
           onClose={closeDrawer}
           variant="temporary"
           elevation={4}
+          transitionDuration={1200}
           className="app-sidebar-wrapper-lg"
         >
           <SidebarHeader />
 
           <PerfectScrollbar>{sidebarMenuContent}</PerfectScrollbar>
         </Drawer>
-        {!sidebarToggleMobile && (
+        {
           <Box className="app-sidebar-header-btn-mobile">
-            <Tooltip title="Toggle Sidebar" placement="right">
+            <Tooltip title="Toggle Sidebar">
               <IconButton
                 color="inherit"
                 onClick={toggleSidebarMobile}
                 size="medium"
               >
-                {sidebarToggleMobile ? (
-                  <MenuOpenRoundedIcon className={classes.hamburgerIcon} />
-                ) : (
-                  <MenuRoundedIcon className={classes.hamburgerIcon} />
-                )}
+                <MenuRoundedIcon className={classes.hamburgerIcon} />
               </IconButton>
             </Tooltip>
           </Box>
-        )}
+        }
       </Hidden>
-      {/* animation ends here */}
 
       <Hidden xsDown>
         <Paper
