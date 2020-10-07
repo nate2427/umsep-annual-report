@@ -12,7 +12,7 @@ import { LeftSidebar } from "./layout-blueprints";
 
 const ListGroups = lazy(() => import("./example-pages/ListGroups"));
 const Home = lazy(() => import("./site-pages/Home/"));
-const ProgramOverview = lazy(() =>
+const ProgramIntroduction = lazy(() =>
   import("./site-pages/About/Program-Overview")
 );
 
@@ -47,7 +47,7 @@ const Routes = () => {
           fallback={
             <div className="d-flex align-items-center vh-100 justify-content-center text-center font-weight-bold font-size-lg py-3">
               <div className="w-50 mx-auto">
-                Please wait while we load the live preview examples
+                Please wait while we load the site
               </div>
             </div>
           }
@@ -74,9 +74,12 @@ const Routes = () => {
                     exit="out"
                     variants={pageVariants}
                     transition={pageTransition}
-                    style={{ height: "100%" }}
+                    // style={{ height: "100%" }}
                   >
-                    <Route path="/about" component={ListGroups} />
+                    <Route
+                      path="/about/program-overview"
+                      component={ProgramIntroduction}
+                    />
                     <Route path="/activities" component={ListGroups} />
                     <Route path="/student-stories" component={ListGroups} />
                     <Route path="/strategic-plan" component={ListGroups} />

@@ -23,6 +23,7 @@ body {
 .app-main {
   position: relative;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .app-content {
@@ -44,8 +45,6 @@ body {
 }
 
 .app-content-sidebar-fixed {
-  height: 100vh;
-
   @include media-breakpoint-up(md) {
     padding-left: $sidebar-width;
   }
@@ -56,7 +55,6 @@ body {
 }
 
 .app-content-footer-fixed {
-  height: 100vh;
   @media screen and (orientation: landscape) and (max-width: 812px) {
     height: auto;
   }

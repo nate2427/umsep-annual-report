@@ -1,129 +1,156 @@
-import { Button, Grid, Typography } from "@material-ui/core";
+import { Button, duration, Grid, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
-import { Transition } from "react-transition-group";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import Divider from "@material-ui/core/Divider";
+import { TweenLite, Power3, TimelineLite } from "gsap";
 
 import { useStyles } from "./styles";
-import tempPhoto from "../../../assets/Webp.net-resizeimage.png";
+import Title from "../../../shared/TitleComponent";
+import { get_content } from "../../../shared/Http";
+import Spinner from "../../../assets/Spinner@2x.png";
 
-export default function ProgramOverview() {
+export default function ProgramIntroduction() {
   const classes = useStyles();
-  const [fade, setFade] = React.useState(true);
-  const transitionStyles = {
-    entering: { opacity: 1 },
-    entered: { opacity: 1 },
-    exiting: { opacity: 0 },
-    exited: { opacity: 0 },
-  };
-  const duration = 700;
+  const [content, setContent] = React.useState({});
+  let imgRef = React.useRef(null);
+  let container = React.useRef(null);
+  let topParagraph = React.useRef(null);
+  let bottomParagraph = React.useRef(null);
 
-  const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
-  };
+  const tl = new TimelineLite();
+  // const router = useHistory();
 
+  // get the content from the CMS
   React.useEffect(() => {
-    const fadeInterval = setInterval(() => setFade(!fade), 1700);
-    return () => {
-      // Clean up the subscription
-      clearInterval(fadeInterval);
-    };
-  });
+    const CMS_ENDPOINT = "umsep-program-introduction";
+    get_content(CMS_ENDPOINT).then((data) => {
+      setContent(data);
+      console.log(data);
+    });
+  }, []);
 
-  const router = useHistory();
+  // animate the image spinning
+  React.useEffect(() => {
+    tl.to(container, { css: { visibility: "visible" }, duration: 0 });
+    tl.from(imgRef, {
+      rotateZ: "-1260",
+      ease: Power3.easeInOut,
+      duration: 1.4,
+      opacity: "0",
+    });
+    tl.from([topParagraph, bottomParagraph], {
+      opacity: 0,
+      delay: 0.4,
+      duration: 0.5,
+      ease: Power3.easeIn,
+    });
+  }, []);
+
+  //
+
+  console.log(Spinner);
 
   return (
     <Grid className={classes.container}>
-      <Grid container className={classes.innerContainer}>
-        <Grid
-          container
-          direction="row"
-          alignItems="center"
-          className={classes.topIntroContainer}
-        >
-          <Grid
-            item
-            xs={12}
-            md={4}
-            lg={3}
-            xl={2}
-            className={classes.logoContainer}
-          >
-            <img
-              src={tempPhoto}
-              className={classes.logo}
-              alt="University of Michigan logo"
-            />
+      <Grid
+        container
+        className={classes.innerContainer}
+        ref={(el) => (container = el)}
+      >
+        <Title
+          title={content.data ? content.data.pageTitle : ""}
+          subtitle={content.data ? content.data.pageSubtitle : ""}
+        />
+        <Grid container className={classes.heroTrio}>
+          <Grid container justify="center" item lg={4}>
+            <Typography
+              variant="body1"
+              className={classes.spinnerTextTop}
+              ref={(el) => (topParagraph = el)}
+            >
+              {content.data
+                ? content.data.program_intro_paragraph.above_line_top_p
+                : ""}
+            </Typography>
           </Grid>
           <Grid
+            container
+            className={classes.imgContainer}
             item
-            xs={12}
-            md={8}
-            lg={9}
-            xl={10}
-            className={classes.namesContainer}
+            lg={4}
+            justify="center"
+            alignItems="center"
           >
+            <img
+              ref={(el) => (imgRef = el)}
+              className={classes.img}
+              src={Spinner}
+              alt={"spinner"}
+            />
+          </Grid>
+          <Grid container item lg={4} alignContent="flex-end">
             <Typography
-              variant="h3"
-              className={clsx([classes.schoolName, classes.text])}
+              variant="body1"
+              className={classes.spinnerTextBottom}
+              ref={(el) => (bottomParagraph = el)}
             >
-              School of Public Health
-            </Typography>
-            <Typography
-              variant="h2"
-              className={clsx([classes.programName, classes.text])}
-            >
-              Summer Enrichment Program
-            </Typography>
-            <Typography
-              variant="h2"
-              className={clsx([classes.universityName, classes.text])}
-            >
-              Unviersity Of Michigan
+              {content.data
+                ? content.data.program_intro_paragraph.above_line_bottom_p
+                : ""}
             </Typography>
           </Grid>
         </Grid>
-        <Grid container justify="flex-end">
-          <Typography
-            className={clsx([
-              classes.annualReport,
-              classes.text,
-              classes.reportRange,
-            ])}
-            variant="h2"
+        <Divider className={classes.divider} />
+        <Grid container>
+          <Grid item container className={classes.belowContainer}>
+            <Typography variant="body1" className={classes.belowParagraph1}>
+              {content.data
+                ? content.data.program_intro_paragraph.below_line_top_p
+                : ""}
+            </Typography>
+            <Typography variant="body1" className={classes.belowParagraph2}>
+              {content.data
+                ? content.data.program_intro_paragraph.below_line_bottom_p
+                : ""}
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            container
+            justify="center"
+            className={classes.buttonTitleContainer}
           >
-            Annual Report
-          </Typography>
-          <Typography
-            className={clsx([
-              classes.dateRange,
-              classes.text,
-              classes.reportRange,
-            ])}
-            variant="h4"
-          >
-            2016 - 2019
-          </Typography>
-
-          <Transition in={fade} timeout={duration}>
-            {(state) => (
-              <Button
-                variant="contained"
-                TouchRippleProps={{ classes: classes.rippleVisible }}
-                className={clsx([classes.exploreButton, classes.text, "m-2"])}
-                onClick={() => router.push("/about/program-overview")}
+            <Grid item xs={12}>
+              <Typography
+                className={classes.exploreTitle}
+                align="center"
+                variant="h2"
               >
-                Let's Explore
-                <div
-                  className={classes.shadow}
-                  style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state],
-                  }}
-                ></div>
-              </Button>
-            )}
-          </Transition>
+                Explore
+              </Typography>
+            </Grid>
+            <Grid container item justify="space-between" lg={8}>
+              <Grid container className={classes.introButtonContainer}>
+                <Button
+                  className={classes.introButton}
+                  fullWidth
+                  variant="contained"
+                >
+                  Student stories
+                </Button>
+              </Grid>
+              <Grid container className={classes.introButtonContainer}>
+                <Button
+                  className={clsx([classes.introButton, classes.introButton2])}
+                  fullWidth
+                  variant="contained"
+                >
+                  Activities Overview
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

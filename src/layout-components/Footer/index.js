@@ -7,15 +7,9 @@ import { Paper } from "@material-ui/core";
 import { connect } from "react-redux";
 
 const Footer = (props) => {
-  const { footerFixed } = props;
   return (
     <Fragment>
-      <Paper
-        square
-        className={clsx("app-footer text-black-50", {
-          "app-footer--fixed": footerFixed,
-        })}
-      >
+      <Paper square className={clsx("app-footer text-black-50", {})}>
         <div className="app-footer--inner">
           <div className="app-footer--second">
             <span>

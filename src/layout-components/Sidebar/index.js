@@ -19,7 +19,6 @@ import SidebarMenu from "../../layout-components/SidebarMenu";
 
 import { useStyles } from "./styles";
 
-import MenuOpenRoundedIcon from "@material-ui/icons/MenuOpenRounded";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 
 import navItems from "./navItems";
