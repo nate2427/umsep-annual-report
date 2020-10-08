@@ -1,124 +1,43 @@
 import { makeStyles } from "@material-ui/core";
+import SVG from "../../../assets/TimelineNode.svg";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
-    height: "100%",
+    minHeight: "100vh",
     display: "flex",
-    backgroundColor: "#02274C",
+    backgroundColor: "#EAEAEA",
   },
   innerContainer: {
-    padding: "4rem",
-    [theme.breakpoints.down("sm")]: {
-      padding: "2rem",
-      paddingTop: "4rem",
-    },
+    paddingTop: "2rem",
   },
-  topIntroContainer: {
-    height: "fit-content",
-    [theme.breakpoints.up("md")]: {
-      //   paddingBottom: "5rem",
-    },
-  },
-  logoContainer: {
-    height: "fit-content",
-    [theme.breakpoints.down("sm")]: {
-      justifyContent: "center",
-      display: "flex",
-    },
-  },
-  logo: {},
-  text: {
-    color: "#fff",
-    width: "100%",
-    fontFamily: "Merriweather Sans, san-serif",
-    textTransform: "uppercase",
-  },
-  reportRange: {
-    textAlign: "right",
-  },
-  schoolName: {
-    fontSize: "1.2rem",
-  },
-  namesContainer: {
+  timelineContainer: {
+    padding: "5rem 0",
     paddingLeft: "2rem",
-    borderLeft: "solid white 1px",
-    height: "fit-content",
-    [theme.breakpoints.down("sm")]: {
-      borderLeft: "unset",
-      paddingLeft: "unset",
-      textAlign: "center",
-      paddingTop: "2rem",
-      paddingBottom: "4rem",
-    },
   },
-  programName: {
-    padding: "1rem 0",
-    fontSize: "2rem",
-    [theme.breakpoints.between("md", "md")]: {
-      fontSize: "1.7rem",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "1.2rem",
-    },
-  },
-  universityName: {
-    fontFamily: "Merriweather, san-serif",
-    fontSize: "1.3rem",
-  },
-  annualReport: {
-    fontSize: "3rem",
-    [theme.breakpoints.up("xl")]: {
-      fontSize: "3.5rem",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "2rem",
-    },
-  },
-  dateRange: {
-    [theme.breakpoints.up("xl")]: {
-      fontSize: "1.5rem",
-    },
-    [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
-      padding: "1rem 0",
-    },
-    fontSize: "1rem",
-  },
-  shadow: {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 0,
-    overflow: "hidden",
-    position: "absolute",
-    pointerEvents: "none",
-    boxShadow: "0px 3px 30px #F7C60DD6",
-    borderRadius: ".5rem",
-  },
-  exploreButton: {
-    width: "25%",
-    [theme.breakpoints.down("md")]: {
-      width: "40%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "50%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "70%",
-      fontSize: "1.5rem",
-    },
-    fontSize: "1.5rem",
-    backgroundColor: "#FFCB05",
-    color: "#02274C",
-    fontFamily: "Merriweather Sans",
-    fontWeight: "600",
-    height: "3rem",
-    position: "relative",
-    "&:focus": {
-      backgroundColor: "#FFCB05",
-    },
+  svgBackground: {
+    background: `url("${SVG}")`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    height: "12.5rem",
+    width: "14.5rem",
     "&:hover": {
-      backgroundColor: "#FFCB05",
+      cursor: "pointer",
     },
+    padding: "0 2rem",
+  },
+  flippedBackground: {
+    width: "25rem",
+    height: "20rem",
+    backgroundColor: "#FFCB3D",
+    boxShadow: "0 0.1875rem 1.625rem #00000083",
+    borderRadius: "3.3125rem",
+    padding: "0 2rem",
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+  tileContainer: {
+    padding: "2rem 0",
+    minHeight: "22.1875rem",
   },
 }));

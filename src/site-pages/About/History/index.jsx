@@ -1,129 +1,108 @@
 import { Button, Grid, Typography } from "@material-ui/core";
+import ReactCardFlip from "react-card-flip";
 import clsx from "clsx";
 import React from "react";
-import { Transition } from "react-transition-group";
-import { useHistory } from "react-router-dom";
+
+import { get_content } from "../../../shared/Http";
+import Title from "../../../shared/TitleComponent";
 
 import { useStyles } from "./styles";
-import tempPhoto from "../../assets/Webp.net-resizeimage.png";
 
-export default function Home() {
+export default function History() {
   const classes = useStyles();
-  const [fade, setFade] = React.useState(true);
-  const transitionStyles = {
-    entering: { opacity: 1 },
-    entered: { opacity: 1 },
-    exiting: { opacity: 0 },
-    exited: { opacity: 0 },
-  };
-  const duration = 700;
+  const [content, setContent] = React.useState({});
+  const [isFlipped, setIsFlipped] = React.useState(false);
+  const [isFlipped1, setIsFlipped1] = React.useState(false);
+  const [isFlipped2, setIsFlipped2] = React.useState(false);
+  const [isFlipped3, setIsFlipped3] = React.useState(false);
+  const [isFlipped4, setIsFlipped4] = React.useState(false);
+  const [isFlipped5, setIsFlipped5] = React.useState(false);
+  const [isFlipped6, setIsFlipped6] = React.useState(false);
+  const [isFlipped7, setIsFlipped7] = React.useState(false);
+  const [isFlipped8, setIsFlipped8] = React.useState(false);
+  const [isFlipped9, setIsFlipped9] = React.useState(false);
+  const [isFlipped10, setIsFlipped10] = React.useState(false);
 
-  const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
-  };
+  const flips = [
+    [isFlipped, setIsFlipped],
+    [isFlipped1, setIsFlipped1],
+    [isFlipped2, setIsFlipped2],
+    [isFlipped3, setIsFlipped3],
+    [isFlipped4, setIsFlipped4],
+    [isFlipped5, setIsFlipped5],
+    [isFlipped6, setIsFlipped6],
+    [isFlipped7, setIsFlipped7],
+    [isFlipped8, setIsFlipped8],
+    [isFlipped9, setIsFlipped9],
+    [isFlipped10, setIsFlipped10],
+  ];
 
   React.useEffect(() => {
-    const fadeInterval = setInterval(() => setFade(!fade), 1700);
-    return () => {
-      // Clean up the subscription
-      clearInterval(fadeInterval);
-    };
-  });
-
-  const router = useHistory();
+    const CMS_ENDPOINT = "umsep-history";
+    get_content(CMS_ENDPOINT).then((data) => {
+      setContent(data);
+      console.log(data);
+    });
+  }, []);
 
   return (
     <Grid className={classes.container}>
       <Grid container className={classes.innerContainer}>
-        <Grid
-          container
-          direction="row"
-          alignItems="center"
-          className={classes.topIntroContainer}
-        >
-          <Grid
-            item
-            xs={12}
-            md={4}
-            lg={3}
-            xl={2}
-            className={classes.logoContainer}
-          >
-            <img
-              src={tempPhoto}
-              className={classes.logo}
-              alt="University of Michigan logo"
-            />
+        <Title
+          title={content.data ? content.data.pageTitle : ""}
+          subtitle={content.data ? content.data.pageSubtitle : ""}
+          sidebarColor={"blueBorder"}
+          fontColor={"fontColorBlue"}
+        />
+        <Grid container className={classes.timelineContainer}>
+          <Grid container className={classes.timelineInnerContainer}>
+            {content.data &&
+              content.data.tiles.map((tile, key) => {
+                return (
+                  <Grid
+                    className={classes.tileContainer}
+                    item
+                    container
+                    md={5}
+                    lg={4}
+                    justify="center"
+                    key={key}
+                  >
+                    <ReactCardFlip
+                      flipSpeedBackToFront={0.9}
+                      flipSpeedFrontToBack={0.9}
+                      isFlipped={flips[key][0]}
+                      infinite={true}
+                    >
+                      <div
+                        style={{
+                          color: "white",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                        className={classes.svgBackground}
+                        onClick={() => flips[key][1](!flips[key][0])}
+                      >
+                        {tile.front}
+                      </div>
+                      <div
+                        style={{
+                          color: "white",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                        className={classes.flippedBackground}
+                        onClick={() => flips[key][1](!flips[key][0])}
+                      >
+                        {tile.back}
+                      </div>
+                    </ReactCardFlip>
+                  </Grid>
+                );
+              })}
           </Grid>
-          <Grid
-            item
-            xs={12}
-            md={8}
-            lg={9}
-            xl={10}
-            className={classes.namesContainer}
-          >
-            <Typography
-              variant="h3"
-              className={clsx([classes.schoolName, classes.text])}
-            >
-              School of Public Health
-            </Typography>
-            <Typography
-              variant="h2"
-              className={clsx([classes.programName, classes.text])}
-            >
-              Summer Enrichment Program
-            </Typography>
-            <Typography
-              variant="h2"
-              className={clsx([classes.universityName, classes.text])}
-            >
-              Unviersity Of Michigan
-            </Typography>
-          </Grid>
-        </Grid>
-        <Grid container justify="flex-end">
-          <Typography
-            className={clsx([
-              classes.annualReport,
-              classes.text,
-              classes.reportRange,
-            ])}
-            variant="h2"
-          >
-            Annual Report
-          </Typography>
-          <Typography
-            className={clsx([
-              classes.dateRange,
-              classes.text,
-              classes.reportRange,
-            ])}
-            variant="h4"
-          >
-            2016 - 2019
-          </Typography>
-
-          <Transition in={fade} timeout={duration}>
-            {(state) => (
-              <Button
-                variant="contained"
-                TouchRippleProps={{ classes: classes.rippleVisible }}
-                className={clsx([classes.exploreButton, classes.text, "m-2"])}
-                onClick={() => router.push("/about/program-overview")}
-              >
-                Let's Explore
-                <div
-                  className={classes.shadow}
-                  style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state],
-                  }}
-                ></div>
-              </Button>
-            )}
-          </Transition>
         </Grid>
       </Grid>
     </Grid>

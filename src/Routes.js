@@ -16,6 +16,7 @@ const ProgramIntroduction = lazy(() =>
   import("./site-pages/About/Program-Overview")
 );
 const Leadership = lazy(() => import("./site-pages/About/Leadership"));
+const History = lazy(() => import("./site-pages/About/History"));
 
 const Routes = () => {
   const location = useLocation();
@@ -75,13 +76,13 @@ const Routes = () => {
                     exit="out"
                     variants={pageVariants}
                     transition={pageTransition}
-                    // style={{ height: "100%" }}
                   >
                     <Route
                       path="/about/program-overview"
                       component={ProgramIntroduction}
                     />
                     <Route path="/about/leadership" component={Leadership} />
+                    <Route path="/about/history" component={History} />
                     <Route path="/activities" component={ListGroups} />
                     <Route path="/student-stories" component={ListGroups} />
                     <Route path="/strategic-plan" component={ListGroups} />
