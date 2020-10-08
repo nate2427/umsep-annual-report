@@ -1,7 +1,8 @@
-import { Button, Grid, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import ReactCardFlip from "react-card-flip";
-import clsx from "clsx";
+// import clsx from "clsx";
 import React from "react";
+import gsap from "gsap";
 
 import { get_content } from "../../../shared/Http";
 import Title from "../../../shared/TitleComponent";
@@ -11,6 +12,8 @@ import { useStyles } from "./styles";
 export default function History() {
   const classes = useStyles();
   const [content, setContent] = React.useState({});
+  let tileRefs = React.useRef([]);
+
   const [isFlipped, setIsFlipped] = React.useState(false);
   const [isFlipped1, setIsFlipped1] = React.useState(false);
   const [isFlipped2, setIsFlipped2] = React.useState(false);
@@ -43,6 +46,20 @@ export default function History() {
       setContent(data);
       console.log(data);
     });
+  }, []);
+
+  React.useEffect(() => {
+    console.log(tileRefs.current);
+    // testimonial animation
+    gsap.from(
+      tileRefs.current,
+      1,
+      {
+        scale: 0,
+        stagger: 0.3,
+      },
+      0.3
+    );
   }, []);
 
   return (
@@ -80,6 +97,7 @@ export default function History() {
                       infinite={true}
                     >
                       <div
+                        ref={(el) => (tileRefs.current[key] = el)}
                         style={{
                           color: "white",
                           display: "flex",
