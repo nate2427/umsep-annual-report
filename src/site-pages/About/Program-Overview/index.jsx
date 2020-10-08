@@ -44,9 +44,8 @@ export default function ProgramIntroduction() {
       duration: 0.5,
       ease: Power3.easeIn,
     });
-  }, [tl]);
-
-  //
+    // eslint-disable-next-line
+  }, []);
 
   console.log(Spinner);
 
