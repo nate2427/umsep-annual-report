@@ -4,7 +4,6 @@ export const useStyles = makeStyles((theme) => ({
   container: {
     height: "fit-content",
     display: "flex",
-    backgroundColor: "#02274C",
   },
   innerContainer: {
     borderLeft: "#FFCB3D solid 1rem",
@@ -24,5 +23,9 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "1rem",
     fontFamily: "Merriweather, san-serif",
     fontWeight: "bold",
+  },
+  blueBorder: { borderLeftColor: "#00274c" },
+  fontColorBlue: {
+    color: "#00274c",
   },
 }));

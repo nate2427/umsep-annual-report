@@ -1,9 +1,9 @@
-import { Button, duration, Grid, Typography } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
 // import { useHistory } from "react-router-dom";
 import Divider from "@material-ui/core/Divider";
-import { TweenLite, Power3, TimelineLite } from "gsap";
+import { Power3, TimelineLite } from "gsap";
 
 import { useStyles } from "./styles";
 import Title from "../../../shared/TitleComponent";
@@ -26,7 +26,6 @@ export default function ProgramIntroduction() {
     const CMS_ENDPOINT = "umsep-program-introduction";
     get_content(CMS_ENDPOINT).then((data) => {
       setContent(data);
-      console.log(data);
     });
   }, []);
 
@@ -45,7 +44,7 @@ export default function ProgramIntroduction() {
       duration: 0.5,
       ease: Power3.easeIn,
     });
-  }, []);
+  }, [tl]);
 
   //
 

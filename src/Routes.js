@@ -15,6 +15,7 @@ const Home = lazy(() => import("./site-pages/Home/"));
 const ProgramIntroduction = lazy(() =>
   import("./site-pages/About/Program-Overview")
 );
+const Leadership = lazy(() => import("./site-pages/About/Leadership"));
 
 const Routes = () => {
   const location = useLocation();
@@ -80,6 +81,7 @@ const Routes = () => {
                       path="/about/program-overview"
                       component={ProgramIntroduction}
                     />
+                    <Route path="/about/leadership" component={Leadership} />
                     <Route path="/activities" component={ListGroups} />
                     <Route path="/student-stories" component={ListGroups} />
                     <Route path="/strategic-plan" component={ListGroups} />
