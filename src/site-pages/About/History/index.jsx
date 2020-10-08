@@ -55,7 +55,11 @@ export default function History() {
           fontColor={"fontColorBlue"}
         />
         <Grid container className={classes.timelineContainer}>
-          <Grid container className={classes.timelineInnerContainer}>
+          <Grid
+            container
+            className={classes.timelineInnerContainer}
+            justify="center"
+          >
             {content.data &&
               content.data.tiles.map((tile, key) => {
                 return (
@@ -63,10 +67,11 @@ export default function History() {
                     className={classes.tileContainer}
                     item
                     container
-                    md={5}
+                    sm={5}
                     lg={4}
                     justify="center"
                     key={key}
+                    style={{ zIndex: flips[key][0] ? "1000" : "0" }}
                   >
                     <ReactCardFlip
                       flipSpeedBackToFront={0.9}
@@ -88,7 +93,6 @@ export default function History() {
                       </div>
                       <div
                         style={{
-                          color: "white",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",

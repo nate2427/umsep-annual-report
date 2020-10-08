@@ -13,6 +13,9 @@ export const useStyles = makeStyles((theme) => ({
   timelineContainer: {
     padding: "5rem 0",
     paddingLeft: "2rem",
+    [theme.breakpoints.down("md")]: {
+      paddingLeft: "0rem",
+    },
   },
   svgBackground: {
     background: `url("${SVG}")`,
@@ -24,6 +27,8 @@ export const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
     },
     padding: "0 2rem",
+    fontSize: "1.2rem",
+    textAlign: "center",
   },
   flippedBackground: {
     width: "25rem",
@@ -35,6 +40,19 @@ export const useStyles = makeStyles((theme) => ({
     "&:hover": {
       cursor: "pointer",
     },
+    zIndex: "2",
+    [theme.breakpoints.down("lg")]: {
+      width: "18rem",
+      height: "20rem",
+      lineHeight: "1.1rem",
+    },
+    [theme.breakpoints.up("xl")]: {
+      lineHeight: "1.5rem",
+    },
+
+    textAlign: "justify",
+    textJustify: "inter-word",
+    fontFamily: "Merriweather sans",
   },
   tileContainer: {
     padding: "2rem 0",
