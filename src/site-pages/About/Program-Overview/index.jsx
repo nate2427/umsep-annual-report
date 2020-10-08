@@ -40,9 +40,10 @@ export default function ProgramIntroduction() {
     });
     tl.from([topParagraph, bottomParagraph], {
       opacity: 0,
-      delay: 0.4,
+      delay: 0,
       duration: 0.5,
       ease: Power3.easeIn,
+      stagger: 0.4,
     });
     // eslint-disable-next-line
   }, []);

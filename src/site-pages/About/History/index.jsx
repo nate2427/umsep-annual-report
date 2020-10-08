@@ -6,6 +6,7 @@ import gsap from "gsap";
 
 import { get_content } from "../../../shared/Http";
 import Title from "../../../shared/TitleComponent";
+import Tile from "../../../shared/Tile";
 
 import { useStyles } from "./styles";
 
@@ -48,20 +49,6 @@ export default function History() {
     });
   }, []);
 
-  React.useEffect(() => {
-    console.log(tileRefs.current);
-    // testimonial animation
-    gsap.from(
-      tileRefs.current,
-      1,
-      {
-        scale: 0,
-        stagger: 0.3,
-      },
-      0.3
-    );
-  }, []);
-
   return (
     <Grid className={classes.container}>
       <Grid container className={classes.innerContainer}>
@@ -80,48 +67,12 @@ export default function History() {
             {content.data &&
               content.data.tiles.map((tile, key) => {
                 return (
-                  <Grid
-                    className={classes.tileContainer}
-                    item
-                    container
-                    sm={5}
-                    lg={4}
-                    justify="center"
+                  <Tile
+                    front={tile.front}
+                    back={tile.back}
                     key={key}
-                    style={{ zIndex: flips[key][0] ? "1000" : "0" }}
-                  >
-                    <ReactCardFlip
-                      flipSpeedBackToFront={0.9}
-                      flipSpeedFrontToBack={0.9}
-                      isFlipped={flips[key][0]}
-                      infinite={true}
-                    >
-                      <div
-                        ref={(el) => (tileRefs.current[key] = el)}
-                        style={{
-                          color: "white",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                        className={classes.svgBackground}
-                        onClick={() => flips[key][1](!flips[key][0])}
-                      >
-                        {tile.front}
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                        className={classes.flippedBackground}
-                        onClick={() => flips[key][1](!flips[key][0])}
-                      >
-                        {tile.back}
-                      </div>
-                    </ReactCardFlip>
-                  </Grid>
+                    delay={key * 1}
+                  />
                 );
               })}
           </Grid>
