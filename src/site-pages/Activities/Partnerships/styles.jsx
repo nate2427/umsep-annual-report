@@ -203,7 +203,7 @@ export const useStyles = makeStyles((theme) => ({
   customCardText: {
     fontSize: "1rem",
     textAlign: "justify",
-    textJustify: "inter-word",
+    // textJustify: "inter-word",
     lineHeight: "2rem",
     fontFamily: "Merriweather sans",
     [theme.breakpoints.down("xs")]: {
@@ -212,7 +212,13 @@ export const useStyles = makeStyles((theme) => ({
   },
   bottomImg: {
     width: "100%",
-    minHeight: "20rem",
+    minHeight: "28rem",
+    [theme.breakpoints.down("xs")]: {
+      minHeight: "15rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      minHeight: "35rem",
+    },
     background: `url("${siteVistPic}")`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
