@@ -1,13 +1,19 @@
 import { makeStyles } from "@material-ui/core";
 
+import SVG from "../../../assets/Path4.svg";
+
 export const useStyles = makeStyles((theme) => ({
   container: {
     height: "100%",
     display: "flex",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#F5F5F5",
   },
   innerContainer: {
     paddingTop: "2rem",
+    background: `url("${SVG}")`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    width: "100%",
   },
   activitiesTitle: {
     // width: "100%",
@@ -23,6 +29,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   activitiesContainer: {
     paddingTop: "3rem",
+    paddingBottom: "5rem",
   },
   cardContainer: {
     padding: "2rem 0",
@@ -84,5 +91,12 @@ export const useStyles = makeStyles((theme) => ({
       lineHeight: "2rem",
       padding: "1rem 2rem",
     },
+  },
+  svgBackground: {
+    background: `url("${SVG}")`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    width: "100%",
+    // height: "100%",
   },
 }));

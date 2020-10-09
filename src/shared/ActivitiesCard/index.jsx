@@ -8,30 +8,29 @@ import React from "react";
 import { useStyles } from "./styles";
 
 import pic from "../../assets/StudentStories-UCLACaseCompetitionTeam2020.jpg";
-import { useIntersection } from "react-use";
 import { useInView } from "react-intersection-observer";
 
-export default function ActivitiesCard({ title, description, img, left }) {
+export default function ActivitiesCard({
+  title,
+  description,
+  img,
+  left,
+  mobile,
+  mobileLeft,
+}) {
   const classes = useStyles();
   let cardRef = React.useRef(null);
-  let end = React.useRef(null);
-  let start = React.useRef(null);
   const [hasAnimated, setHasAnimated] = React.useState(false);
   img = pic;
-  const intersection = useIntersection(cardRef, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 1,
-  });
 
-  const [ref, inView] = useInView({ threshold: 0.5 });
-
+  const [ref, inView] = useInView({ threshold: 1 });
+  console.log(mobile, mobileLeft, left);
   React.useEffect(() => {
     gsap.to(cardRef.current, {
       x: left ? -300 : 300,
       duration: 0,
       opacity: 0,
-      delay: 0.1,
+      delay: mobile ? 0.1 : 0.5,
       ease: "expo.easeInOut",
     });
     // eslint-disable-next-line

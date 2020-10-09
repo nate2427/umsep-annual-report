@@ -35,7 +35,7 @@ export default function Home() {
         />
         <Grid container className={classes.mainContentContainer}>
           <Grid container>
-            <Grid container>
+            <Grid container className={classes.svgBackground}>
               <Grid container justify="center" xs={12} item lg={6}>
                 <Grid
                   container
@@ -95,7 +95,9 @@ export default function Home() {
                       title={activity.title}
                       description={activity.description}
                       imgUrl={activity.imgUrl}
-                      left={key % 2 === 0 && !screenSizeMobile ? false : true}
+                      left={key % 2 === 0 ? false : true}
+                      mobile={screenSizeMobile}
+                      mobileLeft={key % 2 === 0 ? false : true}
                     />
                   </Grid>
                 ))}
