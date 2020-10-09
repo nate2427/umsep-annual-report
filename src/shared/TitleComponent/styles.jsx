@@ -28,4 +28,7 @@ export const useStyles = makeStyles((theme) => ({
   fontColorBlue: {
     color: "#00274c",
   },
+  borderColorBlue: {
+    borderLeftColor: "#00274c",
+  },
 }));

@@ -4,121 +4,85 @@ export const useStyles = makeStyles((theme) => ({
   container: {
     height: "100%",
     display: "flex",
-    backgroundColor: "#02274C",
+    backgroundColor: "#FFFFFF",
   },
   innerContainer: {
-    padding: "4rem",
-    [theme.breakpoints.down("sm")]: {
-      padding: "2rem",
-      paddingTop: "4rem",
-    },
+    paddingTop: "2rem",
   },
-  topIntroContainer: {
-    height: "fit-content",
-    [theme.breakpoints.up("md")]: {
-      //   paddingBottom: "5rem",
-    },
-  },
-  logoContainer: {
-    height: "fit-content",
-    [theme.breakpoints.down("sm")]: {
-      justifyContent: "center",
-      display: "flex",
-    },
-  },
-  logo: {},
-  text: {
-    color: "#fff",
-    width: "100%",
-    fontFamily: "Merriweather Sans, san-serif",
-    textTransform: "uppercase",
-  },
-  reportRange: {
-    textAlign: "right",
-  },
-  schoolName: {
-    fontSize: "1.2rem",
-  },
-  namesContainer: {
-    paddingLeft: "2rem",
-    borderLeft: "solid white 1px",
-    height: "fit-content",
-    [theme.breakpoints.down("sm")]: {
-      borderLeft: "unset",
-      paddingLeft: "unset",
-      textAlign: "center",
-      paddingTop: "2rem",
-      paddingBottom: "4rem",
-    },
-  },
-  programName: {
-    padding: "1rem 0",
-    fontSize: "2rem",
-    [theme.breakpoints.between("md", "md")]: {
-      fontSize: "1.7rem",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "1.2rem",
-    },
-  },
-  universityName: {
-    fontFamily: "Merriweather, san-serif",
-    fontSize: "1.3rem",
-  },
-  annualReport: {
+  activitiesTitle: {
+    // width: "100%",
     fontSize: "3rem",
-    [theme.breakpoints.up("xl")]: {
-      fontSize: "3.5rem",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "2rem",
-    },
+    fontFamily: "Merriweather, Merriweather sans, sans-serif",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    paddingBottom: "1rem",
+    borderBottom: "solid 1.0625rem #CFC096",
   },
-  dateRange: {
-    [theme.breakpoints.up("xl")]: {
-      fontSize: "1.5rem",
-    },
-    [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
-      padding: "1rem 0",
-    },
-    fontSize: "1rem",
+  activitiesTitleContainer: {
+    paddingTop: "7rem",
   },
-  shadow: {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 0,
-    overflow: "hidden",
-    position: "absolute",
-    pointerEvents: "none",
-    boxShadow: "0px 3px 30px #F7C60DD6",
-    borderRadius: ".5rem",
+  activitiesContainer: {
+    paddingTop: "3rem",
   },
-  exploreButton: {
-    width: "25%",
+  cardContainer: {
+    padding: "2rem 0",
+  },
+  heroImg: {
+    width: "100%",
+    height: "auto",
+    boxShadow: "0rem 0rem 1rem black",
+    borderRadius: ".4rem",
     [theme.breakpoints.down("md")]: {
-      width: "40%",
+      height: "38rem",
     },
-    [theme.breakpoints.down("sm")]: {
-      width: "50%",
+    [theme.breakpoints.down("xs")]: {
+      height: "23rem",
     },
-    [theme.breakpoints.down("sm")]: {
-      width: "70%",
-      fontSize: "1.5rem",
-    },
+  },
+  heroImgContainer: {},
+  mainContentContainer: {
+    paddingTop: "5rem",
+  },
+  heroParagraph1: {
     fontSize: "1.5rem",
-    backgroundColor: "#FFCB05",
-    color: "#02274C",
-    fontFamily: "Merriweather Sans",
-    fontWeight: "600",
-    height: "3rem",
-    position: "relative",
-    "&:focus": {
-      backgroundColor: "#FFCB05",
+    lineHeight: "3rem",
+    textAlign: "justify",
+    padding: "0 4rem",
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "1.2rem",
+      lineHeight: "2.4rem",
     },
-    "&:hover": {
-      backgroundColor: "#FFCB05",
+    [theme.breakpoints.down("md")]: {
+      padding: "1rem 5rem",
+      paddingTop: "3rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+      lineHeight: "2rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+      lineHeight: "2rem",
+      padding: "1rem 2rem",
+      paddingTop: "3rem",
+    },
+  },
+  heroParagraph2: {
+    fontSize: "1.5rem",
+    lineHeight: "3rem",
+    textAlign: "justify",
+    padding: "3rem 4rem",
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "1.2rem",
+      lineHeight: "2.4rem",
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: "1rem 5rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+      lineHeight: "2rem",
+      padding: "1rem 2rem",
     },
   },
 }));

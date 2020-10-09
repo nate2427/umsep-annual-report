@@ -1,129 +1,106 @@
-import { Button, Grid, Typography } from "@material-ui/core";
-import clsx from "clsx";
+import { Grid, Typography } from "@material-ui/core";
+// import clsx from "clsx";
 import React from "react";
-import { Transition } from "react-transition-group";
-import { useHistory } from "react-router-dom";
+import { get_content } from "../../../shared/Http";
+import Title from "../../../shared/TitleComponent";
+import ActivitiesCard from "../../../shared/ActivitiesCard";
+import pic from "../../../assets/StudentStories-UCLACaseCompetitionTeam2020.jpg";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
 
 import { useStyles } from "./styles";
-import tempPhoto from "../../assets/Webp.net-resizeimage.png";
 
 export default function Home() {
   const classes = useStyles();
-  const [fade, setFade] = React.useState(true);
-  const transitionStyles = {
-    entering: { opacity: 1 },
-    entered: { opacity: 1 },
-    exiting: { opacity: 0 },
-    exited: { opacity: 0 },
-  };
-  const duration = 700;
-
-  const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
-  };
+  const [content, setContent] = React.useState({});
+  const theme = useTheme();
+  const screenSizeMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   React.useEffect(() => {
-    const fadeInterval = setInterval(() => setFade(!fade), 1700);
-    return () => {
-      // Clean up the subscription
-      clearInterval(fadeInterval);
-    };
-  });
-
-  const router = useHistory();
+    const CMS_ENDPOINT = "umsep-activities-overview";
+    get_content(CMS_ENDPOINT).then((data) => {
+      setContent(data);
+      console.log(data);
+    });
+  }, []);
 
   return (
     <Grid className={classes.container}>
       <Grid container className={classes.innerContainer}>
-        <Grid
-          container
-          direction="row"
-          alignItems="center"
-          className={classes.topIntroContainer}
-        >
-          <Grid
-            item
-            xs={12}
-            md={4}
-            lg={3}
-            xl={2}
-            className={classes.logoContainer}
-          >
-            <img
-              src={tempPhoto}
-              className={classes.logo}
-              alt="University of Michigan logo"
-            />
+        <Title
+          title={content.data ? content.data.title_subtitle.title : ""}
+          subtitle={content.data ? content.data.title_subtitle.subtitle : ""}
+          fontColor={"fontColorBlue"}
+          borderColor={"blueBorder"}
+        />
+        <Grid container className={classes.mainContentContainer}>
+          <Grid container>
+            <Grid container>
+              <Grid container justify="center" xs={12} item lg={6}>
+                <Grid
+                  container
+                  className={classes.heroImgContainer}
+                  item
+                  md={10}
+                  xs={10}
+                >
+                  <img
+                    src={pic}
+                    className={classes.heroImg}
+                    alt={"activities"}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container item xs={12} justify="center" lg={6}>
+                <Typography className={classes.heroParagraph1} variant="body1">
+                  {content.data ? content.data.heroParagraph1 : ""}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container>
+              <Typography className={classes.heroParagraph2} variant="body1">
+                {content.data ? content.data.heroParagraph2 : ""}
+              </Typography>
+            </Grid>
           </Grid>
           <Grid
-            item
-            xs={12}
-            md={8}
-            lg={9}
-            xl={10}
-            className={classes.namesContainer}
+            container
+            className={classes.activitiesTitleContainer}
+            justify="center"
           >
             <Typography
-              variant="h3"
-              className={clsx([classes.schoolName, classes.text])}
-            >
-              School of Public Health
-            </Typography>
-            <Typography
+              className={classes.activitiesTitle}
               variant="h2"
-              className={clsx([classes.programName, classes.text])}
+              align="center"
             >
-              Summer Enrichment Program
+              Activities
             </Typography>
-            <Typography
-              variant="h2"
-              className={clsx([classes.universityName, classes.text])}
+            <Grid
+              container
+              className={classes.activitiesContainer}
+              justify="center"
             >
-              Unviersity Of Michigan
-            </Typography>
+              {content.data &&
+                content.data.activities.map((activity, key) => (
+                  <Grid
+                    key={key}
+                    className={classes.cardContainer}
+                    item
+                    container
+                    justify="center"
+                    xs={10}
+                  >
+                    <ActivitiesCard
+                      key={key}
+                      title={activity.title}
+                      description={activity.description}
+                      imgUrl={activity.imgUrl}
+                      left={key % 2 === 0 && !screenSizeMobile ? false : true}
+                    />
+                  </Grid>
+                ))}
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid container justify="flex-end">
-          <Typography
-            className={clsx([
-              classes.annualReport,
-              classes.text,
-              classes.reportRange,
-            ])}
-            variant="h2"
-          >
-            Annual Report
-          </Typography>
-          <Typography
-            className={clsx([
-              classes.dateRange,
-              classes.text,
-              classes.reportRange,
-            ])}
-            variant="h4"
-          >
-            2016 - 2019
-          </Typography>
-
-          <Transition in={fade} timeout={duration}>
-            {(state) => (
-              <Button
-                variant="contained"
-                TouchRippleProps={{ classes: classes.rippleVisible }}
-                className={clsx([classes.exploreButton, classes.text, "m-2"])}
-                onClick={() => router.push("/about/program-overview")}
-              >
-                Let's Explore
-                <div
-                  className={classes.shadow}
-                  style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state],
-                  }}
-                ></div>
-              </Button>
-            )}
-          </Transition>
         </Grid>
       </Grid>
     </Grid>

@@ -20,6 +20,7 @@ export default function Tile({ front, back, delay }) {
       delay: 0.15 * delay,
       ease: "expo.easeInOut",
     });
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -10,6 +10,7 @@ export default function TitleComponent({
   subtitle,
   sidebarColor,
   fontColor,
+  borderColor,
 }) {
   const classes = useStyles();
   // classes[sidebarColor] = sidebarColor;
@@ -25,9 +26,13 @@ export default function TitleComponent({
           classes.innerContainer,
           classes[sidebarColor],
           fontColor && classes[fontColor],
+          borderColor && classes[borderColor],
         ])}
       >
-        <Typography className={classes.pageTitle} variant="h3">
+        <Typography
+          className={clsx([classes.pageTitle, fontColor && classes[fontColor]])}
+          variant="h3"
+        >
           {title}
         </Typography>
         <Typography className={classes.pageSubTitle} variant="h4">
