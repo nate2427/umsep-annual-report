@@ -19,7 +19,6 @@ export default function Partnerships() {
     const CMS_ENDPOINT = "umsep-partnership";
     get_content(CMS_ENDPOINT).then((data) => {
       setContent(data);
-      console.log(data);
     });
   }, []);
 

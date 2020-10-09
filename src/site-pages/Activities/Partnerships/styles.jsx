@@ -3,7 +3,7 @@ import siteVistPic from "../../../assets/SiteVisits-2016-HenryFord@2x.png";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
-    height: "100%",
+    minHeight: "90vh",
     display: "flex",
     backgroundColor: "#EAEAEA",
   },

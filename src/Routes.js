@@ -21,6 +21,7 @@ const ActivitiesOverview = lazy(() =>
   import("./site-pages/Activities/Overview")
 );
 const Partnerships = lazy(() => import("./site-pages/Activities/Partnerships"));
+const Innovations = lazy(() => import("./site-pages/Activities/Innovations"));
 
 const Routes = () => {
   const location = useLocation();
@@ -94,6 +95,10 @@ const Routes = () => {
                     <Route
                       path="/activities/partnerships"
                       component={Partnerships}
+                    />
+                    <Route
+                      path="/activities/innovations"
+                      component={Innovations}
                     />
                     <Route path="/student-stories" component={ListGroups} />
                     <Route path="/strategic-plan" component={ListGroups} />
