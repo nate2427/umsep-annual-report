@@ -1,124 +1,241 @@
 import { makeStyles } from "@material-ui/core";
+import siteVistPic from "../../../assets/SiteVisits-2016-HenryFord@2x.png";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
     height: "100%",
     display: "flex",
-    backgroundColor: "#02274C",
+    backgroundColor: "#EAEAEA",
   },
   innerContainer: {
-    padding: "4rem",
-    [theme.breakpoints.down("sm")]: {
-      padding: "2rem",
-      paddingTop: "4rem",
-    },
+    paddingTop: "2rem",
   },
-  topIntroContainer: {
-    height: "fit-content",
-    [theme.breakpoints.up("md")]: {
-      //   paddingBottom: "5rem",
-    },
+  activitiesTitle: {
+    // width: "100%",
+    fontSize: "3rem",
+    fontFamily: "Merriweather, Merriweather sans, sans-serif",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    paddingBottom: "1rem",
+    borderBottom: "solid 1.0625rem #CFC096",
   },
-  logoContainer: {
-    height: "fit-content",
-    [theme.breakpoints.down("sm")]: {
-      justifyContent: "center",
-      display: "flex",
-    },
+  activitiesTitleContainer: {
+    paddingTop: "7rem",
   },
-  logo: {},
-  text: {
-    color: "#fff",
+  activitiesContainer: {
+    paddingTop: "3rem",
+    paddingBottom: "5rem",
+  },
+  cardContainer: {
+    padding: "2rem 0",
+    minHeight: "70vh",
+  },
+  heroImg: {
     width: "100%",
-    fontFamily: "Merriweather Sans, san-serif",
+    height: "auto",
+    boxShadow: "0rem 0rem 1rem black",
+    borderRadius: ".4rem",
+    [theme.breakpoints.down("md")]: {
+      height: "38rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "23rem",
+    },
+  },
+  heroImgContainer: {},
+  mainContentContainer: {
+    paddingTop: "5rem",
+  },
+  heroParagraph1: {
+    fontSize: "1.5rem",
+    lineHeight: "3rem",
+    textAlign: "justify",
+    padding: "0 4rem",
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "1.1rem",
+      lineHeight: "2.4rem",
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: "1rem 5rem",
+      paddingTop: "3rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+      lineHeight: "2rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+      lineHeight: "2rem",
+      padding: "1rem 2rem",
+      paddingTop: "3rem",
+    },
+  },
+  heroParagraph2Container: {
+    paddingBottom: "8rem",
+  },
+  heroParagraph2: {
+    fontSize: "1.5rem",
+    lineHeight: "3rem",
+    textAlign: "justify",
+    padding: "3rem 4rem",
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "1.1rem",
+      lineHeight: "2.4rem",
+    },
+    [theme.breakpoints.down("md")]: {
+      padding: "1rem 5rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+      lineHeight: "2rem",
+      padding: "1rem 2rem",
+    },
+  },
+
+  precetorSitesContainer: {
+    backgroundColor: "#F5F5F5",
+    paddingTop: "3rem",
+  },
+  description: {
+    height: "4.1rem",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    fontFamily: "Merriweather sans, sans-serif",
+    textAlign: "justify",
+    fontSize: "1rem",
+    fontWeight: "400",
+    color: "#F5F5F5",
+  },
+  showFullText: {
+    height: "auto",
+    overflow: "auto",
+    paddingBottom: "1.5rem",
+  },
+  title: {
+    color: "#FFCB3D",
+    fontFamily: "Merriweather, Merriweather sans, sans-serif",
+    fontWeight: "bold",
+    fontSize: "1.25",
+    lineHeight: "2rem",
+    textAlign: "center",
+    paddingBottom: "1rem",
+    paddingTop: ".5rem",
+  },
+  cardContent: {
+    backgroundColor: "#00274C",
+  },
+  buttonContainer: {
+    padding: "1rem 0",
+  },
+  buttton: {
+    backgroundColor: "#FFCB3D",
+    color: "#00274C",
+    fontFamily: "Merriweather sans, sans-serif",
     textTransform: "uppercase",
   },
-  reportRange: {
-    textAlign: "right",
-  },
-  schoolName: {
-    fontSize: "1.2rem",
-  },
-  namesContainer: {
-    paddingLeft: "2rem",
-    borderLeft: "solid white 1px",
-    height: "fit-content",
-    [theme.breakpoints.down("sm")]: {
-      borderLeft: "unset",
-      paddingLeft: "unset",
-      textAlign: "center",
-      paddingTop: "2rem",
-      paddingBottom: "4rem",
-    },
-  },
-  programName: {
-    padding: "1rem 0",
-    fontSize: "2rem",
-    [theme.breakpoints.between("md", "md")]: {
-      fontSize: "1.7rem",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "1.2rem",
-    },
-  },
-  universityName: {
-    fontFamily: "Merriweather, san-serif",
-    fontSize: "1.3rem",
-  },
-  annualReport: {
-    fontSize: "3rem",
-    [theme.breakpoints.up("xl")]: {
-      fontSize: "3.5rem",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "2rem",
-    },
-  },
-  dateRange: {
-    [theme.breakpoints.up("xl")]: {
-      fontSize: "1.5rem",
-    },
-    [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
-      padding: "1rem 0",
-    },
-    fontSize: "1rem",
-  },
-  shadow: {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 0,
-    overflow: "hidden",
-    position: "absolute",
-    pointerEvents: "none",
-    boxShadow: "0px 3px 30px #F7C60DD6",
-    borderRadius: ".5rem",
-  },
-  exploreButton: {
-    width: "25%",
-    [theme.breakpoints.down("md")]: {
-      width: "40%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "50%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "70%",
-      fontSize: "1.5rem",
-    },
-    fontSize: "1.5rem",
-    backgroundColor: "#FFCB05",
-    color: "#02274C",
-    fontFamily: "Merriweather Sans",
+
+  buttonContained: {
+    textTransform: "uppercase",
     fontWeight: "600",
-    height: "3rem",
-    position: "relative",
-    "&:focus": {
-      backgroundColor: "#FFCB05",
+  },
+  middleImgContainer: {
+    padding: "3rem 0rem",
+    paddingRight: "1rem",
+    paddingBottom: "10rem",
+  },
+  backgroundImg: {
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    width: "100%",
+    height: "auto",
+    [theme.breakpoints.down("md")]: {
+      height: "20rem",
     },
-    "&:hover": {
-      backgroundColor: "#FFCB05",
+  },
+  preceptorImgDescContainer: {
+    padding: "0 2rem",
+    [theme.breakpoints.down("md")]: {
+      padding: "0",
+      paddingBottom: "5rem",
+      paddingTop: "3rem",
     },
+  },
+  preceptorImgDesc: {
+    fontFamily: "Merriweather sans, sans-serif",
+    fontSize: "1rem",
+    textAlign: "justify",
+    textJustify: "inter-word",
+    lineHeight: "2rem",
+    [theme.breakpoints.up("xl")]: {
+      fontSize: "1.25rem",
+      lineHeight: "3rem",
+    },
+  },
+  siteVisitsContainer: {
+    paddingTop: "2rem",
+    backgroundColor: "#FFFAFA",
+  },
+  customCardContainer: {
+    paddingTop: "5rem",
+    paddingBottom: "10rem",
+  },
+  customCard: {
+    width: "50.8125rem",
+    height: "20rem",
+    backgroundColor: "#FECB2E",
+    boxShadow: "0rem 0.1875rem 1.25rem #00000060",
+    padding: "0 2rem",
+    [theme.breakpoints.down("lg")]: {
+      minHeight: "20rem",
+      height: "auto",
+      padding: "2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      minHeight: "20rem",
+      height: "auto",
+    },
+  },
+  firstCard: {
+    [theme.breakpoints.down("sm")]: {
+      paddingBottom: "5rem",
+    },
+  },
+  customCardText: {
+    fontSize: "1rem",
+    textAlign: "justify",
+    textJustify: "inter-word",
+    lineHeight: "2rem",
+    fontFamily: "Merriweather sans",
+    [theme.breakpoints.down("xs")]: {
+      lineHeight: "1.5rem",
+    },
+  },
+  bottomImg: {
+    width: "100%",
+    minHeight: "20rem",
+    background: `url("${siteVistPic}")`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+  },
+  bottomImgOuterContainer: {
+    paddingTop: "10rem",
+  },
+  lastParagraphContainer: {
+    backgroundColor: "#02274C",
+
+    padding: "2rem",
+    boxShadow: "0rem 0.1875rem 1.25rem #00000061",
+  },
+  lastParagraphOuterContainer: {
+    paddingTop: "2rem",
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: "0rem",
+    },
+  },
+  lastParagraph: {
+    color: "#EAEAEA",
+    fontFamily: "Merriweather sans, sans-serif",
+    lineHeight: "2rem",
+    fontSize: "1rem",
   },
 }));

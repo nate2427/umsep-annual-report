@@ -1,129 +1,249 @@
-import { Button, Grid, Typography } from "@material-ui/core";
-import clsx from "clsx";
+import { Grid, Hidden, Typography } from "@material-ui/core";
+
 import React from "react";
-import { Transition } from "react-transition-group";
-import { useHistory } from "react-router-dom";
 
 import { useStyles } from "./styles";
-import tempPhoto from "../../assets/Webp.net-resizeimage.png";
+import { get_content } from "../../../shared/Http";
+import Title from "../../../shared/TitleComponent";
+import PreceptorSiteCard from "../../../shared/PreceptorSiteCard";
+import preceptors from "../../../assets/Preceptors-1804@2x.png";
 
-export default function Home() {
+import pic from "../../../assets/StudentStories-UCLACaseCompetitionTeam2020.jpg";
+// import clsx from "clsx";
+
+export default function Partnerships() {
   const classes = useStyles();
-  const [fade, setFade] = React.useState(true);
-  const transitionStyles = {
-    entering: { opacity: 1 },
-    entered: { opacity: 1 },
-    exiting: { opacity: 0 },
-    exited: { opacity: 0 },
-  };
-  const duration = 700;
-
-  const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
-  };
+  const [content, setContent] = React.useState({});
 
   React.useEffect(() => {
-    const fadeInterval = setInterval(() => setFade(!fade), 1700);
-    return () => {
-      // Clean up the subscription
-      clearInterval(fadeInterval);
-    };
-  });
-
-  const router = useHistory();
+    const CMS_ENDPOINT = "umsep-partnership";
+    get_content(CMS_ENDPOINT).then((data) => {
+      setContent(data);
+      console.log(data);
+    });
+  }, []);
 
   return (
     <Grid className={classes.container}>
       <Grid container className={classes.innerContainer}>
-        <Grid
-          container
-          direction="row"
-          alignItems="center"
-          className={classes.topIntroContainer}
-        >
-          <Grid
-            item
-            xs={12}
-            md={4}
-            lg={3}
-            xl={2}
-            className={classes.logoContainer}
-          >
-            <img
-              src={tempPhoto}
-              className={classes.logo}
-              alt="University of Michigan logo"
-            />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={8}
-            lg={9}
-            xl={10}
-            className={classes.namesContainer}
-          >
-            <Typography
-              variant="h3"
-              className={clsx([classes.schoolName, classes.text])}
-            >
-              School of Public Health
-            </Typography>
-            <Typography
-              variant="h2"
-              className={clsx([classes.programName, classes.text])}
-            >
-              Summer Enrichment Program
-            </Typography>
-            <Typography
-              variant="h2"
-              className={clsx([classes.universityName, classes.text])}
-            >
-              Unviersity Of Michigan
-            </Typography>
-          </Grid>
-        </Grid>
-        <Grid container justify="flex-end">
-          <Typography
-            className={clsx([
-              classes.annualReport,
-              classes.text,
-              classes.reportRange,
-            ])}
-            variant="h2"
-          >
-            Annual Report
-          </Typography>
-          <Typography
-            className={clsx([
-              classes.dateRange,
-              classes.text,
-              classes.reportRange,
-            ])}
-            variant="h4"
-          >
-            2016 - 2019
-          </Typography>
+        <Title
+          title={content.data ? content.data.title_subtitle.title : ""}
+          subtitle={content.data ? content.data.title_subtitle.subtitle : ""}
+          fontColor={"fontColorBlue"}
+          borderColor={"blueBorder"}
+        />
+        <Grid container className={classes.mainContentContainer}>
+          {/* hero content */}
+          <Grid container>
+            <Grid container>
+              <Hidden lgUp>
+                <Grid container justify="center" xs={12} item lg={6}>
+                  <Grid
+                    container
+                    className={classes.heroImgContainer}
+                    item
+                    md={10}
+                    xs={10}
+                  >
+                    <img
+                      src={pic}
+                      className={classes.heroImg}
+                      alt={"activities"}
+                    />
+                  </Grid>
+                </Grid>
+              </Hidden>
 
-          <Transition in={fade} timeout={duration}>
-            {(state) => (
-              <Button
-                variant="contained"
-                TouchRippleProps={{ classes: classes.rippleVisible }}
-                className={clsx([classes.exploreButton, classes.text, "m-2"])}
-                onClick={() => router.push("/about/program-overview")}
+              <Grid container item xs={12} justify="center" lg={6}>
+                <Typography className={classes.heroParagraph1} variant="body1">
+                  {content.data ? content.data.heroParagraph1 : ""}
+                </Typography>
+              </Grid>
+              <Hidden mdDown>
+                <Grid container justify="center" xs={12} item lg={6}>
+                  <Grid
+                    container
+                    className={classes.heroImgContainer}
+                    item
+                    md={10}
+                    xs={10}
+                  >
+                    <img
+                      src={pic}
+                      className={classes.heroImg}
+                      alt={"activities"}
+                    />
+                  </Grid>
+                </Grid>
+              </Hidden>
+            </Grid>
+            <Grid container className={classes.heroParagraph2Container}>
+              <Typography className={classes.heroParagraph2} variant="body1">
+                {content.data ? content.data.heroParagraph2 : ""}
+              </Typography>
+            </Grid>
+          </Grid>
+          {/* main content */}
+          <Grid container className={classes.precetorSitesContainer}>
+            <Title
+              title={
+                content.data
+                  ? content.data.preceptor_sites_title_subtitle.title
+                  : ""
+              }
+              subtitle={
+                content.data
+                  ? content.data.preceptor_sites_title_subtitle.subtitle
+                  : ""
+              }
+              fontColor={"fontColorBlue"}
+              borderColor={"blueBorder"}
+            />
+            {/* preceptor site ui cards */}
+            <Grid container justify="center">
+              <Grid
+                container
+                item
+                justify="center"
+                xs={10}
+                className={classes.cardContainer}
               >
-                Let's Explore
-                <div
-                  className={classes.shadow}
-                  style={{
-                    ...defaultStyle,
-                    ...transitionStyles[state],
-                  }}
-                ></div>
-              </Button>
-            )}
-          </Transition>
+                {content.data &&
+                  content.data.preceptor_sites.map((site, key) => (
+                    <PreceptorSiteCard
+                      key={key}
+                      delay={key}
+                      title={site.title}
+                      description={site.description}
+                      preceptorButtonText={content.data.preceptorButtonText}
+                    />
+                  ))}
+              </Grid>
+              {/* middle image container with description */}
+              <Grid
+                container
+                justify="center"
+                className={classes.middleImgContainer}
+              >
+                <Grid container justify="center" item sm={8} xs={10} lg={7}>
+                  <img
+                    className={classes.backgroundImg}
+                    alt="precpetors"
+                    src={preceptors}
+                  />
+                </Grid>
+                <Grid
+                  container
+                  className={classes.preceptorImgDescContainer}
+                  item
+                  lg={5}
+                  sm={8}
+                  xs={10}
+                  justify="center"
+                >
+                  <Typography
+                    className={classes.preceptorImgDesc}
+                    variant="body1"
+                  >
+                    {content.data && content.data.preceptorImgDesc}
+                  </Typography>
+                </Grid>
+              </Grid>
+              {/* site visits section */}
+              <Grid container className={classes.siteVisitsContainer}>
+                <Title
+                  title={
+                    content.data
+                      ? content.data.site_visits_title_subtitle.title
+                      : ""
+                  }
+                  subtitle={
+                    content.data
+                      ? content.data.site_visits_title_subtitle.subtitle
+                      : ""
+                  }
+                  fontColor={"fontColorBlue"}
+                  borderColor={"blueBorder"}
+                />
+                {/* custom cards */}
+                <Grid
+                  container
+                  justify="center"
+                  className={classes.customCardContainer}
+                >
+                  <Grid
+                    className={classes.firstCard}
+                    container
+                    justify="center"
+                    item
+                    xs={8}
+                    md={6}
+                  >
+                    <Grid
+                      container
+                      justify="center"
+                      alignItems="center"
+                      className={classes.customCard}
+                      item
+                      md={8}
+                    >
+                      <Typography
+                        className={classes.customCardText}
+                        variant="body1"
+                      >
+                        {content.data ? content.data.paragraph2 : ""}
+                      </Typography>
+                    </Grid>
+                  </Grid>
+
+                  <Grid container justify="center" item xs={8} md={6}>
+                    <Grid
+                      justify="center"
+                      alignItems="center"
+                      container
+                      className={classes.customCard}
+                      item
+                      md={8}
+                    >
+                      <Typography
+                        className={classes.customCardText}
+                        variant="body1"
+                      >
+                        {content.data ? content.data.paragraph1 : ""}
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  {/* long image and end description */}
+                  <Grid container className={classes.bottomImgOuterContainer}>
+                    <Grid container item xs={12}>
+                      <div className={classes.bottomImg}></div>
+                    </Grid>
+                  </Grid>
+                  {/* end description */}
+                  <Grid
+                    className={classes.lastParagraphOuterContainer}
+                    container
+                    justify="center"
+                  >
+                    <Grid
+                      container
+                      item
+                      xs={11}
+                      justify="center"
+                      className={classes.lastParagraphContainer}
+                    >
+                      <Typography
+                        variant={"body1"}
+                        className={classes.lastParagraph}
+                      >
+                        {content.data ? content.data.lastParagraph : ""}
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

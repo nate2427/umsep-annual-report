@@ -4,7 +4,7 @@ import SVG from "../../../assets/Path4.svg";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
-    height: "100%",
+    minHeight: "90vh",
     display: "flex",
     backgroundColor: "#F5F5F5",
   },
@@ -16,7 +16,6 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   activitiesTitle: {
-    // width: "100%",
     fontSize: "3rem",
     fontFamily: "Merriweather, Merriweather sans, sans-serif",
     fontWeight: "bold",
@@ -91,12 +90,5 @@ export const useStyles = makeStyles((theme) => ({
       lineHeight: "2rem",
       padding: "1rem 2rem",
     },
-  },
-  svgBackground: {
-    background: `url("${SVG}")`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    width: "100%",
-    // height: "100%",
   },
 }));

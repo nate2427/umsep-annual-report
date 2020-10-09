@@ -20,6 +20,7 @@ const History = lazy(() => import("./site-pages/About/History"));
 const ActivitiesOverview = lazy(() =>
   import("./site-pages/Activities/Overview")
 );
+const Partnerships = lazy(() => import("./site-pages/Activities/Partnerships"));
 
 const Routes = () => {
   const location = useLocation();
@@ -89,6 +90,10 @@ const Routes = () => {
                     <Route
                       path="/activities/overview"
                       component={ActivitiesOverview}
+                    />
+                    <Route
+                      path="/activities/partnerships"
+                      component={Partnerships}
                     />
                     <Route path="/student-stories" component={ListGroups} />
                     <Route path="/strategic-plan" component={ListGroups} />

@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 
-import { Grid, Card, CardContent, Button } from '@material-ui/core';
+import { Grid, Card, CardContent, Button } from "@material-ui/core";
 
-import stock1 from '../../../assets/images/stock-photos/stock-1.jpg';
-import stock2 from '../../../assets/images/stock-photos/stock-2.jpg';
-import stock3 from '../../../assets/images/stock-photos/stock-3.jpg';
+import stock1 from "../../../assets/images/stock-photos/stock-1.jpg";
+import stock2 from "../../../assets/images/stock-photos/stock-2.jpg";
+import stock3 from "../../../assets/images/stock-photos/stock-3.jpg";
 
 export default function LivePreviewExample() {
   return (

@@ -121,4 +121,8 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: "#FFCB05",
     },
   },
+  buttonContained: {
+    textTransform: "uppercase",
+    fontWeight: "600",
+  },
 }));
