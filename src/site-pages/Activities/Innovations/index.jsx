@@ -22,7 +22,6 @@ export default function Innovations() {
     const CMS_ENDPOINT = "umsep-innovations";
     get_content(CMS_ENDPOINT).then((data) => {
       setContent(data);
-      console.log(data);
     });
   }, []);
 

@@ -22,6 +22,7 @@ const ActivitiesOverview = lazy(() =>
 );
 const Partnerships = lazy(() => import("./site-pages/Activities/Partnerships"));
 const Innovations = lazy(() => import("./site-pages/Activities/Innovations"));
+const StudentStories = lazy(() => import("./site-pages/Student-Stories"));
 
 const Routes = () => {
   const location = useLocation();
@@ -100,7 +101,10 @@ const Routes = () => {
                       path="/activities/innovations"
                       component={Innovations}
                     />
-                    <Route path="/student-stories" component={ListGroups} />
+                    <Route
+                      path="/student-stories/:page/"
+                      component={StudentStories}
+                    />
                     <Route path="/strategic-plan" component={ListGroups} />
                     <Route path="/preceptors" component={ListGroups} />
                     <Route path="/interns" component={ListGroups} />

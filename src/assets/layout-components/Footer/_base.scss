@@ -1,7 +1,8 @@
 //  Core
 body {
   .app-footer {
-    height: $footer-height;
+    // height: $footer-height;
+    min-height: 10vh;
     background: $footer-bg;
     background-color: #00274c;
     width: 100%;
