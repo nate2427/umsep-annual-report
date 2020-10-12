@@ -13,6 +13,9 @@ import { LeftSidebar } from "./layout-blueprints";
 const ListGroups = lazy(() => import("./example-pages/ListGroups"));
 const Home = lazy(() => import("./site-pages/Home/"));
 const ProgramIntroduction = lazy(() =>
+  import("./site-pages/About/Program-Introduction")
+);
+const ProgramOverview = lazy(() =>
   import("./site-pages/About/Program-Overview")
 );
 const Leadership = lazy(() => import("./site-pages/About/Leadership"));
@@ -84,8 +87,12 @@ const Routes = () => {
                     transition={pageTransition}
                   >
                     <Route
-                      path="/about/program-overview"
+                      path="/about/program-introduction"
                       component={ProgramIntroduction}
+                    />
+                    <Route
+                      path="/about/program-overview"
+                      component={ProgramOverview}
                     />
                     <Route path="/about/leadership" component={Leadership} />
                     <Route path="/about/history" component={History} />

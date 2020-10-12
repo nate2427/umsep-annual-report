@@ -51,14 +51,19 @@ export default [
     "label": "About",
     "content": [
       {
-        "label": "Program Overview",
+        "label": "Program Introduction",
         "description": "This is a dashboard page example built using this template.",
-        "to": "/about/program-overview"
+        "to": "/about/program-introduction"
       },
       {
         "label": "Leadership",
         "description": "This is a dashboard page example built using this template.",
         "to": "/about/leadership"
+      },
+      {
+        "label": "Program Overview",
+        "description": "This is a dashboard page example built using this template.",
+        "to": "/about/program-overview"
       },
       {
         "label": "History",
