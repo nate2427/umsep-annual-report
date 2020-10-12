@@ -101,6 +101,7 @@ export default function Stories({ stories, index }) {
             more="Stories on this page"
             related="Related Stories"
             posts={content[index] ? [morePosts, relatedPosts] : []}
+            page={index}
           />
         </Grid>
       </Hidden>

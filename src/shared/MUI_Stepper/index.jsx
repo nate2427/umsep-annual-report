@@ -3,14 +3,22 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import { scroller } from "react-scroll";
+import { useHistory } from "react-router";
 
 import Typography from "@material-ui/core/Typography";
 
 import { useStyles } from "./styles";
 import { Grid } from "@material-ui/core";
 
-export default function MUI_Stepper({ posts, more, related }) {
-  return <VerticalLinearStepper posts={posts} more={more} related={related} />;
+export default function MUI_Stepper({ posts, more, related, page }) {
+  return (
+    <VerticalLinearStepper
+      posts={posts}
+      more={more}
+      related={related}
+      page={page}
+    />
+  );
 }
 
 const names = [
@@ -22,11 +30,11 @@ const names = [
   "story-6",
 ];
 
-function VerticalLinearStepper({ posts, more, related }) {
+function VerticalLinearStepper({ posts, more, related, page }) {
   const classes = useStyles();
+  const router = useHistory();
 
   const [activeStep, setActiveStep] = React.useState(0);
-  const [activeStepRelated, setActiveStepRelated] = React.useState(null);
 
   const scrollToStory = (index) => {
     scroller.scrollTo(names[index], {
@@ -35,6 +43,12 @@ function VerticalLinearStepper({ posts, more, related }) {
       duration: 1000,
     });
     setActiveStep(index);
+  };
+
+  const goToNextPage = () => {
+    router.push(
+      `/student-stories/${page === 0 ? "health-equity" : "virtual-boot-camps"}`
+    );
   };
 
   return (
@@ -53,7 +67,7 @@ function VerticalLinearStepper({ posts, more, related }) {
                   style={{
                     backgroundColor: "#FFFAFA",
                   }}
-                  activeStep={key === 0 ? activeStep : activeStepRelated}
+                  activeStep={key === 0 ? activeStep : null}
                   orientation="vertical"
                 >
                   {post ? (
@@ -61,9 +75,7 @@ function VerticalLinearStepper({ posts, more, related }) {
                       <Step key={index}>
                         <StepLabel
                           onClick={() =>
-                            key === 0
-                              ? scrollToStory(index)
-                              : setActiveStepRelated(index)
+                            key === 0 ? scrollToStory(index) : goToNextPage()
                           }
                           classes={{ label: classes.stepperLabel }}
                         >

@@ -4,6 +4,9 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 
 import { ListItem, Button, Collapse } from "@material-ui/core";
+import { useHistory } from "react-router";
+import { connect } from "react-redux";
+import { setSidebarToggleMobile } from "../../reducers/ThemeOptions";
 
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 
@@ -25,13 +28,28 @@ const SidebarMenuListItem = (props) => {
     className,
     open: openProp,
     label: Label,
+    sidebarToggleMobile,
+    setSidebarToggleMobile,
+    dispatch,
     ...rest
   } = props;
+
+  React.useEffect(() => console.log(sidebarToggleMobile));
+
+  const router = useHistory();
 
   const [open, setOpen] = useState(openProp);
 
   const handleToggle = () => {
     setOpen((open) => !open);
+  };
+
+  const naviagteAndClose = (e, link) => {
+    e.preventDefault();
+    setSidebarToggleMobile(!sidebarToggleMobile);
+    console.log("prevented default");
+
+    router.push(link);
   };
 
   let paddingLeft = 22;
@@ -84,6 +102,7 @@ const SidebarMenuListItem = (props) => {
           component={CustomRouterLink}
           exact
           style={style}
+          onClick={(e) => naviagteAndClose(e, href)}
           to={href}
         >
           {Icon && <Icon className="app-sidebar-icon" />}
@@ -115,4 +134,15 @@ SidebarMenuListItem.defaultProps = {
   open: false,
 };
 
-export default SidebarMenuListItem;
+const mapStateToProps = (state) => ({
+  sidebarToggleMobile: state.ThemeOptions.sidebarToggleMobile,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setSidebarToggleMobile: (enable) => dispatch(setSidebarToggleMobile(enable)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SidebarMenuListItem);

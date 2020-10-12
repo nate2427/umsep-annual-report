@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   hamburgerIcon: {
     width: "1.5em",
     height: "1.5em",
-    color: "#fff",
+    color: "#655A52",
   },
   drawer: {
     [theme.breakpoints.down("sm")]: {

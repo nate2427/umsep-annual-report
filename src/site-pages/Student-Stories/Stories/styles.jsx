@@ -25,7 +25,12 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("lg")]: {
       fontSize: "1.2rem",
       paddingTop: "3rem",
-      lineHeight: "srem",
+      lineHeight: "3rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1rem",
+      paddingTop: "3rem",
+      lineHeight: "2rem",
     },
   },
   storiesContainer: {
