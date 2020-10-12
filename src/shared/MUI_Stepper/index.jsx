@@ -2,6 +2,7 @@ import React from "react";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
+import { scroller } from "react-scroll";
 
 import Typography from "@material-ui/core/Typography";
 
@@ -12,14 +13,29 @@ export default function MUI_Stepper({ posts, more, related }) {
   return <VerticalLinearStepper posts={posts} more={more} related={related} />;
 }
 
+const names = [
+  "story-1",
+  "story-2",
+  "story-3",
+  "story-4",
+  "story-5",
+  "story-6",
+];
+
 function VerticalLinearStepper({ posts, more, related }) {
   const classes = useStyles();
 
   const [activeStep, setActiveStep] = React.useState(0);
   const [activeStepRelated, setActiveStepRelated] = React.useState(null);
-  React.useEffect(() => {
-    console.log(posts[0]);
-  });
+
+  const scrollToStory = (index) => {
+    scroller.scrollTo(names[index], {
+      containerId: "story-scroll-cntr",
+      smooth: true,
+      duration: 1000,
+    });
+    setActiveStep(index);
+  };
 
   return (
     <div className={classes.root}>
@@ -44,12 +60,12 @@ function VerticalLinearStepper({ posts, more, related }) {
                     post.map((label, index) => (
                       <Step key={index}>
                         <StepLabel
-                          className={classes.stepperLabel}
                           onClick={() =>
                             key === 0
-                              ? setActiveStep(index)
+                              ? scrollToStory(index)
                               : setActiveStepRelated(index)
                           }
+                          classes={{ label: classes.stepperLabel }}
                         >
                           {label.title}
                         </StepLabel>

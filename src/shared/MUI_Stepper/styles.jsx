@@ -20,6 +20,10 @@ export const useStyles = makeStyles((theme) => ({
   stepperLabel: {
     "&:hover": {
       cursor: "pointer",
+      color: "#5383ff",
+      opacity: 1,
+
+      fontWeight: "500",
     },
   },
   morePostContainer: {

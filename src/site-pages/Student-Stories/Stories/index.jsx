@@ -1,7 +1,7 @@
 import { Grid, Hidden, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
-import { Sticky, StickyContainer } from "react-sticky";
+import { Element } from "react-scroll";
 
 import { get_content } from "../../../shared/Http";
 import VerticalStepper from "../../../shared/MUI_Stepper";
@@ -14,8 +14,6 @@ export default function Stories({ stories, index }) {
   const [content, setContent] = React.useState({});
   const [relatedPosts, setRelatedPosts] = React.useState([]);
   const [morePosts, setMorePosts] = React.useState([]);
-
-  console.log(index);
 
   React.useEffect(() => {
     const CMS_ENDPOINT = "student-stories?_sort=id:ASC";
@@ -33,6 +31,15 @@ export default function Stories({ stories, index }) {
       .then(() => console.log(morePosts));
     // eslint-disable-next-line
   }, []);
+
+  const names = [
+    "story-1",
+    "story-2",
+    "story-3",
+    "story-4",
+    "story-5",
+    "story-6",
+  ];
 
   return (
     <Grid
@@ -65,12 +72,19 @@ export default function Stories({ stories, index }) {
         xs={12}
         sm={7}
         xl={7}
+        id="story-scroll-cntr"
       >
         {content[0] &&
           content.slice(index * 3, index * 3 + 3).map((story, index2) => {
             return (
               <div key={index2}>
-                <Story title={story.title} description={story.description} />
+                <Element name={names[index2]}>
+                  <Story
+                    scrollName={names[index2] ? names[index2] : ""}
+                    title={story.title}
+                    description={story.description}
+                  />
+                </Element>
               </div>
             );
           })}
@@ -84,8 +98,8 @@ export default function Stories({ stories, index }) {
           sm={5}
         >
           <VerticalStepper
-            more="Post on this page"
-            related="Related posts"
+            more="Stories on this page"
+            related="Related Stories"
             posts={content[index] ? [morePosts, relatedPosts] : []}
           />
         </Grid>
