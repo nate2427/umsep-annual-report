@@ -84,10 +84,14 @@ export default function StudentStories() {
           ></div>
         </Grid>
         {/* main content */}
-        <Grid container justify="center" className={classes.mainContainer}>
+        <Grid
+          container
+          justify="center"
+          className={clsx([classes.mainContainer, "element-boundary"])}
+        >
           <Stories
             stories={content.data && content.data.student_story_pages}
-            index={0}
+            index={page === "virtual-boot-camps" ? 0 : 1}
           />
         </Grid>
       </Grid>

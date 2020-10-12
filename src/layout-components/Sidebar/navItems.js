@@ -94,26 +94,12 @@ export default [
       {
         "label": "Virtual Boot Camps",
         "description": "Wide selection of cards with multiple styles, borders, actions and hover effects.",
-        "to": "/student-stories/virtual-boot-camps",
-        "content": [
-          {
-            "label": "Landing page",
-            "description": "",
-            "to": "/student-stories/virtual-boot-camps/#yamani"
-          }
-        ]
+         "to": "/student-stories/virtual-boot-camps"
       },
       {
-        "label": "Health Equity Res...",
+        "label": "Health Equity",
         "description": "Wide selection of cards with multiple styles, borders, actions and hover effects.",
-        "to": "/student-stories/health-equity-research-certificate",
-        "content": [
-          {
-            "label": "Landing page",
-            "description": "",
-            "to": "/student-stories/health-equity-research-certificate/#yamani"
-          }
-        ]
+        "to": "/student-stories/health-equity"
       }
     ]
   },

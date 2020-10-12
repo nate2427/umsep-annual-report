@@ -19,27 +19,16 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     fontSize: "1.5rem",
     paddingTop: "3rem",
-    paddingBottom: "7rem",
     lineHeight: "4rem",
     fontFamily: "Merriweather sans, sans-serif",
     [theme.breakpoints.down("lg")]: {
-      fontSize: "1.2rem",
+      fontSize: "1rem",
       paddingTop: "3rem",
-      lineHeight: "srem",
+      lineHeight: "2rem",
     },
   },
   storiesContainer: {
-    height: "100vh",
-    overflowY: "scroll",
-    "&::-webkit-scrollbar": {
-      display: "none",
-    },
-    [theme.breakpoints.down("xs")]: {
-      height: "auto",
-    },
-    [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
-      height: "300vh",
-    },
+    padding: "5rem 0",
   },
   storyContainer: {
     padding: "2rem 0",
@@ -77,5 +66,4 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: "#00274C",
     },
   },
-  stepperContainer: {},
 }));

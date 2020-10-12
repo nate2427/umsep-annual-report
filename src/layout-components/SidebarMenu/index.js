@@ -70,7 +70,7 @@ const reduceChildRoutes = (props) => {
         open={Boolean(open)}
         title={page.label}
       >
-        <div className="sidebar-menu-children py-2">
+        <div className={`sidebar-menu-children py-${depth}`}>
           <SidebarMenuList
             depth={depth + 1}
             pages={page.content}

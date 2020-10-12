@@ -22,7 +22,8 @@ body {
     z-index: 60;
     position: static;
     width: $sidebar-width;
-    transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    background-color: transparent;
+    transition: all 0.5s ease-in-out;
   }
 
   .app-sidebar-wrapper-fixed {
@@ -32,5 +33,16 @@ body {
   .app-sidebar-logo {
     width: 32px;
     height: 32px;
+  }
+}
+
+@media (max-device-width: 700px) {
+  body {
+    .app-sidebar-wrapper {
+      width: 300px;
+    }
+    .app-sidebar-wrapper-lg {
+      width: 300px;
+    }
   }
 }

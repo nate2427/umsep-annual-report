@@ -15,7 +15,7 @@ export default function MUI_Stepper({ posts, more, related }) {
 function VerticalLinearStepper({ posts, more, related }) {
   const classes = useStyles();
 
-  const [activeStep, setActiveStep] = React.useState(null);
+  const [activeStep, setActiveStep] = React.useState(0);
   const [activeStepRelated, setActiveStepRelated] = React.useState(null);
   React.useEffect(() => {
     console.log(posts[0]);

@@ -6,4 +6,9 @@ export const useStyles = makeStyles((theme) => ({
     height: "1.5em",
     color: "#fff",
   },
+  drawer: {
+    [theme.breakpoints.down("sm")]: {
+      width: "18.75rem !important",
+    },
+  },
 }));

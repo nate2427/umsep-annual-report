@@ -63,9 +63,9 @@ const Sidebar = (props) => {
           open={sidebarToggleMobile}
           onClose={closeDrawer}
           variant="temporary"
-          elevation={4}
-          transitionDuration={700}
-          className="app-sidebar-wrapper"
+          elevation={0}
+          transitionDuration={400}
+          className={clsx(["app-sidebar-wrapper", classes.drawer])}
         >
           <SidebarHeader />
 
