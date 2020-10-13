@@ -119,10 +119,6 @@ export default [
   {
     "label": "Interns",
     "to": "/interns"
-  },
-  {
-    "label": "Highlights",
-    "to": "/highlights"
   }
 ]`,
       (key, value) => {
