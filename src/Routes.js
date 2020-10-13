@@ -12,6 +12,7 @@ import { LeftSidebar } from "./layout-blueprints";
 
 const ListGroups = lazy(() => import("./example-pages/ListGroups"));
 const Home = lazy(() => import("./site-pages/Home/"));
+const StrategicPlan = lazy(() => import("./site-pages/Strategic-Plan/"));
 const ProgramIntroduction = lazy(() =>
   import("./site-pages/About/Program-Introduction")
 );
@@ -112,11 +113,11 @@ const Routes = () => {
                       path="/student-stories/:page/"
                       component={StudentStories}
                     />
-                    <Route path="/strategic-plan" component={ListGroups} />
                     <Route path="/preceptors" component={ListGroups} />
                     <Route path="/interns" component={ListGroups} />
                     <Route path="/highlights" component={ListGroups} />
                     <Route path="/home" component={Home} />
+                    <Route path="/strategic-plan" component={StrategicPlan} />
                   </motion.div>
                 </Switch>
               </LeftSidebar>

@@ -24,7 +24,6 @@ export default function ActivitiesCard({
   img = pic;
 
   const [ref, inView] = useInView({ threshold: 1 });
-  console.log(mobile, mobileLeft, left);
   React.useEffect(() => {
     gsap.to(cardRef.current, {
       x: left ? -300 : 300,
