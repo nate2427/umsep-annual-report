@@ -113,8 +113,13 @@ export const useStyles = makeStyles((theme) => ({
   description: {
     color: "#2F65A7",
     fontSize: "1.1rem",
+
     [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
       fontSize: ".9rem",
+    },
+    fontFamily: "Merriweather sans, sans-serif",
+    [theme.breakpoints.up("lg")]: {
+      lineHeight: "2rem",
     },
   },
   paperContainer: {

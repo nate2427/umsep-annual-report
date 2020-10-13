@@ -49,9 +49,9 @@ export default function StrategicPlan() {
     });
 
     gsap.from(descriptionRef.current, {
-      x: 600,
+      x: 1000,
       duration: 1,
-      delay: 1.3,
+      delay: 0.1,
       ease: "expo.easeInOut",
     });
 
