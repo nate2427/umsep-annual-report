@@ -1,10 +1,4 @@
-import {
-  Grid,
-  Hidden,
-  Paper,
-  Typography,
-  useMediaQuery,
-} from "@material-ui/core";
+import { Grid, Paper, Typography, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 
 import clsx from "clsx";
