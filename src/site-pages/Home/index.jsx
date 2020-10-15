@@ -115,7 +115,7 @@ export default function Home() {
                   variant="contained"
                   TouchRippleProps={{ classes: classes.rippleVisible }}
                   className={clsx([classes.exploreButton, classes.text, "m-2"])}
-                  onClick={() => router.push("/about/program-overview")}
+                  onClick={() => router.push("/about/program-introduction")}
                 >
                   Let's Explore
                   <div

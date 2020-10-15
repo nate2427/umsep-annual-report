@@ -12,9 +12,6 @@ export const useStyles = makeStyles((theme) => ({
   heroOuterContainer: {
     height: "100vh",
     overflow: "hidden",
-    [theme.breakpoints.down("sm")]: {
-      height: "auto",
-    },
   },
   heroContainer: {
     paddingTop: "2rem",
@@ -30,7 +27,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       // height: "100vh",
-      height: "43vh",
+      backgroundSize: "140%",
     },
     [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
       height: "120vh",
@@ -38,28 +35,5 @@ export const useStyles = makeStyles((theme) => ({
   },
   yearCard: {
     width: "100%",
-    backgroundColor: "#00274C",
-  },
-  year: {
-    width: "100%",
-  },
-  mainContainer: {
-    padding: "2rem 0",
-  },
-  descriptionContainer: {
-    paddingBottom: "4rem",
-
-    [theme.breakpoints.up("xl")]: {
-      paddingBottom: "6rem",
-    },
-  },
-  description: {
-    fontSize: "1rem",
-    textAlign: "justify",
-    lineHeight: "2rem",
-    [theme.breakpoints.up("xl")]: {
-      fontSize: "1.5rem",
-      lineHeight: "3rem",
-    },
   },
 }));

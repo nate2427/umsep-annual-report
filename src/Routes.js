@@ -12,7 +12,8 @@ import { LeftSidebar } from "./layout-blueprints";
 
 const ListGroups = lazy(() => import("./example-pages/ListGroups"));
 const Home = lazy(() => import("./site-pages/Home/"));
-const Preceptors = lazy(() => import("./site-pages/Preceptors/"));
+const Preceptors = lazy(() => import("./site-pages/Preceptors"));
+const Interns = lazy(() => import("./site-pages/Interns"));
 const StrategicPlan = lazy(() => import("./site-pages/Strategic-Plan/"));
 const ProgramIntroduction = lazy(() =>
   import("./site-pages/About/Program-Introduction")
@@ -115,7 +116,7 @@ const Routes = () => {
                       component={StudentStories}
                     />
                     <Route path="/preceptors" component={Preceptors} />
-                    <Route path="/interns" component={ListGroups} />
+                    <Route path="/interns" component={Interns} />
                     <Route path="/home" component={Home} />
                     <Route path="/strategic-plan" component={StrategicPlan} />
                   </motion.div>
