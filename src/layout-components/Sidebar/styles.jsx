@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   drawer: {
     [theme.breakpoints.down("sm")]: {
-      width: "18.75rem !important",
+      width: "16.75rem !important",
     },
   },
 }));
