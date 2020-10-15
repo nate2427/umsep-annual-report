@@ -1,7 +1,7 @@
 import { Button, Grid, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Divider from "@material-ui/core/Divider";
 import { Power3, TimelineLite } from "gsap";
 
@@ -19,7 +19,7 @@ export default function ProgramIntroduction() {
   let bottomParagraph = React.useRef(null);
 
   const tl = new TimelineLite();
-  // const router = useHistory();
+  const router = useHistory();
 
   // get the content from the CMS
   React.useEffect(() => {
@@ -126,7 +126,7 @@ export default function ProgramIntroduction() {
                 align="center"
                 variant="h2"
               >
-                Explore
+                Learn More
               </Typography>
             </Grid>
             <Grid container item justify="space-between" lg={8}>
@@ -135,8 +135,9 @@ export default function ProgramIntroduction() {
                   className={classes.introButton}
                   fullWidth
                   variant="contained"
+                  onClick={() => router.push("/about/program-overview")}
                 >
-                  Student stories
+                  Program Overview
                 </Button>
               </Grid>
               <Grid container className={classes.introButtonContainer}>
@@ -144,8 +145,9 @@ export default function ProgramIntroduction() {
                   className={clsx([classes.introButton, classes.introButton2])}
                   fullWidth
                   variant="contained"
+                  onClick={() => router.push("/about/history")}
                 >
-                  Activities Overview
+                  Program History
                 </Button>
               </Grid>
             </Grid>
