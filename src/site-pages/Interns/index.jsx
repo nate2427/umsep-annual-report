@@ -54,7 +54,7 @@ export default function Interns() {
           <Grid container item xs={11} xl={9}>
             {content &&
               content.years
-                .reverse()
+                .sort((a, b) => a.year < b.year ? -1 : 1)
                 .map((year, key) => (
                   <InternYear
                     key={key}
@@ -108,7 +108,7 @@ const InternYear = ({ year, where, interns, schools }) => {
             >
               Interns
             </Typography>
-            {interns.map((intern, key) => (
+            {interns.sort((a, b) => a.name.split(" ")[1] < b.name.split(" ")[1] ? -1 : 1).map((intern, key) => (
               <Typography key={key} className={classes.intern} variant="body1">
                 {intern.name}
               </Typography>
@@ -131,7 +131,7 @@ const InternYear = ({ year, where, interns, schools }) => {
             >
               Undergraduate Institutions
             </Typography>
-            {schools.map((school, key) => (
+            {schools.sort((a, b) => a.school < b.school ? -1 : 1).map((school, key) => (
               <Typography key={key} className={classes.intern} variant="body1">
                 {school.school}
               </Typography>
@@ -157,7 +157,7 @@ const InternYear = ({ year, where, interns, schools }) => {
                 <Typography className={classes.industryTitle} variant="body1">
                   Health Industry Occupations:
                 </Typography>
-                {where.student_healths.map((industry, key) => (
+                {where.student_healths.sort((a, b) => a.industry < b.industry ? -1 : 1).map((industry, key) => (
                   <Typography
                     key={key}
                     className={classes.industry}
@@ -173,7 +173,7 @@ const InternYear = ({ year, where, interns, schools }) => {
                 <Typography className={classes.industryTitle} variant="body1">
                   Other Industries:
                 </Typography>
-                {where.other_industries.map((industry, key) => (
+                {where.other_industries.sort((a, b) => a.industry < b.industry ? -1 : 1).map((industry, key) => (
                   <Typography
                     key={key}
                     className={classes.industry}
@@ -189,7 +189,7 @@ const InternYear = ({ year, where, interns, schools }) => {
                 <Typography className={classes.industryTitle} variant="body1">
                   Public Health Graduate Education:
                 </Typography>
-                {where.public_healths.map((industry, key) => (
+                {where.public_healths.sort((a, b) => a.school < b.school ? -1 : 1).map((industry, key) => (
                   <Typography
                     key={key}
                     className={classes.industry}
@@ -205,7 +205,7 @@ const InternYear = ({ year, where, interns, schools }) => {
                 <Typography className={classes.industryTitle} variant="body1">
                   Other Graduate Education:
                 </Typography>
-                {where.other_grads.map((industry, key) => (
+                {where.other_grads.sort((a, b) => a.industry < b.industry ? -1 : 1).map((industry, key) => (
                   <Typography
                     key={key}
                     className={classes.industry}

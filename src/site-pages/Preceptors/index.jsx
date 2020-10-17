@@ -51,7 +51,7 @@ export default function Preceptors() {
           <Grid container item xs={11} xl={9}>
             {content &&
               content.years
-                .reverse()
+                .sort((a, b) => a.year < b.year ? -1 : 1)
                 .map((year, key) => (
                   <PreceptorYear
                     key={key}
@@ -92,7 +92,7 @@ const PreceptorYear = ({ year, names }) => {
         <Paper className={classes.yearCard} elevation={10}>
           <Grid container justify="center">
             {names &&
-              names.map((name) => (
+              names.sort((a, b) => a.hospitals < b.hospitals ? -1 : 1).map((name) => (
                 <Grid
                   style={{ padding: "2rem" }}
                   container
