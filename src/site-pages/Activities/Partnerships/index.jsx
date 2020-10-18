@@ -33,19 +33,20 @@ export default function Partnerships() {
         />
         <Grid container className={classes.mainContentContainer}>
           {/* hero content */}
-          <Grid container>
-            <Grid container>
+          <Grid container justify='center'>
+            <Grid container item xl={12}>
               <Hidden lgUp>
-                <Grid container justify="center" xs={12} item lg={6}>
+                <Grid container  justify="center" xs={12} item lg={6}>
                   <Grid
                     container
                     className={classes.heroImgContainer}
                     item
+                    alignItems='stretch'
                     md={10}
                     xs={10}
                   >
                     <img
-                      src={pic}
+                      src={content.data ? content.data.heroImgUrl : ""}
                       className={classes.heroImg}
                       alt={"activities"}
                     />
@@ -59,7 +60,7 @@ export default function Partnerships() {
                 </Typography>
               </Grid>
               <Hidden mdDown>
-                <Grid container justify="center" xs={12} item lg={6}>
+                <Grid container  justify="center" xs={12} item lg={6}>
                   <Grid
                     container
                     className={classes.heroImgContainer}
@@ -68,7 +69,7 @@ export default function Partnerships() {
                     xs={10}
                   >
                     <img
-                      src={pic}
+                      src={content.data ? content.data.heroImgUrl : ""}
                       className={classes.heroImg}
                       alt={"activities"}
                     />
@@ -115,6 +116,7 @@ export default function Partnerships() {
                       title={site.title}
                       description={site.description}
                       preceptorButtonText={content.data.preceptorButtonText}
+                      image={site.imgUrl}
                     />
                   ))}
               </Grid>
@@ -128,7 +130,7 @@ export default function Partnerships() {
                   <img
                     className={classes.backgroundImg}
                     alt="precpetors"
-                    src={preceptors}
+                    src={content.data ? content.data.preceptorImageUrl : '/#'}
                   />
                 </Grid>
                 <Grid

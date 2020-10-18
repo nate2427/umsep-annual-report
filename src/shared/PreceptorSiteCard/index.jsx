@@ -15,12 +15,14 @@ export default function Partnerships({
   description,
   preceptorButtonText,
   delay,
+  image
 }) {
   const classes = useStyles();
   const [showMore, setShowMore] = React.useState(false);
   let cardRef = React.useRef(null);
   const [ref, inView] = useInView({ threshold: 1 });
   const [hasAnimated, setHasAnimated] = React.useState(false);
+
 
   React.useEffect(() => {
     gsap.to(cardRef.current, {
@@ -63,7 +65,7 @@ export default function Partnerships({
     >
       <motion.div ref={cardRef} style={{ width: "fit-content" }}>
         <Card className="mb-4">
-          <img alt="..." className="card-img-top" src={pic} />
+          <img alt="..." className="card-img-top" src={image} />
           <CardContent
             className={clsx([
               "p-3",

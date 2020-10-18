@@ -12,9 +12,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   heroContainer: {
     background: `url("${background}")`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    height: "90vh",
+    backgroundRepeat: "no-repeat !important",
+    backgroundSize: "cover !important",
+    height: "90vh !important",
     overflow: "hidden",
     paddingTop: "2rem",
     [theme.breakpoints.up("sm")]: {

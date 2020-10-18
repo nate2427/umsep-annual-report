@@ -46,7 +46,7 @@ export default function reducer(
   state = {
     // Sidebar
 
-    sidebarShadow: true,
+    sidebarShadow: false,
     sidebarFixed: true,
     sidebarToggleMobile: false,
     // Header

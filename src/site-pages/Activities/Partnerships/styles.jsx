@@ -35,14 +35,17 @@ export const useStyles = makeStyles((theme) => ({
     height: "auto",
     boxShadow: "0rem 0rem 1rem black",
     borderRadius: ".4rem",
-    [theme.breakpoints.down("md")]: {
+    
+  },
+  heroImgContainer: {
+    height: '26.125rem',
+[theme.breakpoints.down("md")]: {
       height: "38rem",
     },
     [theme.breakpoints.down("xs")]: {
       height: "23rem",
     },
   },
-  heroImgContainer: {},
   mainContentContainer: {
     paddingTop: "5rem",
   },

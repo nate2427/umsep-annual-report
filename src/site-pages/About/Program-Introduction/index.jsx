@@ -8,7 +8,6 @@ import { Power3, TimelineLite } from "gsap";
 import { useStyles } from "./styles";
 import Title from "../../../shared/TitleComponent";
 import { get_content } from "../../../shared/Http";
-import Spinner from "../../../assets/Spinner@2x.png";
 
 export default function ProgramIntroduction() {
   const classes = useStyles();
@@ -26,6 +25,7 @@ export default function ProgramIntroduction() {
     const CMS_ENDPOINT = "umsep-program-introduction";
     get_content(CMS_ENDPOINT).then((data) => {
       setContent(data);
+      console.log(data)
     });
   }, []);
 
@@ -48,7 +48,6 @@ export default function ProgramIntroduction() {
     // eslint-disable-next-line
   }, []);
 
-  console.log(Spinner);
 
   return (
     <Grid className={classes.container}>
@@ -62,7 +61,7 @@ export default function ProgramIntroduction() {
           subtitle={content.data ? content.data.pageSubtitle : ""}
         />
         <Grid container className={classes.heroTrio}>
-          <Grid container justify="center" item lg={4}>
+          <Grid container justify="center" item xs={12}>
             <Typography
               variant="body1"
               className={classes.spinnerTextTop}
@@ -77,18 +76,19 @@ export default function ProgramIntroduction() {
             container
             className={classes.imgContainer}
             item
-            lg={4}
+            xs={12}
             justify="center"
             alignItems="center"
           >
             <img
               ref={(el) => (imgRef = el)}
               className={classes.img}
-              src={Spinner}
+              src={content.data
+                ? content.data.imgUrl : '/#'}
               alt={"spinner"}
             />
           </Grid>
-          <Grid container item lg={4} alignContent="flex-end">
+          <Grid container item xs={12} alignContent="flex-end">
             <Typography
               variant="body1"
               className={classes.spinnerTextBottom}

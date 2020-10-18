@@ -18,20 +18,20 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: "justify",
     textJustify: "inter-word",
     letterSpacing: "0.8px",
-    fontSize: "1rem",
-    lineHeight: "2rem",
+    fontSize: "1.2rem",
+    lineHeight: "2.5rem",
     [theme.breakpoints.down("md")]: {
       padding: "0rem 2rem 0 2rem",
     },
   },
   spinnerTextBottom: {
     color: "#fff",
-    padding: "20rem 2rem 0 2rem",
+    padding: "0rem 2rem 0 2rem",
     textAlign: "justify",
     textJustify: "inter-word",
     letterSpacing: "0.8px",
-    fontSize: "1rem",
-    lineHeight: "2rem",
+    fontSize: "1.2rem",
+    lineHeight: "2.5rem",
     [theme.breakpoints.down("md")]: {
       padding: "0rem 2rem 0 2rem",
     },
@@ -53,6 +53,7 @@ export const useStyles = makeStyles((theme) => ({
   heroTrio: {
     minHeight: "80vh",
     padding: "2rem 0",
+    paddingRight: '3rem'
   },
   divider: {
     width: "100%",

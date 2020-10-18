@@ -79,7 +79,7 @@ export default function Home() {
               variant="h2"
               className={clsx([classes.universityName, classes.text])}
             >
-              Unviersity Of Michigan
+              University Of Michigan
             </Typography>
           </Grid>
         </Grid>

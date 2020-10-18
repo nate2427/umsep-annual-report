@@ -4,7 +4,6 @@ import React from "react";
 import { get_content } from "../../../shared/Http";
 import Title from "../../../shared/TitleComponent";
 import ActivitiesCard from "../../../shared/ActivitiesCard";
-import pic from "../../../assets/StudentStories-UCLACaseCompetitionTeam2020.jpg";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 
@@ -14,13 +13,13 @@ export default function Home() {
   const classes = useStyles();
   const [content, setContent] = React.useState({});
   const theme = useTheme();
-  const screenSizeMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const screenSizeMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   React.useEffect(() => {
     const CMS_ENDPOINT = "umsep-activities-overview";
     get_content(CMS_ENDPOINT).then((data) => {
       setContent(data);
-      console.log(data);
+      console.log(data)
     });
   }, []);
 
@@ -45,7 +44,7 @@ export default function Home() {
                   xs={10}
                 >
                   <img
-                    src={pic}
+                    src={content.data ? content.data.heroBgImg : ""}
                     className={classes.heroImg}
                     alt={"activities"}
                   />
@@ -81,7 +80,10 @@ export default function Home() {
               justify="center"
             >
               {content.data &&
-                content.data.activities.map((activity, key) => (
+                content.data.activities.map((activity, key) =>
+
+                {
+                return (
                   <Grid
                     key={key}
                     className={classes.cardContainer}
@@ -94,13 +96,16 @@ export default function Home() {
                       key={key}
                       title={activity.title}
                       description={activity.description}
-                      imgUrl={activity.imgUrl}
+                      img={activity.imgUrl ? activity.imgUrl : '/#'}
                       left={key % 2 === 0 ? false : true}
                       mobile={screenSizeMobile}
                       mobileLeft={key % 2 === 0 ? false : true}
                     />
                   </Grid>
-                ))}
+                )
+                }
+                
+                )}
             </Grid>
           </Grid>
         </Grid>

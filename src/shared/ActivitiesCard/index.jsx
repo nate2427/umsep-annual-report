@@ -7,7 +7,6 @@ import React from "react";
 
 import { useStyles } from "./styles";
 
-import pic from "../../assets/StudentStories-UCLACaseCompetitionTeam2020.jpg";
 import { useInView } from "react-intersection-observer";
 
 export default function ActivitiesCard({
@@ -16,13 +15,10 @@ export default function ActivitiesCard({
   img,
   left,
   mobile,
-  mobileLeft,
 }) {
   const classes = useStyles();
   let cardRef = React.useRef(null);
   const [hasAnimated, setHasAnimated] = React.useState(false);
-  img = pic;
-
   const [ref, inView] = useInView({ threshold: 1 });
   React.useEffect(() => {
     gsap.to(cardRef.current, {
@@ -34,6 +30,7 @@ export default function ActivitiesCard({
     });
     // eslint-disable-next-line
   }, []);
+
 
   const slideIn = () => {
     !hasAnimated &&
@@ -55,11 +52,11 @@ export default function ActivitiesCard({
     <div ref={ref}>
       <motion.div ref={cardRef}>
         <Card className={classes.root}>
-          {left && (
+          {(left || mobile) && (
             <CardMedia
               className={classes.cover}
-              image={img}
-              title="Live from space album cover"
+              image={img ? img : '/#'}
+              
             />
           )}
 
@@ -75,10 +72,10 @@ export default function ActivitiesCard({
               </Typography>
             </div>
           </div>
-          {!left && (
+          {!left && !mobile && (
             <CardMedia
               className={classes.cover}
-              image={img}
+              image={img ? img : '/#'}
               title="Live from space album cover"
             />
           )}

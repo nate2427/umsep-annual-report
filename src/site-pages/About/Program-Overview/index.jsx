@@ -6,7 +6,6 @@ import ReactCardFlip from "react-card-flip";
 
 import { useStyles } from "./styles";
 import { get_content } from "../../../shared/Http";
-import Spinner from "../../../assets/Spinner@2x.png";
 import clsx from "clsx";
 
 export default function ProgramIntroduction() {
@@ -22,13 +21,14 @@ export default function ProgramIntroduction() {
     });
   }, []);
 
-  console.log(Spinner);
 
   return (
     <Grid className={classes.container}>
       <Grid container className={classes.innerContainer}>
         {/* hero container */}
-        <Grid container className={classes.heroContainer}>
+        <Grid container style={{background: content && `url(${content.bgImgUrl})`, backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    }} className={classes.heroContainer}>
           <Title
             title={content ? content.title_subtitle.title : ""}
             subtitle={content ? content.title_subtitle.subtitle : ""}
