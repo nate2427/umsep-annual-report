@@ -45,7 +45,7 @@ export default [
       `[
   {
     "label": "Home",
-    "to": "/home"
+    "to": "/"
   },
   {
     "label": "About",
