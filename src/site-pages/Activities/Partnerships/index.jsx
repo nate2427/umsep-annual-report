@@ -6,10 +6,6 @@ import { useStyles } from "./styles";
 import { get_content } from "../../../shared/Http";
 import Title from "../../../shared/TitleComponent";
 import PreceptorSiteCard from "../../../shared/PreceptorSiteCard";
-import preceptors from "../../../assets/Preceptors-1804@2x.png";
-
-import pic from "../../../assets/StudentStories-UCLACaseCompetitionTeam2020.jpg";
-// import clsx from "clsx";
 
 export default function Partnerships() {
   const classes = useStyles();

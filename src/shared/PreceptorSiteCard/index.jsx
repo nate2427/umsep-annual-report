@@ -4,7 +4,6 @@ import React from "react";
 
 import { useStyles } from "./styles";
 
-import pic from "../../assets/StudentStories-UCLACaseCompetitionTeam2020.jpg";
 import clsx from "clsx";
 import gsap from "gsap";
 import { motion } from "framer-motion";
