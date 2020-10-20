@@ -14,15 +14,12 @@ export const useStyles = makeStyles((theme) => ({
   },
   spinnerTextTop: {
     color: "#fff",
-    padding: "0rem 0rem 0 2rem",
+    padding: "0rem 2rem 0 2rem",
     textAlign: "justify",
     textJustify: "inter-word",
     letterSpacing: "0.8px",
     fontSize: "1.2rem",
     lineHeight: "2.5rem",
-    [theme.breakpoints.down("md")]: {
-      padding: "0rem 2rem 0 2rem",
-    },
   },
   spinnerTextBottom: {
     color: "#fff",
@@ -49,11 +46,15 @@ export const useStyles = makeStyles((theme) => ({
       height: "20.21875rem",
       width: "24.4403125rem",
     },
+    [theme.breakpoints.down("xs")]: {
+      height: "16.175rem",
+      width: "19.55225rem",
+    },
   },
   heroTrio: {
     minHeight: "80vh",
     padding: "2rem 0",
-    paddingRight: '3rem'
+    
   },
   divider: {
     width: "100%",

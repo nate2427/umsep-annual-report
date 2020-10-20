@@ -17,12 +17,18 @@ export const useStyles = makeStyles((theme) => ({
     fontFamily: "Merriweather, san-serif",
     fontWeight: "bold",
     lineHeight: "2.5rem",
+    
   },
   pageSubTitle: {
     width: "100%",
     fontSize: "1rem",
     fontFamily: "Merriweather, san-serif",
     fontWeight: "bold",
+    [theme.breakpoints.down('xs')]: {
+      paddingRight: '1rem',
+          fontSize: ".8rem",
+
+    }
   },
   blueBorder: { borderLeftColor: "#00274c" },
   fontColorBlue: {
