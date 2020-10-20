@@ -6,6 +6,8 @@ import Routes from "./Routes";
 import ScrollToTop from "./utils/ScrollToTop";
 import "./assets/base.scss";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { gsap } from 'gsap'
+import { CSSPlugin } from 'gsap/CSSPlugin'
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -253,9 +255,14 @@ library.add(
   faLink
 );
 
+// Force CSSPlugin to not get dropped during build
+gsap.registerPlugin(CSSPlugin)
+
+
 const store = configureStore();
 
 class App extends Component {
+  
   render() {
     return (
       <Provider store={store}>

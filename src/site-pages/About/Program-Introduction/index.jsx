@@ -37,7 +37,7 @@ export default function ProgramIntroduction() {
       ease: Power3.easeInOut,
       duration: 1.4,
       opacity: "0",
-      delay: 1
+      // delay: 1
     });
     tl.from([topParagraph, bottomParagraph], {
       opacity: 0,
