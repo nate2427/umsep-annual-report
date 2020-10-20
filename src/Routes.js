@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Switch, Route, useLocation, useHistory, Redirect } from "react-router-dom";
+import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { ThemeProvider } from "@material-ui/styles";
