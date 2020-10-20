@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-import preceptors from "../../assets/General-2019-SEP-GroupCasual.jpg";
+import preceptors from "../../assets/general_2019_sep_gro_QjmSO.jpg";
 
 export const useStyles = makeStyles((theme) => ({
   container: {

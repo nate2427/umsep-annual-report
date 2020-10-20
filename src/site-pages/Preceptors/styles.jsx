@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-import preceptors from "../../assets/preceptor_doctor.png";
+import preceptors from "../../assets/preceptor_doctor.jpg";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
