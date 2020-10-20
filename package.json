@@ -2,7 +2,7 @@
   "name": "umsep-annual-report",
   "version": "1.0.0",
   "title": "UMSEP Annual Report",
-  "homepage": "./public/index.html",
+  "homepage": "/",
   "description": "This free React admin template is powered by Material-UI components framework and features a clean and fresh design following Google&#39;s Material Design specifications.",
   "author": {
     "name": "Nate Baker",
