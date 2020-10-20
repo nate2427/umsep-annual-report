@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Switch, Route, useLocation, useHistory } from "react-router-dom";
+import { Switch, Route, useLocation, useHistory, Redirect } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { ThemeProvider } from "@material-ui/styles";
@@ -120,7 +120,8 @@ const Routes = () => {
                     <Route path="/interns" component={Interns} />
 
                     <Route path="/strategic-plan" component={StrategicPlan} />
-                    <Route path="/*">
+                     
+                    <Route path='/page-not-found'>
                       <Grid container justify='center' alignItems='center' style={{height: '90vh'}}>
                         <Grid container justify='center' item xs={10}  >
                           <Typography align='center' style={{width: '100%', fontFamily: 'Merriweather, Merriweather sans', fontSize: '4rem', lineHeight: '6rem', fontWeight:'bold', paddingBottom: '2rem'}} variant='h1'>Page Not Found</Typography>
@@ -131,6 +132,7 @@ const Routes = () => {
                         </Grid>
                       </Grid>
                     </Route>
+                    {/* <Route render={() => <Redirect to="/page-not-found" />} /> */}
                   </motion.div>
                 </Switch>
               </LeftSidebar>
