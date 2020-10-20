@@ -31,7 +31,7 @@ const SidebarHeader = (props) => {
           className="header-logo-wrapper"
           title="Carolina React Admin Dashboard with Material-UI Free"
         >
-          <Link to="/home" className="header-logo-wrapper-link">
+          <Link to="/" className="header-logo-wrapper-link">
             <IconButton
               color="primary"
               size="medium"
