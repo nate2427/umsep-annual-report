@@ -75,7 +75,7 @@ const Routes = () => {
                 "/preceptors",
                 "/interns",
                 "/highlights",
-                "/home",
+                "/",
               ]}
             >
               <LeftSidebar>
@@ -87,6 +87,7 @@ const Routes = () => {
                     variants={pageVariants}
                     transition={pageTransition}
                   >
+                    <Route exact path="/" component={Home} />
                     <Route
                       path="/about/program-introduction"
                       component={ProgramIntroduction}
@@ -115,7 +116,7 @@ const Routes = () => {
                     />
                     <Route path="/preceptors" component={Preceptors} />
                     <Route path="/interns" component={Interns} />
-                    <Route path="/home" component={Home} />
+
                     <Route path="/strategic-plan" component={StrategicPlan} />
                   </motion.div>
                 </Switch>
