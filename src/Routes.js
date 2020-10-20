@@ -81,7 +81,7 @@ const Routes = () => {
               ]}
             >
               <LeftSidebar>
-                <Switch location={location} key={location.pathname}>
+                <Switch key={location.pathname}>
                   <motion.div
                     initial="initial"
                     animate="in"
