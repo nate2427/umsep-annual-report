@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Switch, Route, Redirect, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { ThemeProvider } from "@material-ui/styles";
@@ -9,6 +9,7 @@ import MuiTheme from "./theme";
 // Layout Blueprints
 
 import { LeftSidebar } from "./layout-blueprints";
+import { Button, Grid, Typography } from "@material-ui/core";
 
 const Home = lazy(() => import("./site-pages/Home/"));
 const Preceptors = lazy(() => import("./site-pages/Preceptors"));
@@ -31,6 +32,7 @@ const StudentStories = lazy(() => import("./site-pages/Student-Stories"));
 
 const Routes = () => {
   const location = useLocation();
+  const router = useHistory();
 
   const pageVariants = {
     initial: {
@@ -118,6 +120,17 @@ const Routes = () => {
                     <Route path="/interns" component={Interns} />
 
                     <Route path="/strategic-plan" component={StrategicPlan} />
+                    <Route path="/*">
+                      <Grid container justify='center' alignItems='center' style={{height: '90vh'}}>
+                        <Grid container justify='center' item xs={10}  >
+                          <Typography align='center' style={{width: '100%', fontFamily: 'Merriweather, Merriweather sans', fontSize: '4rem', lineHeight: '6rem', fontWeight:'bold', paddingBottom: '2rem'}} variant='h1'>Page Not Found</Typography>
+                          <Grid container item justify='center' md={6}>
+                            
+                          <Button onClick={() => router.push('/')} style={{padding: '1rem', backgroundColor: '#02274C', color: '#FFCB3D', fontSize: '1.2rem', textTransform: 'uppercase', fontWeight: 'bold'}} variant='contained' fullWidth> Back to site</Button>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Route>
                   </motion.div>
                 </Switch>
               </LeftSidebar>
