@@ -107,7 +107,7 @@ export const useStyles = makeStyles((theme) => ({
       height: "30rem",
     },
 
-    height: "20rem",
+    height: "25rem",
   },
   motionCard: {
     width: "100%",

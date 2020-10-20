@@ -152,6 +152,9 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "35rem",
     [theme.breakpoints.down("md")]: {
+      height: "25rem",
+    },
+    [theme.breakpoints.down("xs")]: {
       height: "20rem",
     },
   },
@@ -209,8 +212,13 @@ export const useStyles = makeStyles((theme) => ({
     // textJustify: "inter-word",
     lineHeight: "2rem",
     fontFamily: "Merriweather sans",
+    [theme.breakpoints.down("md")]: {
+      lineHeight: "2rem",
+      fontSize: '.9rem'
+    },
     [theme.breakpoints.down("xs")]: {
-      lineHeight: "1.5rem",
+      lineHeight: "2rem",
+      fontSize: '.8rem'
     },
   },
   bottomImg: {

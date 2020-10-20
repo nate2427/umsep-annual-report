@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { useStyles } from "./styles";
 import projectLogo from "../../assets/Webp.net-resizeimage.png";
 
+import {useHistory } from 'react-router';
 import { setSidebarToggleMobile } from "../../reducers/ThemeOptions";
 
 import MenuOpenRoundedIcon from "@material-ui/icons/MenuOpenRounded";
@@ -17,6 +18,7 @@ import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 
 const SidebarHeader = (props) => {
   const classes = useStyles();
+  const router = useHistory();
 
   const toggleSidebarMobile = () => {
     setSidebarToggleMobile(!sidebarToggleMobile);
@@ -31,7 +33,11 @@ const SidebarHeader = (props) => {
           className="header-logo-wrapper"
           title="Carolina React Admin Dashboard with Material-UI Free"
         >
-          <Link to="/" className="header-logo-wrapper-link">
+          <Link to="/" className="header-logo-wrapper-link" onClick={(e) => {
+            e.preventDefault();
+            setSidebarToggleMobile(!sidebarToggleMobile);
+            router.push('/')
+          }}>
             <IconButton
               color="primary"
               size="medium"

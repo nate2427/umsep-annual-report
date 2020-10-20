@@ -109,10 +109,12 @@ export const useStyles = makeStyles((theme) => ({
   },
   descriptionContainer: {
     padding: "2rem",
+
   },
   description: {
     color: "#2F65A7",
     fontSize: "1.1rem",
+
 
     [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
       fontSize: ".9rem",
@@ -121,6 +123,13 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("lg")]: {
       lineHeight: "2rem",
     },
+    
+    
+    [theme.breakpoints.down("md")]: {
+      lineHeight: "1.5rem",
+      fontSize: '.9rem'
+    },
+    
   },
   paperContainer: {
     paddingTop: "7rem",

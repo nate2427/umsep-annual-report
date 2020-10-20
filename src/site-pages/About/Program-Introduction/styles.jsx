@@ -19,7 +19,11 @@ export const useStyles = makeStyles((theme) => ({
     textJustify: "inter-word",
     letterSpacing: "0.8px",
     fontSize: "1.2rem",
-    lineHeight: "2.5rem",
+    lineHeight: "2.4rem",
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1rem',
+      lineHeight: '2.2rem'
+    }
   },
   spinnerTextBottom: {
     color: "#fff",
@@ -32,6 +36,10 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       padding: "0rem 2rem 0 2rem",
     },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1rem',
+      lineHeight: '2.2rem'
+    }
   },
   img: {
     [theme.breakpoints.up("lg")]: {
@@ -73,6 +81,10 @@ export const useStyles = makeStyles((theme) => ({
     lineHeight: "2.5rem",
     textAlign: "justify",
     textJustify: "inter-word",
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1rem',
+      lineHeight: '2.2rem'
+    }
   },
   belowParagraph2: {
     color: "#fff",
@@ -82,6 +94,10 @@ export const useStyles = makeStyles((theme) => ({
     lineHeight: "2.5rem",
     textAlign: "justify",
     textJustify: "inter-word",
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1rem',
+      lineHeight: '2.2rem'
+    }
   },
   exploreTitle: {
     width: "100%",

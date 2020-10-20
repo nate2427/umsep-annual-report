@@ -8,11 +8,13 @@ export const useStyles = makeStyles((theme) => ({
   title: {
     paddingBottom: "2rem",
     fontSize: "3rem",
+    lineHeight: '5rem',
     fontFamily: "Merriweather, Merriweather sans",
     borderBottom: "solid 0.0625rem #000",
     fontWeight: "bold",
     [theme.breakpoints.down("xs")]: {
       fontSize: "2rem",
+      lineHeight: '4rem'
     },
   },
   description: {

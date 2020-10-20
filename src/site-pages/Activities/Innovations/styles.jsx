@@ -45,6 +45,12 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: "1.5rem",
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "3rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.5rem",
+    },
   },
   titleBottom: {
     width: "fit-content",
@@ -55,6 +61,12 @@ export const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
     paddingTop: "1rem",
     [theme.breakpoints.down("md")]: {
+      fontSize: "1.5rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "3rem",
+    },
+    [theme.breakpoints.down("xs")]: {
       fontSize: "1.5rem",
     },
   },
