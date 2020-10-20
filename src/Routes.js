@@ -70,7 +70,7 @@ const Routes = () => {
           <Switch>
             <Route
               path={[
-                "/about",
+                "about",
                 "/activities",
                 "/student-stories",
                 "/strategic-plan",

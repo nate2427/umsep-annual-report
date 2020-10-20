@@ -4,5 +4,5 @@
   base = "."
 [[redirects]]
   from = "/*"
-  to = "https://laughing-wilson-b262bf.netlify.app/"
+  to = "/"
   status = 200
