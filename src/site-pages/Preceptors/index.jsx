@@ -52,13 +52,19 @@ export default function Preceptors() {
             {content &&
               content.years
                 .sort((a, b) => a.year < b.year ? -1 : 1)
-                .map((year, key) => (
+                .map((year, key) => 
+                
+                {
+                  return (
                   <PreceptorYear
                     key={key}
                     year={content && year.year}
                     names={content && year.preceptor_names}
+                    image={content && year.imgUrl }
                   />
-                ))}
+                )}
+                
+                )}
           </Grid>
         </Grid>
       </Grid>
@@ -66,9 +72,9 @@ export default function Preceptors() {
   );
 }
 
-const PreceptorYear = ({ year, names }) => {
+const PreceptorYear = ({ year, names, image }) => {
   const classes = useStyles();
-
+console.log(image)
   return (
     <Grid container justify="center" className={classes.yearContainer}>
       <Typography
@@ -85,6 +91,15 @@ const PreceptorYear = ({ year, names }) => {
       <Grid
         container
         style={{ padding: "5rem 0" }}
+        justify="center"
+        item
+        xs={10}
+      >
+        <img className={classes.yearImg} src={image} alt={'preceptor year'} />
+      </Grid>
+      <Grid
+        container
+        style={{ padding: "1rem 0", paddingBottom: '5rem' }}
         justify="center"
         item
         xs={10}

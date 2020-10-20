@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-import preceptors from "../../assets/preceptor_doctor.png";
+import preceptors from "../../assets/General-2019-SEP-GroupCasual.jpg";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
@@ -55,9 +55,9 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   description: {
-    fontSize: "1rem",
+    fontSize: "1.2rem",
     textAlign: "justify",
-    lineHeight: "2rem",
+    lineHeight: "2.4rem",
     [theme.breakpoints.up("xl")]: {
       fontSize: "1.5rem",
       lineHeight: "3rem",
@@ -94,4 +94,17 @@ export const useStyles = makeStyles((theme) => ({
   industryContainer: {
     paddingBottom: "1rem",
   },
+   yearImg: {
+    width: 'inherit',
+    height: '45rem',
+    [theme.breakpoints.down("xs")]: {
+      height: '20rem',
+      width: 'inherit',
+    },
+  },
+  imageContainer: {
+    [theme.breakpoints.up("sm")]: {
+      paddingBottom: '3rem'
+    },
+  }
 }));

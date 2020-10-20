@@ -1,5 +1,5 @@
 import { Grid, Paper, Typography } from "@material-ui/core";
-// import clsx from "clsx";
+
 import React from "react";
 import Title from "../../shared/TitleComponent";
 
@@ -62,6 +62,7 @@ export default function Interns() {
                     where={content && content.wheres[key]}
                     interns={content && year.interns}
                     schools={content && year.undergrad_institutions}
+                    image={content && year.imgUrl}
                   />
                 ))}
           </Grid>
@@ -71,7 +72,7 @@ export default function Interns() {
   );
 }
 
-const InternYear = ({ year, where, interns, schools }) => {
+const InternYear = ({ year, where, interns, schools, image }) => {
   const classes = useStyles();
 
   return (
@@ -89,7 +90,17 @@ const InternYear = ({ year, where, interns, schools }) => {
       </Typography>
       <Grid
         container
-        style={{ padding: "5rem 0" }}
+        style={{ paddingTop: "5rem" }}
+        justify="center"
+        item
+        xs={11}
+        className={classes.imageContainer}
+      >
+        <img className={classes.yearImg} src={image} alt={'preceptor year'} />
+      </Grid>
+      <Grid
+        container
+        style={{ paddingBottom: "5rem" }}
         justify="center"
         item
         xs={11}

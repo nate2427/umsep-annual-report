@@ -83,6 +83,7 @@ export default function Stories({ stories, index }) {
                     scrollName={names[index2] ? names[index2] : ""}
                     title={story.title}
                     description={story.description}
+                    image={story.imgUrl}
                   />
                 </Element>
               </div>

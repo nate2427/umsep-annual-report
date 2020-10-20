@@ -1,11 +1,10 @@
 import { Button, Collapse, Grid, Typography } from "@material-ui/core";
 import React from "react";
 
-import dudeAtTable from "../../../../assets/dudeAtTable.png";
 
 import { useStyles } from "./styles";
 
-export default function Story({ title, description }) {
+export default function Story({ title, description, image}) {
   const classes = useStyles();
   const [showMore, setShowMore] = React.useState(false);
   const [showLess, setLessMore] = React.useState(true);
@@ -27,7 +26,7 @@ export default function Story({ title, description }) {
       <Grid container justify="center">
         <img
           className={classes.storyImg}
-          src={dudeAtTable}
+          src={image}
           alt="student story"
         />
       </Grid>

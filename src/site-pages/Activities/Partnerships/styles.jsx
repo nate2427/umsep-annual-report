@@ -150,7 +150,7 @@ export const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
     width: "100%",
-    height: "auto",
+    height: "35rem",
     [theme.breakpoints.down("md")]: {
       height: "20rem",
     },

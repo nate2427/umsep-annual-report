@@ -54,12 +54,21 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   description: {
-    fontSize: "1rem",
+    fontSize: "1.2rem",
     textAlign: "justify",
-    lineHeight: "2rem",
+    lineHeight: "2.4rem",
     [theme.breakpoints.up("xl")]: {
       fontSize: "1.5rem",
       lineHeight: "3rem",
     },
   },
+  yearImg: {
+    width: 'inherit',
+    height: '40rem',
+    [theme.breakpoints.down("xs")]: {
+      height: '20rem',
+      width: 'inherit',
+    },
+  }
+  
 }));

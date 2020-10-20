@@ -141,6 +141,7 @@ export default function Partnerships() {
                   sm={8}
                   xs={10}
                   justify="center"
+                  alignItems='center'
                 >
                   <Typography
                     className={classes.preceptorImgDesc}
