@@ -66,7 +66,6 @@ const Routes = () => {
           }
         >
           <Switch>
-            <Redirect exact from="/" to="/home" />
             <Route
               path={[
                 "/about",
