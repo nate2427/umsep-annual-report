@@ -113,6 +113,10 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xl")]: {
       paddingBottom: "7rem",
     },
+    [theme.breakpoints.down("xs")]: {
+      paddingBottom: '1rem',
+      paddingTop: '2rem'
+    },
   },
   imgContainer: {
     padding: "2rem 0",
@@ -137,4 +141,19 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: "#2F65A7",
     },
   },
+  underlineImg: {
+    height: '30rem',
+    border: 'solid .25rem #FFCB3D',
+    [theme.breakpoints.down('xs')]: {
+      height: '20rem'
+    }
+  },
+  underlineImgContainer: {
+    paddingBottom: '3rem'
+  },
+  buttonsContainer: {
+    [theme.breakpoints.down('xs')]: {
+     justifyContent: 'center'
+    }
+  }
 }));

@@ -37,7 +37,7 @@ export default function ProgramIntroduction() {
       ease: Power3.easeInOut,
       duration: 1.4,
       opacity: "0",
-      // delay: 1
+      delay: .5
     });
     tl.from([topParagraph, bottomParagraph], {
       opacity: 0,
@@ -103,12 +103,15 @@ export default function ProgramIntroduction() {
         </Grid>
         <Divider className={classes.divider} />
         <Grid container>
-          <Grid item container className={classes.belowContainer}>
+          <Grid item container justify='center' className={classes.belowContainer}>
             <Typography variant="body1" className={classes.belowParagraph1}>
               {content.data
                 ? content.data.program_intro_paragraph.below_line_top_p
                 : ""}
             </Typography>
+            <Grid container justify='center' className={classes.underlineImgContainer} item xs={10} sm={8}>
+              <img className={classes.underlineImg} alt='Umich SEP Directors' src='https://res.cloudinary.com/mibase/image/upload/v1603456428/freelance/clients/UMSEP/General-SEP34Dinner-SpeakerDirectors_jvowtp.jpg' />
+            </Grid>
             <Typography variant="body1" className={classes.belowParagraph2}>
               {content.data
                 ? content.data.program_intro_paragraph.below_line_bottom_p
@@ -130,8 +133,8 @@ export default function ProgramIntroduction() {
                 Learn More
               </Typography>
             </Grid>
-            <Grid container item justify="space-between" lg={8}>
-              <Grid container className={classes.introButtonContainer}>
+            <Grid style={{padding: '2rem 0'}} container className={classes.buttonsContainer} item justify="space-between" lg={8}>
+              <Grid sm={6} xs={10} container className={classes.introButtonContainer}>
                 <Button
                   className={classes.introButton}
                   fullWidth
@@ -141,7 +144,7 @@ export default function ProgramIntroduction() {
                   Program Overview
                 </Button>
               </Grid>
-              <Grid container className={classes.introButtonContainer}>
+              <Grid sm={6} xs={10} container className={classes.introButtonContainer}>
                 <Button
                   className={clsx([classes.introButton, classes.introButton2])}
                   fullWidth
