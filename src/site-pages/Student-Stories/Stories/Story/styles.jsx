@@ -34,8 +34,8 @@ export const useStyles = makeStyles((theme) => ({
     padding: "2rem 0",
   },
   storyImg: {
-    width: "10.5rem",
-    height: "11.05175rem",
+    width: "15.75rem",
+    height: "16.58rem",
     [theme.breakpoints.up("sm")]: {
       width: "26.25rem",
       height: "27.629375rem",
