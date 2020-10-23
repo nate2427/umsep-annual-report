@@ -58,4 +58,14 @@ export const useStyles = makeStyles((theme) => ({
     padding: "2rem 0",
     minHeight: "22.1875rem",
   },
+  arrowDownContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    height: '85vh',
+    [theme.breakpoints.up('lg')]:{
+      height: '100vh',
+
+    }
+  }
 }));

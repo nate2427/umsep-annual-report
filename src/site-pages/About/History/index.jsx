@@ -5,6 +5,8 @@ import React from "react";
 import { get_content } from "../../../shared/Http";
 import Title from "../../../shared/TitleComponent";
 import Tile from "../../../shared/Tile";
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+
 
 import { useStyles } from "./styles";
 
@@ -29,6 +31,10 @@ export default function History() {
           sidebarColor={"blueBorder"}
           fontColor={"fontColorBlue"}
         />
+        {/* arrow down */}
+        <Grid container justify='flex-end' alignItems='flex-end' className={classes.arrowDownContainer}>
+          <ArrowDownwardIcon style={{fontSize: '5rem', color: '#2F65A7'}}/>
+        </Grid>
         <Grid container className={classes.timelineContainer}>
           <Grid
             container

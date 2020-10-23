@@ -31,19 +31,19 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   flippedBackground: {
-    width: "25rem",
-    height: "20rem",
+    // width: "25rem",
+    // height: "20rem",
     backgroundColor: "#FFCB3D",
     boxShadow: "0 0.1875rem 1.625rem #00000083",
     borderRadius: "3.3125rem",
-    padding: "0 2rem",
+    padding: "2rem",
     "&:hover": {
       cursor: "pointer",
     },
     zIndex: "2",
     [theme.breakpoints.down("lg")]: {
       width: "18rem",
-      height: "20rem",
+      height: "auto",
       lineHeight: "1.1rem",
     },
     [theme.breakpoints.up("xl")]: {

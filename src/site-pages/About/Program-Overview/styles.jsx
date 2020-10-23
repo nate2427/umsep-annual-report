@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-import background from "../../../assets/background.png";
+import background from "../../../assets/background.jpg";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
