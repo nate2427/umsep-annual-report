@@ -92,6 +92,10 @@ export const useStyles = makeStyles((theme) => ({
       height: "70vh",
       zIndex: "7",
     },
+        [`${theme.breakpoints.down("md")} and (orientation: landscape)`]: {
+      height: "auto",
+      minHeight: '200vh'
+    },
   },
   card: {
     width: "100%",
@@ -107,7 +111,7 @@ export const useStyles = makeStyles((theme) => ({
       height: "30rem",
     },
 
-    height: "25rem",
+    height: "20rem",
   },
   motionCard: {
     width: "100%",
@@ -167,12 +171,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   name: {
     textAlign: "center",
-    fontSize: "2rem",
+    fontSize: "1.5rem",
     fontFamily: "Merriweather, Merriweather sans, sans-serif",
     fontWeight: "bold",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "1.5rem",
-    },
+   
   },
   certs: {
     textAlign: "center",
