@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import umichDoctor from "../../../assets/umich-innovations@2x.png";
 import medStudents from "../../../assets/medStudents.png";
 import computer from "../../../assets/computer@2x.png";
+import mobileComputer from "../../../assets/mobile-computer.png";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
@@ -49,7 +50,7 @@ export const useStyles = makeStyles((theme) => ({
       fontSize: "3rem",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "1.5rem",
+      fontSize: "2rem",
     },
   },
   titleBottom: {
@@ -67,7 +68,7 @@ export const useStyles = makeStyles((theme) => ({
       fontSize: "3rem",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "1.5rem",
+      fontSize: "2rem",
     },
   },
   titleContainer: {
@@ -323,4 +324,18 @@ export const useStyles = makeStyles((theme) => ({
       textAlign: "center",
     },
   },
+  virtualPicContainer: {
+    [theme.breakpoints.down("md")]: {
+      height: "50vh",
+      overflowY: 'hidden',
+      background: `url("${mobileComputer}")`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: '30vh'
+    }
+    
+    
+  }
 }));

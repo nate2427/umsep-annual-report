@@ -142,7 +142,7 @@ export default function Innovations() {
               </Typography>
             </Grid>
           </Grid>
-          <Grid container item xs={12} lg={3}>
+          <Grid container className={classes.virtualPicContainer} item xs={12} lg={3}>
             <div className={classes.computerBackgroundPic}></div>
           </Grid>
           <Grid
