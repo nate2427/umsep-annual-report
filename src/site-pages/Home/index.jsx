@@ -16,14 +16,14 @@ export default function Home() {
     exiting: { opacity: 0 },
     exited: { opacity: 0 },
   };
-  const duration = 700;
+  const duration = 500;
 
   const defaultStyle = {
     transition: `opacity ${duration}ms ease-in-out`,
   };
 
   React.useEffect(() => {
-    const fadeInterval = setInterval(() => setFade(!fade), 1700);
+    const fadeInterval = setInterval(() => setFade(!fade), 700);
     return () => {
       // Clean up the subscription
       clearInterval(fadeInterval);
@@ -92,7 +92,7 @@ export default function Home() {
             ])}
             variant="h2"
           >
-            Annual Report
+            A Strategic and Program Review of UMSEP
           </Typography>
           <Typography
             className={clsx([

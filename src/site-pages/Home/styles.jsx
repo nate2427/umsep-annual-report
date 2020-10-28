@@ -66,12 +66,13 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "1.3rem",
   },
   annualReport: {
-    fontSize: "3rem",
+    fontSize: "2rem",
     [theme.breakpoints.up("xl")]: {
       fontSize: "3.5rem",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "2rem",
+      fontSize: "1.5rem",
+      lineHeight: '3rem'
     },
   },
   dateRange: {
