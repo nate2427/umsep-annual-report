@@ -63,7 +63,7 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     fontSize: "2.5rem",
     lineHeight: "6rem",
-    textTransform: "uppercase",
+    textTransform: "capitalize",
     fontFamily: "Merriweather, Merriweather sans, sans-serif",
     letterSpacing: "0.2rem",
     fontWeight: "bold",

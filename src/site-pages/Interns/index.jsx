@@ -35,7 +35,7 @@ export default function Interns() {
         {/* hero container */}
         <Grid container className={classes.heroOuterContainer}>
           <Grid container className={classes.heroContainer}>
-            <Title title={content ? content.title : ""} />
+            <Title title={content ? content.title : ""} subtitle=''/>
           </Grid>
         </Grid>
         {/* main container */}

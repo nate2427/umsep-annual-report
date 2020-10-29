@@ -36,7 +36,7 @@ export default function TitleComponent({
           {title}
         </Typography>
         <Typography className={classes.pageSubTitle} variant="h4">
-          {`${subtitle}.`}
+          {`${subtitle}${subtitle !== '' ? "." : ''}`}
         </Typography>
       </Grid>
     </Grid>

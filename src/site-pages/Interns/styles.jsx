@@ -20,8 +20,9 @@ export const useStyles = makeStyles((theme) => ({
     paddingTop: "2rem",
     background: `url("${preceptors}")`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    backgroundSize: "contain",
     height: "130vh",
+    maxWidth: '100%',
     [theme.breakpoints.down("md")]: {
       height: "100vh",
     },
@@ -34,6 +35,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
       height: "120vh",
+      backgroundSize: "cover",
     },
   },
   yearCard: {
@@ -95,8 +97,8 @@ export const useStyles = makeStyles((theme) => ({
     paddingBottom: "1rem",
   },
    yearImg: {
-    width: 'inherit',
-    height: '45rem',
+    width: '35rem',
+    height: '30rem',
     [theme.breakpoints.down("xs")]: {
       height: '20rem',
       width: 'inherit',
