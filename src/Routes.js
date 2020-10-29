@@ -83,11 +83,11 @@ const Routes = () => {
               <LeftSidebar>
                 <Switch key={location.pathname}>
                   <motion.div
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    variants={pageVariants}
-                    transition={pageTransition}
+                    initial={location.pathname !== '/about/history' && "initial"}
+                    animate={location.pathname !== '/about/history' && "in"}
+                    exit={"out"}
+                    variants={location.pathname !== '/about/history' && pageVariants}
+                    transition={location.pathname !== '/about/history' && pageTransition}
                   >
                     <Route exact path="/" component={Home} />
                     <Route

@@ -22,6 +22,7 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       gridTemplateRows: "15vh 60vh 15vh",
     },
+    backgroundColor: '#00274C'
   },
   "hero-blue-square": {
     backgroundColor: "#02274C",
@@ -53,7 +54,7 @@ export const useStyles = makeStyles((theme) => ({
     fontFamily: "Merriweather, Merriweather sans",
     fontWeight: "bold",
     fontSize: "4rem",
-    color: "#2F65A7",
+    color: "#FECB2E",
     letterSpacing: "0.15rem",
     textTransform: "uppercase",
     [theme.breakpoints.down("xs")]: {

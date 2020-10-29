@@ -87,7 +87,7 @@ export default function Partnerships({
                 showMore && classes.showFullText,
               ])}
             >
-              {description}
+              {showMore ? description : description.substring(0, 88) + '...'}
             </p>
             <Grid
               container

@@ -190,7 +190,7 @@ export const useStyles = makeStyles((theme) => ({
   computerBackgroundPic: {
     background: `url("${computer}")`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
+    backgroundSize: "cover",
     width: "100%",
     height: "50.96rem",
     backgroundColor: "#02274C",
@@ -244,17 +244,21 @@ export const useStyles = makeStyles((theme) => ({
     padding: "0 3rem",
   },
   virtualBootBluP1: {
+    fontWeight: "600",
     lineHeight: "2rem",
     fontSize: "1rem",
-    fontFamily: "Merriweather sans, sans-serif",
-    [theme.breakpoints.down("md")]: {
+    fontFamily: "Montserrat, san-serif",
+    [theme.breakpoints.down("lg")]: {
       paddingBottom: "2rem",
     },
+    opacity: '.7'
   },
-  virtualBootBluP2: {
+  virtualBootBluP2: {    
+    fontWeight: "600",
+    opacity: '.7',
     lineHeight: "2rem",
     fontSize: "1rem",
-    fontFamily: "Merriweather sans, sans-serif",
+    fontFamily: "Montserrat, san-serif",
   },
   ambassadorProgramContainer: {
     paddingBottom: "5rem",
@@ -296,10 +300,17 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   imageContainer: {
-    height: "19.0625rem",
+    paddingRight: '2rem',
+    [theme.breakpoints.down('xs')]: {
+      paddingRight: '0',
+      paddingTop: '2rem'
+    },
+    [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]: {
+      paddingRight: '0',
+      paddingTop: '5rem'
+    }
   },
   alumniTitleContainer: {
-    paddingTop: "6rem",
   },
   umsepAlumniDesc: {
     fontFamily: "Montserrat, Merriweather sans",
@@ -334,8 +345,24 @@ export const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       height: '30vh'
+    },
+    overflowY: 'hidden',
+    height: '50.96rem',
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  },
+  bottomImgs: {
+    objectFit: 'cover',
+    maxWidth: '40rem',
+    height: '20rem',
+    paddingBottom: '2rem',
+    [theme.breakpoints.down("md")]: {
+      maxWidth: '26rem',
+    },
+
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: '20rem'
     }
-    
     
   }
 }));

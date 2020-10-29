@@ -118,44 +118,7 @@ export default function ProgramIntroduction() {
                 : ""}
             </Typography>
           </Grid>
-          <Grid
-            item
-            container
-            justify="center"
-            className={classes.buttonTitleContainer}
-          >
-            <Grid item xs={12}>
-              <Typography
-                className={classes.exploreTitle}
-                align="center"
-                variant="h2"
-              >
-                Learn More
-              </Typography>
-            </Grid>
-            <Grid style={{padding: '2rem 0'}} container className={classes.buttonsContainer} item justify="space-between" lg={8}>
-              <Grid sm={6} xs={10} container className={classes.introButtonContainer}>
-                <Button
-                  className={classes.introButton}
-                  fullWidth
-                  variant="contained"
-                  onClick={() => router.push("/about/program-overview")}
-                >
-                  Program Overview
-                </Button>
-              </Grid>
-              <Grid sm={6} xs={10} container className={classes.introButtonContainer}>
-                <Button
-                  className={clsx([classes.introButton, classes.introButton2])}
-                  fullWidth
-                  variant="contained"
-                  onClick={() => router.push("/about/history")}
-                >
-                  Program History
-                </Button>
-              </Grid>
-            </Grid>
-          </Grid>
+         
         </Grid>
       </Grid>
     </Grid>

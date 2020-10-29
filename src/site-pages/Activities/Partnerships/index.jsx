@@ -122,7 +122,7 @@ export default function Partnerships() {
                 justify="center"
                 className={classes.middleImgContainer}
               >
-                <Grid container justify="center" item sm={8} xs={10} lg={7}>
+                <Grid container justify="center" item sm={8} xs={10} lg={7} xl={5}>
                   <img
                     className={classes.backgroundImg}
                     alt="precpetors"
@@ -136,6 +136,7 @@ export default function Partnerships() {
                   lg={5}
                   sm={8}
                   xs={10}
+                  xl={7}
                   justify="center"
                   alignItems='center'
                 >

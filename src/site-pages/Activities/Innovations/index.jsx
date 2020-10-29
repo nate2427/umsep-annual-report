@@ -22,6 +22,7 @@ export default function Innovations() {
     const CMS_ENDPOINT = "umsep-innovations";
     get_content(CMS_ENDPOINT).then((data) => {
       setContent(data);
+      console.log(data)
     });
   }, []);
 
@@ -156,7 +157,7 @@ export default function Innovations() {
             <Grid
               container
               style={{
-                height: !screenSizeMobile ? "50%" : "100%",
+                height: !screenSizeMobile ? "75%" : "100%",
                 padding: !screenSizeMobile ? "0rem 0rem" : "2rem 0rem",
               }}
             >
@@ -210,28 +211,22 @@ export default function Innovations() {
               className={classes.alumniContainer}
               justify="center"
             >
-              <Hidden smDown>
-                <Grid container>
-                  <Grid item md={5} className={classes.imageContainer}>
-                    <img src={dudeAtTable} alt={"umich alumni"} />
-                  </Grid>
+                <Grid container justify='center'>
+              
                   <Grid
-                    item
-                    md={7}
+                    container
+                    justify='center'
                     className={clsx([
                       classes.imageContainer2,
                       classes.imageContainer,
                     ])}
                   >
-                    <img src={smiling} alt={"umich alumni"} />
+                    <img className={classes.bottomImgs} src={content.data ? content.data.ambassadorProImg2 : "/#"} alt={"umich alumni"} />
                   </Grid>
                 </Grid>
-              </Hidden>
 
               <Grid container className={classes.alumniTitleContainer}>
-                <Typography variant="h2" className={classes.umsepAlumni}>
-                  {content.data ? content.data.umsepAlumni : ""}
-                </Typography>
+                
                 <Typography className={classes.umsepAlumniDesc} variant="body1">
                   {content.data ? content.data.umsepAlumniDesc : ""}
                 </Typography>

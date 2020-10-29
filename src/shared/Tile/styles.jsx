@@ -41,18 +41,30 @@ export const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
     },
     zIndex: "2",
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down("xl")]: {
       width: "18rem",
       height: "auto",
-      lineHeight: "1.1rem",
-    },
-    [theme.breakpoints.up("xl")]: {
       lineHeight: "1.5rem",
+      fontSize: '.8rem'
+    },
+    
+    [theme.breakpoints.down("lg")]: {
+      lineHeight: "1.5rem",
+      fontSize:'.8rem'
+    },
+    [theme.breakpoints.down("md")]: {
+      lineHeight: "1.5rem",
+      fontSize:'.7rem'
+    },
+    [theme.breakpoints.down("xs")]: {
+      lineHeight: "1.5rem",
+      fontSize:'.65rem'
     },
 
     textAlign: "justify",
     textJustify: "inter-word",
-    fontFamily: "Merriweather sans",
+    fontWeight: "bold",
+    fontFamily: 'Merriweather sans'
   },
   tileContainer: {
     padding: "2rem 0",

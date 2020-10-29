@@ -49,23 +49,30 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xl")]: {
       lineHeight: "1.5rem",
     },
-
     textAlign: "justify",
     textJustify: "inter-word",
     fontFamily: "Merriweather sans",
   },
   tileContainer: {
-    padding: "2rem 0",
+    padding: "2rem",
     minHeight: "22.1875rem",
   },
-  arrowDownContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    height: '85vh',
+  arrowDown: {
+    position: 'fixed',
+    top: "40rem",
+    right: 0,
+    zIndex: 100,
+    [theme.breakpoints.up('sm')]:{
+      top: "50rem",
+    },
+    [theme.breakpoints.up('md')]:{
+      top: "38rem",
+    },
     [theme.breakpoints.up('lg')]:{
-      height: '100vh',
-
-    }
+      top: "43rem",
+    },
+    [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]:{
+      top: "15rem",
+    },
   }
 }));

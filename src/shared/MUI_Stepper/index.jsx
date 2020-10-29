@@ -57,7 +57,7 @@ function VerticalLinearStepper({ posts, more, related, page }) {
         {/* current page stories stepper container */}
         {posts[0] &&
           posts.map((post, key) => (
-            <Grid container key={key}>
+            <Grid container key={key} style={{paddingBottom: '5rem'}}>
               <Typography className={classes.morePost} variant="h5">
                 {key === 0 ? more : related}
               </Typography>

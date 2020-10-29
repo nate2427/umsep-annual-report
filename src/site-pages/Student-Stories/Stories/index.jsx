@@ -84,6 +84,7 @@ export default function Stories({ stories, index }) {
                     title={story.title}
                     description={story.description}
                     image={story.imgUrl}
+                    image2={story.imgUrl2}
                   />
                 </Element>
               </div>
@@ -100,7 +101,7 @@ export default function Stories({ stories, index }) {
         >
           <VerticalStepper
             more="Stories on this page"
-            related="Related Stories"
+            related={index === 0 ? "Health and Equity Stories" : "Virtual Boot Camp Stories"}
             posts={content[index] ? [morePosts, relatedPosts] : []}
             page={index}
           />

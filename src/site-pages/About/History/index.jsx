@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid, IconButton } from "@material-ui/core";
 // import clsx from "clsx";
 import React from "react";
 
@@ -6,6 +6,7 @@ import { get_content } from "../../../shared/Http";
 import Title from "../../../shared/TitleComponent";
 import Tile from "../../../shared/Tile";
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import { animateScroll } from 'react-scroll'
 
 
 import { useStyles } from "./styles";
@@ -22,8 +23,22 @@ export default function History() {
     });
   }, []);
 
+  const scrollView = () => {
+    animateScroll.scrollMore(500, {
+      duration: 700
+    })
+  }
+
   return (
+    <React.Fragment>
+
+    {/* arrow down */}
+    <IconButton onClick={scrollView} className={classes.arrowDown}>
+      <ArrowDownwardIcon  style={{fontSize: '5rem', color: '#2F65A7'}}/>
+    </IconButton>
+    
     <Grid className={classes.container}>
+       
       <Grid container className={classes.innerContainer}>
         <Title
           title={content.data ? content.data.pageTitle : ""}
@@ -31,10 +46,7 @@ export default function History() {
           sidebarColor={"blueBorder"}
           fontColor={"fontColorBlue"}
         />
-        {/* arrow down */}
-        <Grid container justify='flex-end' alignItems='flex-end' className={classes.arrowDownContainer}>
-          <ArrowDownwardIcon style={{fontSize: '5rem', color: '#2F65A7'}}/>
-        </Grid>
+       
         <Grid container className={classes.timelineContainer}>
           <Grid
             container
@@ -49,6 +61,7 @@ export default function History() {
                     back={tile.back}
                     key={key}
                     delay={key * 1}
+                    num={key + 1}
                   />
                 );
               })}
@@ -56,5 +69,6 @@ export default function History() {
         </Grid>
       </Grid>
     </Grid>
+    </React.Fragment>
   );
 }

@@ -75,6 +75,7 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "1.2rem",
     fontWeight: "bold",
     color: "#00274C",
+    textTransform: 'capitalize'
   },
   tileInnerContainer: {
     padding: "1rem",

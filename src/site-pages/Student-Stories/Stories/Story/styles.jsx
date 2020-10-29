@@ -66,4 +66,25 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: "#00274C",
     },
   },
+  nextImgButton: {
+    backgroundColor: '#00274C',
+    position: 'absolute', right: 70, bottom: 5,
+    color: '#FFCB05',
+    [theme.breakpoints.down('lg')]: {
+      right: 5
+    },
+    [theme.breakpoints.down('md')]: {
+      right: 45
+    },
+    [theme.breakpoints.down('sm')]: {
+      right: 19
+    },
+    [theme.breakpoints.down('xs')]: {
+      right: 15
+    },
+    '&:hover': {
+      backgroundColor: '#00274C',
+    }
+    
+  }
 }));

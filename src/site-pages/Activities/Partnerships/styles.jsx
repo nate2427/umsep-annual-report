@@ -207,9 +207,9 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   customCardText: {
+    wordSpacing: '.1px',
     fontSize: "1rem",
     textAlign: "justify",
-    // textJustify: "inter-word",
     lineHeight: "2rem",
     fontFamily: "Merriweather sans",
     [theme.breakpoints.down("md")]: {

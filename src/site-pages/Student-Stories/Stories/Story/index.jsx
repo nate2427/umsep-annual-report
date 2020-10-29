@@ -1,13 +1,16 @@
-import { Button, Collapse, Grid, Typography } from "@material-ui/core";
+import { Button, Collapse, Grid, IconButton, Typography } from "@material-ui/core";
+import { ArrowForward } from "@material-ui/icons";
 import React from "react";
 
 
 import { useStyles } from "./styles";
 
-export default function Story({ title, description, image}) {
+export default function Story({ title, description, image, image2}) {
   const classes = useStyles();
   const [showMore, setShowMore] = React.useState(false);
   const [showLess, setLessMore] = React.useState(true);
+  const [displayImage, setDisplayImage] = React.useState(image);
+
 
   const slideUp = () => {
     setShowMore(!showMore);
@@ -23,12 +26,22 @@ export default function Story({ title, description, image}) {
       <Typography align="center" variant="h4" className={classes.storyTitle}>
         {title ? title : ""}
       </Typography>
-      <Grid container justify="center">
+
+      <Grid container justify="center" style={{position: 'relative'}}>
         <img
           className={classes.storyImg}
-          src={image}
+          src={displayImage}
           alt="student story"
         />
+        {
+          image2 && <IconButton className={classes.nextImgButton} onClick={() => {
+            console.log(image, image2)
+            displayImage === image ? setDisplayImage(image2) : setDisplayImage(image);
+          }}>
+          <ArrowForward style={{fontSize: '2rem', }} fontSize='large' />
+        </IconButton>
+        }
+        
       </Grid>
 
       <Collapse in={showMore} collapsedHeight={200}>
