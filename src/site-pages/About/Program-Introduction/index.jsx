@@ -1,7 +1,5 @@
-import { Button, Grid, Typography } from "@material-ui/core";
-import clsx from "clsx";
+import {  Grid, Typography } from "@material-ui/core";
 import React from "react";
-import { useHistory } from "react-router-dom";
 import Divider from "@material-ui/core/Divider";
 import { Power3, TimelineLite } from "gsap";
 
@@ -18,7 +16,6 @@ export default function ProgramIntroduction() {
   let bottomParagraph = React.useRef(null);
 
   const tl = new TimelineLite();
-  const router = useHistory();
 
   // get the content from the CMS
   React.useEffect(() => {
