@@ -117,7 +117,7 @@ export default function Home() {
                   className={clsx([classes.exploreButton, classes.text, "m-2"])}
                   onClick={() => router.push("/about/program-introduction")}
                 >
-                  Let's Explore
+                  Explore
                   <div
                     className={classes.shadow}
                     style={{
@@ -128,6 +128,20 @@ export default function Home() {
                 </Button>
               )}
             </Transition>
+          </Grid>
+          <Grid
+            container
+            justify="flex-end"
+            className={classes.buttonContainer}
+          >
+            <Button
+              variant="contained"
+              TouchRippleProps={{ classes: classes.rippleVisible }}
+              className={clsx([ classes.downloadButton, "m-2"])}
+            >
+              Download PDF
+            </Button>
+            
           </Grid>
         </Grid>
       </Grid>

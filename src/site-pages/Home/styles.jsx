@@ -67,13 +67,28 @@ export const useStyles = makeStyles((theme) => ({
   },
   annualReport: {
     fontSize: "2rem",
+    lineHeight: '4rem',
     [theme.breakpoints.up("xl")]: {
       fontSize: "3.5rem",
+      lineHeight: '7rem',
+      width: '60%',
+    },
+
+    [theme.breakpoints.down("lg")]: {
+      width: '45%',
+    },
+    [theme.breakpoints.down("md")]: {
+      width: '70%',
     },
     [theme.breakpoints.down("sm")]: {
+      width: '45%',
       fontSize: "1.5rem",
       lineHeight: '3rem'
     },
+    [theme.breakpoints.down("sm")]: {
+      width: '100%',
+      fontSize: '1.5rem'
+    }
   },
   dateRange: {
     [theme.breakpoints.up("xl")]: {
@@ -98,11 +113,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   exploreButton: {
     width: "25%",
+    [theme.breakpoints.down("lg")]: {
+      width: "30%",
+    },
     [theme.breakpoints.down("md")]: {
       width: "40%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "50%",
     },
     [theme.breakpoints.down("sm")]: {
       width: "50%",
@@ -126,4 +141,32 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: "#FFCB05",
     },
   },
+  downloadButton: {
+    width: "25%",
+    fontSize: "1.5rem",
+    height: "3rem",
+    backgroundColor: '#989C97',
+    fontFamily: "Merriweather Sans",
+    color: "#fff",
+    "&:focus": {
+      backgroundColor: "#9A3324",
+    },
+    "&:hover": {
+      backgroundColor: "#9A3324",
+    },
+    [theme.breakpoints.down("lg")]: {
+      width: "30%",
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "40%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "50%",
+      fontSize: "1.3rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      fontSize: "1.3rem",
+    },
+  }
 }));

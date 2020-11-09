@@ -107,7 +107,7 @@ export default function ProgramIntroduction() {
                 : ""}
             </Typography>
             <Grid container justify='center' className={classes.underlineImgContainer} item xs={10} sm={8}>
-              <img className={classes.underlineImg} alt='Umich SEP Directors' src='https://res.cloudinary.com/mibase/image/upload/v1604952875/freelance/clients/UMSEP/Christopher_Clarke_and_Dotson_behwhs.jpg' />
+              <img className={classes.underlineImg} alt='Umich SEP Directors' src='https://res.cloudinary.com/mibase/image/upload/v1604959354/freelance/clients/UMSEP/SEP34Dinner-SpeakerDirectors-Cropped_qvuzlb.jpg' />
             </Grid>
             <Typography variant="body1" className={classes.belowParagraph2}>
               {content.data
