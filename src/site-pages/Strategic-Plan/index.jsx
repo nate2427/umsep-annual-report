@@ -23,7 +23,7 @@ export default function StrategicPlan() {
   const [hasAnimated, setHasAnimated] = React.useState(false);
 
   const query = useMediaQuery(theme.breakpoints.down("xs"));
-  const [ref, inView] = useInView({ threshold: 0.3 });
+  const [ref2, inView2] = useInView({ threshold: .3 });
 
   React.useEffect(() => {
     const CMS_ENDPOINT = "umsep-strategic-plan";
@@ -31,26 +31,6 @@ export default function StrategicPlan() {
       setContent(data.data);
       console.log(data);
     });
-  }, []);
-
-  React.useEffect(() => {
-    console.log(descriptionRef2.current);
-    gsap.from(titleRef.current, {
-      scale: 0,
-      duration: 1,
-      delay: 0.3,
-      ease: "expo.easeInOut",
-    });
-
-    gsap.from(descriptionRef.current, {
-      x: 1000,
-      duration: 1,
-      delay: 0.1,
-      ease: "expo.easeInOut",
-    });
-
-    // query && slideOut();
-    // eslint-disable-next-line
   }, []);
 
   const slideIn = () => {
@@ -61,10 +41,23 @@ export default function StrategicPlan() {
         .to(descriptionRef2.current, {
           x: 0,
           duration: 0.7,
-          delay: 0.3,
+          delay: 1,
           ease: "expo.easeInOut",
         })
         .then(() => setHasAnimated(!hasAnimated));
+
+
+    !hasAnimated && gsap.to(titleRef.current, {
+      scale: 1,
+      duration: .7,
+      ease: "expo.easeInOut",
+    }).then(() => {gsap.to(descriptionRef.current, {
+      x: 0,
+      duration: .7,
+      delay:  0.1,
+      ease: "expo.easeInOut",
+    })}).then(() => setHasAnimated(!hasAnimated));
+
   };
 
   const slideOut = () => {
@@ -77,15 +70,28 @@ export default function StrategicPlan() {
         delay: 0,
         ease: "expo.easeInOut",
       });
+    !hasAnimated && gsap.to(titleRef.current, {
+      scale: 0,
+      duration: 0.3,
+      delay: 0,
+      ease: "expo.easeInOut",
+    });
+    !hasAnimated && gsap.to(descriptionRef.current, {
+      x: 1000,
+      duration: .3,
+      ease: "expo.easeInOut",
+    });
   };
 
-  inView && query ? slideIn() : slideOut();
+  // inView && query ? slideIn() : slideOut();
+  inView2 ? slideIn() : slideOut();
 
   return (
     <Grid className={classes.container}>
       <Grid container className={classes.innerContainer}>
         {/* hero container */}
 
+        <div ref={ref2}>
         <Grid container className={classes.heroContainer}>
           <Grid container className={clsx([classes["blue-background"]])}></Grid>
           <div ref={titleRef} className={clsx([classes["white-background"]])}>
@@ -114,6 +120,9 @@ export default function StrategicPlan() {
               ref={descriptionRef}
               className={clsx([classes["white-background-2"]])}
             >
+              
+
+              
               <Grid container justify="center">
                 <Grid
                   item
@@ -136,7 +145,7 @@ export default function StrategicPlan() {
                   </Paper>
                 </Grid>
               </Grid>
-            </div>
+              </div>
           )}
 
           {/* </Hidden> */}
@@ -149,7 +158,6 @@ export default function StrategicPlan() {
           >
             <div
               style={{ display: "flex", justifyContent: "center" }}
-              ref={ref}
             >
               <Grid
                 item
@@ -177,6 +185,8 @@ export default function StrategicPlan() {
             </div>
           </Grid>
         )}
+        </div>
+        
       </Grid>
     </Grid>
   );

@@ -71,9 +71,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   belowContainer: {
     padding: "0 2rem",
+    backgroundColor: '#EAEAEA'
   },
   belowParagraph1: {
-    color: "#fff",
+    color: "#000",
     paddingTop: "7rem",
     paddingBottom: "3rem",
     fontSize: "1.25rem",
@@ -84,10 +85,13 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       fontSize: '1rem',
       lineHeight: '2.2rem'
+    },
+    [theme.breakpoints.up('xl')]: {
+      width: '80%'
     }
   },
   belowParagraph2: {
-    color: "#fff",
+    color: "#000",
     paddingBottom: "3rem",
     fontSize: "1.25rem",
     letterSpacing: "0.8px",
@@ -97,11 +101,14 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       fontSize: '1rem',
       lineHeight: '2.2rem'
+    },
+    [theme.breakpoints.up('xl')]: {
+      width: '80%'
     }
   },
   exploreTitle: {
     width: "100%",
-    color: "#FFF6DB",
+    color: "#000",
     fontSize: "3rem",
     fontFamily: "Merriweather, Merriweather sans",
   },
@@ -143,7 +150,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   underlineImg: {
     height: '30rem',
-    border: 'solid .25rem #FFCB3D',
+    border: 'solid .25rem #02274C',
     [theme.breakpoints.down('xs')]: {
       height: '20rem'
     }

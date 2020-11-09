@@ -1,6 +1,6 @@
 import {  Grid, Typography } from "@material-ui/core";
 import React from "react";
-import Divider from "@material-ui/core/Divider";
+import StrategicPlan from "../../Strategic-Plan";
 import { Power3, TimelineLite } from "gsap";
 
 import { useStyles } from "./styles";
@@ -98,16 +98,16 @@ export default function ProgramIntroduction() {
             </Typography>
           </Grid>
         </Grid>
-        <Divider className={classes.divider} />
-        <Grid container>
-          <Grid item container justify='center' className={classes.belowContainer}>
+        {/* <Divider className={classes.divider} /> */}
+        <Grid container >
+          <Grid item  container justify='center' className={classes.belowContainer}>
             <Typography variant="body1" className={classes.belowParagraph1}>
               {content.data
                 ? content.data.program_intro_paragraph.below_line_top_p
                 : ""}
             </Typography>
             <Grid container justify='center' className={classes.underlineImgContainer} item xs={10} sm={8}>
-              <img className={classes.underlineImg} alt='Umich SEP Directors' src='https://res.cloudinary.com/mibase/image/upload/v1603456428/freelance/clients/UMSEP/General-SEP34Dinner-SpeakerDirectors_jvowtp.jpg' />
+              <img className={classes.underlineImg} alt='Umich SEP Directors' src='https://res.cloudinary.com/mibase/image/upload/v1604952875/freelance/clients/UMSEP/Christopher_Clarke_and_Dotson_behwhs.jpg' />
             </Grid>
             <Typography variant="body1" className={classes.belowParagraph2}>
               {content.data
@@ -117,6 +117,7 @@ export default function ProgramIntroduction() {
           </Grid>
          
         </Grid>
+        <StrategicPlan />
       </Grid>
     </Grid>
   );
