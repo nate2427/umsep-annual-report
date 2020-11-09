@@ -70,7 +70,7 @@ export default function Leadership() {
               justify="center"
               className={classes.innerCardContainer}
             >
-              <Grid container justify="center" item xs={10} sm={8} xl={8}>
+              <Grid container justify="center" item xs={8} sm={4} md={8} lg={7} xl={5} >
                 <Grid
                   container
                   item
@@ -107,6 +107,7 @@ export default function Leadership() {
                         />
                         <CardContent className="p-3">
                           <h5
+                            style={{paddingTop: '1.5rem'}}
                             className={clsx([
                               "card-title font-weight-bold font-size-lg",
                               classes.name,

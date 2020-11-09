@@ -71,16 +71,16 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
   },
   innerCardContainer: {
-    paddingBottom: "9rem",
-    [theme.breakpoints.down("lg")]: {
-      paddingBottom: "5rem",
-    },
-    [theme.breakpoints.between("lg", "lg")]: {
-      height: "30rem",
-    },
-    [theme.breakpoints.between("md", "md")]: {
-      height: "25rem",
-    },
+    // paddingBottom: "9rem",
+    // [theme.breakpoints.down("lg")]: {
+    //   paddingBottom: "5rem",
+    // },
+    // [theme.breakpoints.between("lg", "lg")]: {
+    //   height: "30rem",
+    // },
+    // [theme.breakpoints.between("md", "md")]: {
+    //   height: "25rem",
+    // },
   },
   // Card styling
   cardContainer: {
@@ -92,26 +92,32 @@ export const useStyles = makeStyles((theme) => ({
       height: "70vh",
       zIndex: "7",
     },
-        [`${theme.breakpoints.down("md")} and (orientation: landscape)`]: {
+    [theme.breakpoints.down("xs")]: {
+      paddingLeft: "0",
+      height: "75vh",
+      zIndex: "7",
+    },
+        [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
       height: "auto",
       minHeight: '200vh'
     },
   },
   card: {
     width: "100%",
+    height: '100%'
   },
   cardImgTop: {
-    [theme.breakpoints.up("xl")]: {
-      height: "18rem",
-    },
-    [theme.breakpoints.down("md")]: {
-      height: "15rem",
-    },
-    [theme.breakpoints.between("768", "840")]: {
-      height: "30rem",
-    },
+    // [theme.breakpoints.up("xl")]: {
+    //   height: "18rem",
+    // },
+    // [theme.breakpoints.down("md")]: {
+    //   height: "15rem",
+    // },
+    // [theme.breakpoints.between("768", "840")]: {
+    //   height: "30rem",
+    // },
 
-    height: "20rem",
+    // height: "20rem",
   },
   motionCard: {
     width: "100%",
@@ -185,12 +191,12 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   insideCardContainer: {
-    height: "50%",
-    [theme.breakpoints.down("md")]: {
-      height: "60%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      height: "100%",
-    },
+    // height: "50%",
+    // [theme.breakpoints.down("md")]: {
+    //   height: "60%",
+    // },
+    // [theme.breakpoints.down("sm")]: {
+    //   height: "100%",
+    // },
   },
 }));
