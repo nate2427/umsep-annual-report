@@ -19,7 +19,7 @@ export default function ActivitiesCard({
   const classes = useStyles();
   let cardRef = React.useRef(null);
   const [hasAnimated, setHasAnimated] = React.useState(false);
-  const [ref, inView] = useInView({ threshold: 1 });
+  const [ref, inView] = useInView({ threshold: mobile ? 1 : .3 });
   React.useEffect(() => {
     gsap.to(cardRef.current, {
       x: left ? -300 : 300,
