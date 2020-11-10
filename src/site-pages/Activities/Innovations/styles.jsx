@@ -1,10 +1,14 @@
 import { makeStyles } from "@material-ui/core";
 
-import medStudents from "../../../assets/medStudents.png";
-import computer from "../../../assets/computer@2x.png";
-import mobileComputer from "../../../assets/mobile-computer.png";
 
 const umichDoctor = "https://res.cloudinary.com/mibase/image/upload/v1605013981/freelance/clients/UMSEP/SiteVisit-Hospital_z4wvnb.jpg";
+
+const medStudents = 'https://res.cloudinary.com/mibase/image/upload/v1605020954/freelance/clients/UMSEP/IMG_0438_dvelke.jpg';
+
+const computer = 'https://res.cloudinary.com/mibase/image/upload/v1605021362/freelance/clients/UMSEP/IMG_5907_ye23my.jpg';
+
+const mobileComputer = 'https://res.cloudinary.com/mibase/image/upload/v1605021987/freelance/clients/UMSEP/IMG_5907_w2o44x.jpg';
+
 
 export const useStyles = makeStyles((theme) => ({
   container: {
@@ -68,6 +72,7 @@ export const useStyles = makeStyles((theme) => ({
       height: '21rem',
       width: "18rem", 
     },
+
 
   },
   titleTop: {
@@ -197,6 +202,8 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       gridRow: "2 / 3",
       gridColumn: "1 / 3",
+      backgroundSize: "cover",
+      backgroundPosition: 'center'
     },
   },
   ".item3": {
@@ -394,13 +401,16 @@ export const useStyles = makeStyles((theme) => ({
   },
   virtualPicContainer: {
     [theme.breakpoints.down("md")]: {
-      height: "50vh",
+      height: "60vh",
       overflowY: 'hidden',
       background: `url("${mobileComputer}")`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     },
     [theme.breakpoints.down("sm")]: {
+      height: '40vh'
+    },
+    [theme.breakpoints.down("xs")]: {
       height: '30vh'
     },
     overflowY: 'hidden',
@@ -415,6 +425,10 @@ export const useStyles = makeStyles((theme) => ({
     paddingBottom: '2rem',
     [theme.breakpoints.down("md")]: {
       maxWidth: '26rem',
+    },
+
+    [theme.breakpoints.between('sm', 'sm')]: {
+      paddingTop: '2rem'
     },
 
     [theme.breakpoints.down('xs')]: {
