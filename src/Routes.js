@@ -14,7 +14,7 @@ import { Button, Grid, Typography } from "@material-ui/core";
 const Home = lazy(() => import("./site-pages/Home/"));
 const Preceptors = lazy(() => import("./site-pages/Preceptors"));
 const Interns = lazy(() => import("./site-pages/Interns"));
-const StrategicPlan = lazy(() => import("./site-pages/Strategic-Plan/"));
+const Contact = lazy(() => import("./site-pages/Contact/"));
 const ProgramIntroduction = lazy(() =>
   import("./site-pages/About/Program-Introduction")
 );
@@ -76,7 +76,7 @@ const Routes = () => {
                 "/strategic-plan",
                 "/preceptors",
                 "/interns",
-                "/highlights",
+                "/contact",
                 "/",
               ]}
             >
@@ -119,7 +119,7 @@ const Routes = () => {
                     <Route path="/preceptors" component={Preceptors} />
                     <Route path="/interns" component={Interns} />
 
-                    <Route path="/strategic-plan" component={StrategicPlan} />
+                    <Route path="/contact" component={Contact} />
                      
                     <Route path='/page-not-found'>
                       <Grid container justify='center' alignItems='center' style={{height: '90vh'}}>

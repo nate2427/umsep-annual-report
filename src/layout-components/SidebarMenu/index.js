@@ -30,31 +30,6 @@ SidebarMenuList.propTypes = {
 const reduceChildRoutes = (props) => {
   const { router, items, page, depth } = props;
 
-  // if (index === 0) {
-  //   const open = matchPath(router.location.pathname, {
-  //     path: page.to,
-  //     exact: false,
-  //   });
-  //   items.push(
-  //     <SidebarMenuListItem
-  //       depth={depth}
-  //       icon={page.icon}
-  //       key={page.label}
-  //       label={page.badge}
-  //       open={Boolean(open)}
-  //       title={page.label}
-  //     >
-  //       <div className="sidebar-menu-children py-2">
-  //         <SidebarMenuList
-  //           depth={depth + 1}
-  //           pages={page.content}
-  //           router={router}
-  //         />
-  //       </div>
-  //     </SidebarMenuListItem>
-  //   );
-  // }
-
   if (page.content) {
     const open = matchPath(router.location.pathname, {
       path: page.to,

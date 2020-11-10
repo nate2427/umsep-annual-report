@@ -109,16 +109,16 @@ export default [
     ]
   },
   {
-    "label": "Strategic Plan",
-    "to": "/strategic-plan"
-  },
-  {
     "label": "Preceptors",
     "to": "/preceptors"
   },
   {
     "label": "Interns",
     "to": "/interns"
+  },
+  {
+    "label": "Contact",
+    "to": "/contact"
   }
 ]`,
       (key, value) => {
