@@ -18,16 +18,21 @@ export const useStyles = makeStyles((theme) => ({
     [`${theme.breakpoints.up("md")} and (orientation: landscape)`]: {
       height: '90vh',
     },
+    [theme.breakpoints.up('lg')]: {
+      height: '100vh'
+    }
   },
   heroImgContainer: {
     padding: "1rem",
     [theme.breakpoints.down("sm")]: {
       justifySelf: 'center',
-      padding: '2rem'
+      padding: '2rem',
+      paddingBottom: '3rem'
     },
     [theme.breakpoints.down("xs")]: {
       padding: '0rem'
     },
+    
   },
   heroRightContainer: {
     padding: "3rem 2rem",
@@ -36,7 +41,7 @@ export const useStyles = makeStyles((theme) => ({
       paddingTop: "0rem",
     },
     [theme.breakpoints.down("lg")]: {
-      paddingBottom: "8rem",
+      paddingBottom: "3rem",
     },
     [theme.breakpoints.down("md")]: {
       padding: "1rem 2rem",
@@ -52,6 +57,8 @@ export const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     width: "100%",
     height: "100%",
+    // maxWidth: '500px',
+    // maxHeight: '800px',
     [theme.breakpoints.down("sm")]: {
       height: '40vh',
       backgroundSize: "contain",
@@ -98,6 +105,11 @@ export const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: "2rem",
+    },
+  },
+  outerTitleContainer: {
+    [theme.breakpoints.up("md")]: {
+      // maxHeight: '740px'
     },
   },
   titleContainer: {

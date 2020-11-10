@@ -49,7 +49,7 @@ export default function Innovations() {
             xs={11}
             md={6}
           >
-            <Grid container>
+            <Grid container className={classes.outerTitleContainer}>
               <Grid
                 container
                 className={classes.titleContainer}
