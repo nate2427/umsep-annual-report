@@ -83,4 +83,5 @@ export const useStyles = makeStyles((theme) => ({
   tileBack: {
     fontSize: "1.5rem",
   },
+  chris: {width: '24.6875rem', height: '24.6875rem', paddingTop: '1rem'}
 }));

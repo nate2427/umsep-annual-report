@@ -7,10 +7,19 @@ import ReactCardFlip from "react-card-flip";
 import { useStyles } from "./styles";
 import { get_content } from "../../../shared/Http";
 import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
+import gsap from "gsap";
+
 
 export default function ProgramIntroduction() {
   const classes = useStyles();
   const [content, setContent] = React.useState(null);
+  const [ref, inView] = useInView({ threshold: .7 });
+  const [hasAnimated, setHasAnimated] = React.useState(false);
+  const chrisImgRef = React.useRef(null);
+
+
+
 
   // get the content from the CMS
   React.useEffect(() => {
@@ -21,6 +30,31 @@ export default function ProgramIntroduction() {
     });
   }, []);
 
+  const appear = () => {
+    !hasAnimated &&
+      gsap
+        .to(chrisImgRef.current, {
+          scale: 1,
+          duration: 0.7,
+          delay: .1,
+          ease: "expo.easeInOut",
+        })
+        .then(() => setHasAnimated(!hasAnimated));
+
+  }
+
+  const disappear = () => {
+    !hasAnimated &&
+    gsap
+      .to(chrisImgRef.current, {
+        scale: 0,
+        duration: 0.3,
+        delay: 0,
+        ease: "expo.easeInOut",
+      })
+  }
+
+  inView ? appear() : disappear();
 
   return (
     <Grid className={classes.container}>
@@ -47,6 +81,10 @@ export default function ProgramIntroduction() {
             <Typography variant="h1" className={classes.largeText}>
               {content && content.bigText}
             </Typography>
+            <Grid style={{overflow: 'hidden'}} container justify='center' >
+            <div ref={ref}>
+              <img className={classes.chris} ref={chrisImgRef} src={'https://res.cloudinary.com/mibase/image/upload/v1604965356/freelance/clients/UMSEP/Christopher-Clarke_lxo9mc.jpg'} alt={'Mr. Christopher A. Clarke'} />
+              </div></Grid>
             <Typography variant="body1" className={classes.smallText}>
               {content && content.paragraph2}
             </Typography>

@@ -34,7 +34,6 @@ export default function StrategicPlan() {
   }, []);
 
   const slideIn = () => {
-    console.log("in the container");
     !hasAnimated &&
       query &&
       gsap
