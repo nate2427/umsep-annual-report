@@ -32,7 +32,7 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       padding: '0rem'
     },
-    
+    paddingBottom: '3rem'
   },
   heroRightContainer: {
     padding: "3rem 2rem",
