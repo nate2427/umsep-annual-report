@@ -1,191 +1,98 @@
-import { Grid, Paper, Typography, useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
+import { Button, Grid, Paper, Typography } from "@material-ui/core";
 
-import clsx from "clsx";
+import TextField from '@material-ui/core/TextField';
 
 import React from "react";
 
 import gsap from "gsap";
 
-import { get_content } from "../../shared/Http";
+import emailjs from "emailjs-com";
 
-import { useInView } from "react-intersection-observer";
+import Title from "../../shared/TitleComponent";
+
 
 import { useStyles } from "./styles";
 
 export default function StrategicPlan() {
   const classes = useStyles();
-  const [content, setContent] = React.useState(null);
-  const titleRef = React.useRef(null);
   const descriptionRef = React.useRef(null);
-  const descriptionRef2 = React.useRef(null);
-  const theme = useTheme();
-  const [hasAnimated, setHasAnimated] = React.useState(false);
 
-  const query = useMediaQuery(theme.breakpoints.down("xs"));
-  const [ref2, inView2] = useInView({ threshold: .3 });
+  const [email, setEmail] = React.useState("");
 
   React.useEffect(() => {
-    const CMS_ENDPOINT = "umsep-strategic-plan";
-    get_content(CMS_ENDPOINT).then((data) => {
-      setContent(data.data);
-      console.log(data);
-    });
-  }, []);
-
-  const slideIn = () => {
-    !hasAnimated &&
-      query &&
-      gsap
-        .to(descriptionRef2.current, {
-          x: 0,
-          duration: 0.7,
-          delay: 1,
-          ease: "expo.easeInOut",
-        })
-        .then(() => setHasAnimated(!hasAnimated));
-
-
-    !hasAnimated && gsap.to(titleRef.current, {
-      scale: 1,
-      duration: .7,
-      ease: "expo.easeInOut",
-    }).then(() => {gsap.to(descriptionRef.current, {
-      x: 0,
-      duration: .7,
-      delay:  0.1,
-      ease: "expo.easeInOut",
-    })}).then(() => setHasAnimated(!hasAnimated));
-
-  };
-
-  const slideOut = () => {
-    console.log("outta view");
-    !hasAnimated &&
-      query &&
-      gsap.to(descriptionRef2.current, {
-        x: 600,
-        duration: 0.7,
-        delay: 0,
-        ease: "expo.easeInOut",
-      });
-    !hasAnimated && gsap.to(titleRef.current, {
-      scale: 0,
-      duration: 0.3,
-      delay: 0,
-      ease: "expo.easeInOut",
-    });
-    !hasAnimated && gsap.to(descriptionRef.current, {
-      x: 1000,
-      duration: .3,
-      ease: "expo.easeInOut",
-    });
-  };
-
-  // inView && query ? slideIn() : slideOut();
-  inView2 ? slideIn() : slideOut();
+   gsap.from(descriptionRef.current, {
+     x: -1000,
+     scale: 0,
+     y: -1000,
+     duration: .8,
+     delay: .5
+   })
+  }, [])
 
   return (
     <Grid className={classes.container}>
       <Grid container className={classes.innerContainer}>
         {/* hero container */}
-
-        <div ref={ref2}>
-        <Grid container className={classes.heroContainer}>
-          <Grid container className={clsx([classes["blue-background"]])}></Grid>
-          <div ref={titleRef} className={clsx([classes["white-background"]])}>
+          <Grid container className={classes.heroContainer}>
             <Grid container>
-              <Grid container className={classes.titleContainer}>
-                <Typography
-                  className={classes.title}
-                  variant="h1"
-                  align="center"
-                >
-                  {content && content.title}
-                </Typography>
-                <Typography
-                  className={classes.dateRange}
-                  variant="h1"
-                  align="center"
-                >
-                  {content && content.dateRange}
-                </Typography>
-              </Grid>
+              <Title title={'Contact'} subtitle={'Interested? Leave your email and we will contact you'} fontColor={"fontColorBlue"}/>
             </Grid>
-          </div>
-          {/* <Hidden xsDown> */}
-          {!query && (
-            <div
-              ref={descriptionRef}
-              className={clsx([classes["white-background-2"]])}
-            >
-              
+            <Grid container alignItems='flex-start' justify='center' className={classes.mainContainer}>
+              <div
+                style={{width: '100%'}}
+                ref={descriptionRef}
 
-              
-              <Grid container justify="center">
-                <Grid
-                  item
-                  container
-                  alignItems="center"
-                  sm={8}
-                  justify="center"
-                >
-                  <Paper
-                    className={classes.descriptionContainer}
-                    elevation={10}
-                  >
-                    <Typography
-                      className={classes.description}
-                      variant="body1"
-                      align="justify"
-                    >
-                      {content && content.description}
-                    </Typography>
-                  </Paper>
-                </Grid>
-              </Grid>
-              </div>
-          )}
-
-          {/* </Hidden> */}
-        </Grid>
-        {query && (
-          <Grid
-            container
-            justify="center"
-            className={clsx([classes["white-background-2"]])}
-          >
-            <div
-              style={{ display: "flex", justifyContent: "center" }}
-            >
-              <Grid
-                item
-                container
-                className={classes.paperContainer}
-                alignItems="center"
-                xs={10}
-                justify="center"
               >
-                <div ref={descriptionRef2}>
-                  <Paper
-                    className={classes.descriptionContainer}
-                    elevation={10}
+                <Grid container justify="center">
+                  <Grid
+                    item
+                    container
+                    alignItems="center"
+                    xs={10}
+                    sm={7}
+                    lg={5}
+                    xl={3}
+                    justify="center"
                   >
-                    <Typography
-                      className={classes.description}
-                      variant="body1"
-                      align="justify"
+                    <Paper
+                  
+                      className={classes.descriptionContainer}
+                      elevation={10}
                     >
-                      {content && content.description}
-                    </Typography>
-                  </Paper>
-                </div>
-              </Grid>
-            </div>
+                      <Typography
+                        className={classes.description}
+                        variant="h1"
+                        align="justify"
+                      >
+                        Email
+                      </Typography>
+                      <Grid container>
+                        <TextField type='email' fullWidth variant='outlined'  inputProps={{ style: {padding: "9.5px 14px"} }} value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Grid style={{paddingTop: '1.5rem'}} container item xs={6} sm={4}> 
+                          <Button style={{backgroundColor: '#02274C', color: '#fff', fontWeight: 'bold'}} fullWidth variant='contained' onClick={() => {
+                            const service_id = 'gmail';
+                            const template_id = "template_nbzma5x";
+                            const user_id = "user_4Sd3PL1XIEE0y4imZuIR3";
+                            // setLoading(true);
+              
+                            emailjs.send(service_id, template_id, {
+                              reply_to: email
+                            }, user_id).then(function() {
+                              alert('SUCCESS!');
+                           }, function(error) {
+                              alert('FAILED...check network and retry later');
+                           });
+                          }}>
+                            Send
+                          </Button>
+                        </Grid>
+                      </Grid>
+                    </Paper>
+                  </Grid>
+                </Grid>
+              </div>
+            </Grid>
           </Grid>
-        )}
-        </div>
-        
       </Grid>
     </Grid>
   );
