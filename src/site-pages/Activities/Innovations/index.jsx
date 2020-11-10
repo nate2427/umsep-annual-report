@@ -14,6 +14,7 @@ export default function Innovations() {
   const [content, setContent] = React.useState({});
   const theme = useTheme();
   const screenSizeMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const screenSizeMobileSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   React.useEffect(() => {
     const CMS_ENDPOINT = "umsep-innovations";
@@ -27,7 +28,8 @@ export default function Innovations() {
     <Grid className={classes.container}>
       <Grid container className={classes.innerContainer}>
         {/* hero container */}
-        <Grid container justify="center">
+        <Grid className={classes.heroContainer} container justify="center">
+          {!screenSizeMobileSM && 
           <Grid
             container
             justify="center"
@@ -38,6 +40,7 @@ export default function Innovations() {
           >
             <div className={classes.heroImg}></div>
           </Grid>
+}
           <Grid
             className={classes.heroRightContainer}
             container
@@ -63,6 +66,16 @@ export default function Innovations() {
                   </Typography>
                 </Grid>
               </Grid>
+            {screenSizeMobileSM &&    <Grid
+            container
+            justify="center"
+            className={classes.heroImgContainer}
+            item
+            sm={12}
+            xs={12}
+          >
+            <div className={classes.heroImg}></div>
+          </Grid>}
               <Grid container className={classes.heroParagraphContainer}>
                 <Typography variant="body1" className={classes.heroParagraph}>
                   {content.data ? content.data.heroParagraph : ""}

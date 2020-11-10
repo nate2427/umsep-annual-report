@@ -1,20 +1,32 @@
 import { makeStyles } from "@material-ui/core";
 
-import umichDoctor from "../../../assets/umich-innovations@2x.png";
 import medStudents from "../../../assets/medStudents.png";
 import computer from "../../../assets/computer@2x.png";
 import mobileComputer from "../../../assets/mobile-computer.png";
+
+const umichDoctor = "https://res.cloudinary.com/mibase/image/upload/v1605013981/freelance/clients/UMSEP/SiteVisit-Hospital_z4wvnb.jpg";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     backgroundColor: "#FFFAFA",
   },
-  innerContainer: {},
+  innerContainer: {
+    
+  },
+  heroContainer: {
+    [`${theme.breakpoints.up("md")} and (orientation: landscape)`]: {
+      height: '90vh',
+    },
+  },
   heroImgContainer: {
     padding: "1rem",
     [theme.breakpoints.down("sm")]: {
-      padding: "0rem",
+      justifySelf: 'center',
+      padding: '2rem'
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: '0rem'
     },
   },
   heroRightContainer: {
@@ -26,13 +38,30 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("lg")]: {
       paddingBottom: "8rem",
     },
+    [theme.breakpoints.down("md")]: {
+      padding: "1rem 2rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      height: '100vh'
+    },
+
   },
   heroImg: {
     background: `url("${umichDoctor}")`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
+    backgroundSize: "cover",
     width: "100%",
     height: "100%",
+    [theme.breakpoints.down("sm")]: {
+      height: '40vh',
+      backgroundSize: "contain",
+      width: "50%", 
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: '21rem',
+      width: "18rem", 
+    },
+
   },
   titleTop: {
     width: "fit-content",
@@ -74,14 +103,30 @@ export const useStyles = makeStyles((theme) => ({
   titleContainer: {
     padding: "3rem 0",
     [theme.breakpoints.down("md")]: {
-      padding: "2rem 0",
+      padding: "3rem 0",
     },
+    [theme.breakpoints.between("1366", "1370")]: {
+      padding: "0",
+    },
+    height: 'fit-content'
   },
   heroParagraphContainer: {
     paddingTop: "3rem",
     [theme.breakpoints.down("md")]: {
       paddingTop: "0rem",
     },
+    [theme.breakpoints.up("lg")]: {
+      alignSelf: 'flex-end'
+    },
+     alignSelf: 'flex-end',
+     [theme.breakpoints.between("1366", "1370")]: {
+      alignSelf: 'unset',
+      paddingTop: '0'
+    },
+    [theme.breakpoints.down("md")]: {
+      paddingBottom: "3rem",
+    },
+   
   },
   heroParagraph: {
     fontSize: "1rem",
