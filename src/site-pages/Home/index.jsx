@@ -138,6 +138,15 @@ export default function Home() {
               variant="contained"
               TouchRippleProps={{ classes: classes.rippleVisible }}
               className={clsx([ classes.downloadButton, "m-2"])}
+              onClick={() => {
+                const url =
+                  "https://res.cloudinary.com/mibase/raw/upload/v1605047472/freelance/clients/UMSEP/UMSEP_2020_Program_Annual_Report_090420_w4gqvc.docx";
+                const link = document.createElement("a");
+                link.href = url;
+                link.setAttribute("download", "Nate_Baker_resume_2020.pdf");
+                link.target = "_blank";
+                link.click();
+              }}
             >
               Download PDF
             </Button>
