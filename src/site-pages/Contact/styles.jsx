@@ -10,8 +10,10 @@ export const useStyles = makeStyles((theme) => ({
   innerContainer: {
     paddingTop: '2rem'
   },
-  heroContainer: {
-    
+  heroContainer2: {
+    [theme.breakpoints.only('xs')]: {
+      height: 'fit-content'
+    },
     
   },
   "blue-background": {
@@ -47,12 +49,20 @@ export const useStyles = makeStyles((theme) => ({
     paddingBottom: '1rem'
 
   },
+  descriptionMessage: {
+    color: "#2F65A7",
+    fontSize: "2rem",
+    padding: '1rem 0'
+  },
   paperContainer: {
     paddingTop: "7rem",
     paddingBottom: "10rem",
   },
   mainContainer: {
     height: '40vh',
+    [theme.breakpoints.only('xs')]: {
+      height: 'unset'
+    },
   },
   input: {  padding: '8.5px 14px !important'}
 }));

@@ -97,14 +97,14 @@ export default [
     "label": "Student Stories",
     "content": [
       {
-        "label": "Virtual Boot Camps",
+        "label": "Virtual BootCamp",
         "description": "Wide selection of cards with multiple styles, borders, actions and hover effects.",
-         "to": "/student-stories/virtual-boot-camps"
+         "to": "/student-stories/virtual-bootcamp"
       },
       {
-        "label": "Health Equity",
+        "label": "Certificate Program",
         "description": "Wide selection of cards with multiple styles, borders, actions and hover effects.",
-        "to": "/student-stories/health-equity"
+        "to": "/student-stories/certificate-program"
       }
     ]
   },

@@ -91,7 +91,7 @@ export default function StudentStories() {
         >
           <Stories
             stories={content.data && content.data.student_story_pages}
-            index={page === "virtual-boot-camps" ? 0 : 1}
+            index={page === "virtual-bootcamp" ? 0 : 1}
           />
         </Grid>
       </Grid>

@@ -18,6 +18,7 @@ export default function StrategicPlan() {
   const descriptionRef = React.useRef(null);
 
   const [email, setEmail] = React.useState("");
+  const [message, setMessage] = React.useState("");
 
   React.useEffect(() => {
    gsap.from(descriptionRef.current, {
@@ -34,8 +35,8 @@ export default function StrategicPlan() {
       <Grid container className={classes.innerContainer}>
         {/* hero container */}
           <Grid container className={classes.heroContainer}>
-            <Grid container>
-              <Title title={'Contact'} subtitle={'Interested? Leave your email and we will contact you'} fontColor={"fontColorBlue"}/>
+            <Grid container className={classes.heroContainer2}>
+              <Title title={'Contact'} subtitle={'Want to know more? Leave us a Message'} fontColor={"fontColorBlue"}/>
             </Grid>
             <Grid container alignItems='flex-start' justify='center' className={classes.mainContainer}>
               <div
@@ -59,6 +60,7 @@ export default function StrategicPlan() {
                       className={classes.descriptionContainer}
                       elevation={10}
                     >
+                      <Grid container>
                       <Typography
                         className={classes.description}
                         variant="h1"
@@ -66,8 +68,16 @@ export default function StrategicPlan() {
                       >
                         Email
                       </Typography>
-                      <Grid container>
                         <TextField type='email' fullWidth variant='outlined'  inputProps={{ style: {padding: "9.5px 14px"} }} value={email} onChange={(e) => setEmail(e.target.value)} />
+                      <Typography
+                        className={classes.descriptionMessage}
+                        variant="h1"
+                        align="justify"
+                      >
+                        Message
+                      </Typography>
+                        <TextField type='text' multiline rows={5} fullWidth variant='outlined'  inputProps={{ style: {padding: "1px"} }} value={message} onChange={(e) => setMessage(e.target.value)} />
+
                         <Grid style={{paddingTop: '1.5rem'}} container item xs={6} sm={4}> 
                           <Button style={{backgroundColor: '#02274C', color: '#fff', fontWeight: 'bold'}} fullWidth variant='contained' onClick={() => {
                             const service_id = 'gmail';
@@ -76,7 +86,8 @@ export default function StrategicPlan() {
                             // setLoading(true);
               
                             emailjs.send(service_id, template_id, {
-                              reply_to: email
+                              reply_to: email,
+                              message: message
                             }, user_id).then(function() {
                               alert('SUCCESS!');
                            }, function(error) {
