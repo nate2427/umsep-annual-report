@@ -19,6 +19,9 @@ export const useStyles = makeStyles((theme) => ({
       height: "100%",
       backgroundColor: "#00274C",
       [theme.breakpoints.down("sm")]: {
+        width: "50.333333%",
+      },
+      [theme.breakpoints.down("xs")]: {
         width: "0",
       },
     },
@@ -29,11 +32,14 @@ export const useStyles = makeStyles((theme) => ({
       overflowY: "hidden",
       zIndex: "3",
     },
-    [theme.breakpoints.between("md", "md")]: {
+    [theme.breakpoints.between("sm", "md")]: {
       height: "75vh",
       overflowY: "hidden",
       zIndex: "7",
     },
+    [`${theme.breakpoints.only('sm')} and (orientation: landscape)`]: {
+      height: "100vh",
+    }
   },
   innerContainer: {
     paddingTop: "2rem",
@@ -91,15 +97,17 @@ export const useStyles = makeStyles((theme) => ({
       paddingLeft: "0",
       height: "70vh",
       zIndex: "7",
+      
     },
     [theme.breakpoints.down("xs")]: {
       paddingLeft: "0",
       height: "75vh",
       zIndex: "7",
     },
-        [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
+    [`${theme.breakpoints.down("sm")} and (orientation: landscape)`]: {
       height: "auto",
-      minHeight: '200vh'
+      paddingTop: "1rem",
+      paddingBottom: "0rem",
     },
   },
   card: {
@@ -107,20 +115,19 @@ export const useStyles = makeStyles((theme) => ({
     height: '100%'
   },
   cardImgTop: {
-    // [theme.breakpoints.up("xl")]: {
-    //   height: "18rem",
-    // },
-    // [theme.breakpoints.down("md")]: {
-    //   height: "15rem",
-    // },
-    // [theme.breakpoints.between("768", "840")]: {
-    //   height: "30rem",
-    // },
-
-    // height: "20rem",
+    width: '20rem',
+    height: '20rem',
+    [`${theme.breakpoints.only('sm')} and (orientation: landscape)`]: {
+      width: '10rem',
+      height: '10rem',
+    }
   },
   motionCard: {
     width: "100%",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column'
   },
   jobTitleContainer: {
     height: "100%",
@@ -135,7 +142,7 @@ export const useStyles = makeStyles((theme) => ({
       paddingTop: "1rem",
     },
     [theme.breakpoints.down("sm")]: {
-      height: "fit-content",
+      // height: "fit-content",
       paddingTop: "2rem",
       minHeight: "70vh",
     },
@@ -145,6 +152,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   nextButtonContainer: {
     paddingRight: "1rem",
+    [`${theme.breakpoints.only('sm')} and (orientation: landscape)`]: {
+      paddingBottom: '2rem'
+    }
+
   },
   jobTitle: {
     color: "#f0f0f0",
@@ -153,7 +164,7 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     paddingBottom: "4rem",
     [theme.breakpoints.down("sm")]: {
-      paddingTop: "5rem",
+      fontSize: "2.5rem",
     },
     [theme.breakpoints.down("xs")]: {
       paddingTop: "5rem",
@@ -180,7 +191,8 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "1.5rem",
     fontFamily: "Merriweather, Merriweather sans, sans-serif",
     fontWeight: "bold",
-   
+    width: '100%'
+
   },
   certs: {
     textAlign: "center",
@@ -189,6 +201,7 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: "1rem",
     },
+    width: '100%'
   },
   insideCardContainer: {
     // height: "50%",

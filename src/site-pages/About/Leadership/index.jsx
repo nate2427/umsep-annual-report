@@ -1,9 +1,8 @@
-import { Button, Grid, Typography } from "@material-ui/core";
+import { Button, Grid, Typography, useMediaQuery, useTheme } from "@material-ui/core";
 import clsx from "clsx";
 import React from "react";
 import Title from "../../../shared/TitleComponent";
 import { get_content } from "../../../shared/Http";
-import { Card, CardContent } from "@material-ui/core";
 import { AnimatePresence, motion } from "framer-motion";
 
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
@@ -14,10 +13,12 @@ export default function Leadership() {
   const classes = useStyles();
   const [content, setContent] = React.useState({});
   const [curIndex, serCurIndex] = React.useState(0);
+  const theme = useTheme();
+  const query = useMediaQuery(theme.breakpoints.only('sm'));
 
   const cardVariants = {
     before: {
-      x: -300,
+      x: !query ? -300 : -100,
       opacity: 0,
       position: "absolute",
     },
@@ -26,11 +27,11 @@ export default function Leadership() {
       opacity: 1,
       position: "relative",
       transition: {
-        delay: 0.3,
+        delay: !query ? 0.3 : 0.3,
       },
     },
     after: {
-      x: 300,
+      x: !query ? 300 : 100,
       opacity: 0,
       position: "absolute",
     },
@@ -63,6 +64,7 @@ export default function Leadership() {
             justify="center"
             item
             md={5}
+            sm={6}
             className={classes.cardContainer}
           >
             <Grid
@@ -70,7 +72,7 @@ export default function Leadership() {
               justify="center"
               className={classes.innerCardContainer}
             >
-              <Grid container justify="center" item xs={8} sm={4} md={8} lg={7} xl={5} >
+              <Grid container justify="center" item xs={12} >
                 <Grid
                   container
                   item
@@ -95,18 +97,19 @@ export default function Leadership() {
                         duration: 0.5,
                       }}
                     >
-                      <Card className={clsx(["mb-4", classes.card])}>
+                      <Grid container justify='center'>
                         <img
-                          alt="..."
-                          className={clsx(["card-img-top", classes.cardImgTop])}
-                          src={
-                            content.data
-                              ? content.data.leaders[curIndex].imgUrl
-                              : "/#"
-                          }
-                        />
-                        <CardContent className="p-3">
-                          <h5
+                            alt="..."
+                            className={clsx([classes.cardImgTop])}
+                            src={
+                              content.data
+                                ? content.data.leaders[curIndex].imgUrl
+                                : "/#"
+                            }
+                          />
+                      </Grid>
+                      <Grid container justify='center'>
+                      <h5
                             style={{paddingTop: '1.5rem'}}
                             className={clsx([
                               "card-title font-weight-bold font-size-lg",
@@ -122,8 +125,8 @@ export default function Leadership() {
                               ? content.data.leaders[curIndex].certifications
                               : ""}
                           </p>
-                        </CardContent>
-                      </Card>
+                      </Grid>
+                      
                     </motion.div>
                   </AnimatePresence>
                 </Grid>
@@ -150,6 +153,7 @@ export default function Leadership() {
             className={classes.jobTitleContainer}
             container
             item
+            sm={6}
             md={7}
             xl={7}
             xs={12}
