@@ -3,11 +3,11 @@ import { makeStyles } from "@material-ui/core";
 
 const umichDoctor = "https://res.cloudinary.com/mibase/image/upload/v1605013981/freelance/clients/UMSEP/SiteVisit-Hospital_z4wvnb.jpg";
 
-const medStudents = 'https://res.cloudinary.com/mibase/image/upload/v1605020954/freelance/clients/UMSEP/IMG_0438_dvelke.jpg';
+const medStudents = 'https://res.cloudinary.com/mibase/image/upload/v1605762333/freelance/clients/UMSEP/Ambassadors-2_jr5jnr.jpg';
 
-const computer = 'https://res.cloudinary.com/mibase/image/upload/v1605021362/freelance/clients/UMSEP/IMG_5907_ye23my.jpg';
+const computer = 'https://res.cloudinary.com/mibase/image/upload/v1605760006/freelance/clients/UMSEP/HERC-2_vtutkz.png';
 
-const mobileComputer = 'https://res.cloudinary.com/mibase/image/upload/v1605021987/freelance/clients/UMSEP/IMG_5907_w2o44x.jpg';
+const mobileComputer = 'https://res.cloudinary.com/mibase/image/upload/v1605760006/freelance/clients/UMSEP/HERC-2_vtutkz.png';
 
 
 export const useStyles = makeStyles((theme) => ({
