@@ -36,7 +36,7 @@ export default function StrategicPlan() {
         {/* hero container */}
           <Grid container className={classes.heroContainer}>
             <Grid container className={classes.heroContainer2}>
-              <Title title={'Contact'} subtitle={'Want to know more? Leave us a Message'} fontColor={"fontColorBlue"}/>
+              <Title title={'Contact'} subtitle={'Want to know more? Leave us a message'} fontColor={"fontColorBlue"}/>
             </Grid>
             <Grid container alignItems='flex-start' justify='center' className={classes.mainContainer}>
               <div
