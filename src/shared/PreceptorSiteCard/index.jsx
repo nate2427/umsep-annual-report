@@ -19,7 +19,7 @@ export default function Partnerships({
   const classes = useStyles();
   const [showMore, setShowMore] = React.useState(false);
   let cardRef = React.useRef(null);
-  const [ref, inView] = useInView({ threshold: 1 });
+  const [ref, inView] = useInView({ threshold: .3 });
   const [hasAnimated, setHasAnimated] = React.useState(false);
 
 

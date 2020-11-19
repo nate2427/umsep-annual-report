@@ -21,7 +21,7 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     textTransform: "uppercase",
     paddingBottom: "1rem",
-    borderBottom: "solid 1.0625rem #CFC096",
+    borderBottom: "solid .25rem #CFC096",
   },
   activitiesTitleContainer: {
     paddingTop: "7rem",
