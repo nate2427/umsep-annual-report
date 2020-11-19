@@ -32,7 +32,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   heroImg: {
     width: "100%",
-    height: "auto",
+    height: "100%",
     boxShadow: "0rem 0rem 1rem black",
     borderRadius: ".4rem",
     
