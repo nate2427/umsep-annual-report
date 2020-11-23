@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 
 const umichDoctor = "https://res.cloudinary.com/mibase/image/upload/v1605013981/freelance/clients/UMSEP/SiteVisit-Hospital_z4wvnb.jpg";
 
-const medStudents = 'https://res.cloudinary.com/mibase/image/upload/v1605762333/freelance/clients/UMSEP/Ambassadors-2_jr5jnr.jpg';
+const medStudents = 'https://res.cloudinary.com/mibase/image/upload/v1606154533/freelance/clients/UMSEP/HERC-1_xdh3nf.jpg';
 
 const computer = 'https://res.cloudinary.com/mibase/image/upload/v1605760006/freelance/clients/UMSEP/HERC-2_vtutkz.png';
 
@@ -193,11 +193,11 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   ".item2": {
-    gridRow: "1 / 3",
+    gridRow: "1 / 2",
     gridColumn: "2/3",
     background: `url("${medStudents}")`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
+    backgroundSize: "cover",
     maxWidth: "100%",
     [theme.breakpoints.down("md")]: {
       gridRow: "2 / 3",
@@ -412,6 +412,10 @@ export const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       height: '30vh'
+    },
+    [`${theme.breakpoints.only('sm')} and (orientation: landscape)`]: {
+      height: "100vh",
+      
     },
     overflowY: 'hidden',
     height: '50.96rem',
